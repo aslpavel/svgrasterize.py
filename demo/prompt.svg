@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 0 1040 40">
+  <g font-family="Iosevka" font-size="33">
+    <g>
+      <rect fill="#3c3836" x="0" y="0" width="600" height="40"/>
+      <text y="31" x="15" >
+        <tspan fill="#fabd2f">aslpavel</tspan>
+        <tspan fill="#d79921"> | 15:51:52</tspan>
+        <tspan fill="#665c54">  </tspan>
+        <tspan fill="#fabd2f"> <tspan fill="#fb4934">m</tspan>aster+?</tspan>
+      </text>
+    </g>
+    <g transform="translate(560)" fill="#d3869b">
+      <rect x="0" y="0" width="462" height="40" />
+      <text y="30" x="-0.5">
+        <tspan fill="#3c3836"> ~/.config/configs/libs/py </tspan>
+        <tspan></tspan>
+      </text>
+    </g>
+    <!--
+        <rect fill="green" x="0" y="0" width="1174" height="1" />
+        <rect fill="green" x="0" y="30" width="1174" height="1" />
+    -->
+  </g>
+</svg>

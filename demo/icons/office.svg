@@ -1,0 +1,1179 @@
+<svg width="5cm" height="5cm" viewBox="0 0 120 91.79" xmlns="http://www.w3.org/2000/svg" xmlns:usvg="https://github.com/RazrFalcon/usvg" usvg:version="0.8.0">
+    <defs>
+        <filter id="filter17638" x="-0.1" y="-0.1" width="1.2" height="1.2">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="1.7271829 1.7271829" result="result1"/>
+        </filter>
+        <linearGradient id="XMLID_76_" x1="109.8633" y1="23.1504" x2="109.8633" y2="12.5193" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#000000"/>
+            <stop offset="0.3491" stop-color="#2e3436"/>
+            <stop offset="0.6686" stop-color="#8a8a8a"/>
+            <stop offset="1" stop-color="#2e3436"/>
+        </linearGradient>
+        <linearGradient id="XMLID_77_" x1="111.5547" y1="22.9238" x2="111.5547" y2="13.4515" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_78_" x1="107.2529" y1="15.8643" x2="109.1338" y2="15.8643" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_79_" x1="211.9453" y1="23.1499" x2="211.9453" y2="12.5189" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1 0 0 1 222.6328 0)">
+            <stop offset="0" stop-color="#000000"/>
+            <stop offset="0.3491" stop-color="#2e3436"/>
+            <stop offset="0.6686" stop-color="#8a8a8a"/>
+            <stop offset="1" stop-color="#2e3436"/>
+        </linearGradient>
+        <linearGradient id="XMLID_80_" x1="213.6367" y1="22.9233" x2="213.6367" y2="13.451" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1 0 0 1 222.6328 0)">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_81_" x1="209.33501" y1="15.8643" x2="211.2168" y2="15.8643" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1 0 0 1 222.6328 0)">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_82_" x1="60.237" y1="77.05751" x2="60.236301" y2="87.782501" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f6f9f9"/>
+            <stop offset="0.67197961" stop-color="#334b4f"/>
+            <stop offset="1" stop-color="#93b4ba"/>
+        </linearGradient>
+        <radialGradient id="XMLID_83_" cx="60.236801" cy="57.378399" r="46.058399" fx="60.236801" fy="57.378399" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5f8d95"/>
+            <stop offset="1" stop-color="#a2bfc4"/>
+        </radialGradient>
+        <linearGradient id="XMLID_84_" x1="60.255402" y1="59.931198" x2="60.255402" y2="35.724701" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#527b81"/>
+            <stop offset="0.4852" stop-color="#76a1a7"/>
+            <stop offset="1" stop-color="#50777d"/>
+        </linearGradient>
+        <linearGradient id="XMLID_85_" x1="60.236801" y1="83.353996" x2="60.236801" y2="81.866699" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#ffffff"/>
+            <stop offset="0.66273999" stop-color="#e7eff0" stop-opacity="0.49803922"/>
+            <stop offset="0.82249999" stop-color="#d0dfe1" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_86_" x1="10.8628" y1="83.8032" x2="10.8628" y2="37.562099" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8db1b6"/>
+            <stop offset="1" stop-color="#4e747a"/>
+        </linearGradient>
+        <filter id="filter17642" x="-0.1" y="-0.1" width="1.2" height="1.2">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.66368269 0.66368269" result="result1"/>
+        </filter>
+        <linearGradient id="XMLID_87_" x1="-2.1270001" y1="74.411598" x2="20.433001" y2="42.353401" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8bafb5"/>
+            <stop offset="0.6864" stop-color="#b0c9cc"/>
+            <stop offset="0.86390001" stop-color="#b9dee2"/>
+            <stop offset="1" stop-color="#719da4"/>
+        </linearGradient>
+        <linearGradient id="XMLID_88_" x1="109.6426" y1="80.527802" x2="109.6426" y2="40.586601" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8db1b6"/>
+            <stop offset="1" stop-color="#4e747a"/>
+        </linearGradient>
+        <filter id="filter17646" x="-0.1" y="-0.1" width="1.2" height="1.2">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.64062186 0.64062186" result="result1"/>
+        </filter>
+        <linearGradient id="XMLID_89_" x1="121.8076" y1="75.922401" x2="101.8407" y2="41.408401" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8bafb5"/>
+            <stop offset="0.6864" stop-color="#b0c9cc"/>
+            <stop offset="0.86390001" stop-color="#dee9ea"/>
+            <stop offset="1" stop-color="#719da4"/>
+        </linearGradient>
+        <radialGradient id="XMLID_90_" cx="57.437" cy="39.849098" r="63.993301" fx="57.437" fy="39.849098" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#a6c2c6"/>
+            <stop offset="0.7929" stop-color="#78a2a8"/>
+            <stop offset="0.9053" stop-color="#4b7075"/>
+        </radialGradient>
+        <linearGradient id="XMLID_91_" x1="60.236801" y1="42.586399" x2="60.236801" y2="51.076302" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#385357"/>
+            <stop offset="1" stop-color="#76a1a7"/>
+        </linearGradient>
+        <linearGradient id="XMLID_92_" x1="60.233398" y1="11.8848" x2="60.233398" y2="16.9189" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#97b8bd"/>
+            <stop offset="1" stop-color="#3e5c60"/>
+        </linearGradient>
+        <radialGradient id="XMLID_93_" cx="58.792" cy="59.890099" r="72.127296" fx="58.792" fy="59.890099" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#b9cfd2"/>
+            <stop offset="0.8225" stop-color="#81a8ae"/>
+            <stop offset="0.9231" stop-color="#4b7075"/>
+        </radialGradient>
+        <linearGradient id="linearGradient7231" x1="58.55901" y1="48.271" x2="58.55901" y2="78.91362" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1d2b2e"/>
+            <stop offset="1" stop-color="#1d2b2e" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_94_" x1="59.918499" y1="34.7407" x2="59.918499" y2="32.720699" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="0.5" stop-color="#f6f9f9"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="linearGradient18418" x1="46.784988" y1="42.840302" x2="34.084801" y2="11.0491" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#ffffff"/>
+            <stop offset="0.92309999" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="filter4105" x="-0.38147448" y="-0.38114248" width="1.762949" height="1.762285">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="10.03199 10.03199" result="result1"/>
+        </filter>
+        <linearGradient id="linearGradient17604" x1="83.876503" y1="1.2396638" x2="22.952074" y2="9.1648264" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1 0 0 1 4 0)">
+            <stop offset="0.0237" stop-color="#ffffff"/>
+            <stop offset="0.92309999" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="filter17570" x="-0.1" y="-0.1" width="1.2" height="1.2">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="1.1706755 1.1706755" result="result1"/>
+        </filter>
+        <clipPath id="clipPath1">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <linearGradient id="XMLID_72_" x1="-0.5" y1="-1.6963" x2="0.5" y2="-1.6963" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#989a95"/>
+            <stop offset="1" stop-color="#555753"/>
+        </linearGradient>
+        <linearGradient id="XMLID_73_" x1="-2.5381" y1="0.2383" x2="2.5381" y2="0.2383" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8c9087"/>
+            <stop offset="0.071" stop-color="#bac0b3"/>
+            <stop offset="0.1657" stop-color="#ebebe7"/>
+            <stop offset="0.2426" stop-color="#bac0b3"/>
+            <stop offset="0.716" stop-color="#d1d8ca"/>
+            <stop offset="1" stop-color="#8c9087"/>
+        </linearGradient>
+        <linearGradient id="XMLID_74_" x1="-2.5381" y1="1.9687999" x2="2.5381" y2="1.9687999" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#d3d7cf"/>
+            <stop offset="1" stop-color="#ffffff"/>
+        </linearGradient>
+        <linearGradient id="XMLID_75_" x1="-2.5381" y1="1.9395" x2="2.3515999" y2="1.9395" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#ffffff"/>
+        </linearGradient>
+        <clipPath id="clipPath2">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath3">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath4">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath5">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath6">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath7">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath8">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath9">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath10">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath11">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath12">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath13">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath14">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath15">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath16">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath17">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath18">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath19">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath20">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath21">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath22">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath23">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath24">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath25">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath26">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath27">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath28">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath29">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath30">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath31">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath32">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath33">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath34">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath35">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath36">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath37">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath38">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath39">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath40">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath41">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath42">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath43">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath44">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath45">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath46">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath47">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath48">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <clipPath id="clipPath49">
+            <path d="M -2.5380001 -2.878 L 2.5380001 -2.878 L 2.5380001 2.8770001 L -2.5380001 2.8770001 Z"/>
+        </clipPath>
+        <linearGradient id="XMLID_96_" x1="22.3799" y1="75.962402" x2="97.457001" y2="75.962402" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8e9289"/>
+            <stop offset="0.5266" stop-color="#bcc2b5"/>
+            <stop offset="1" stop-color="#8e9289"/>
+        </linearGradient>
+        <linearGradient id="XMLID_97_" x1="22.3799" y1="74.575699" x2="97.457001" y2="74.575699" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#d3d7cf"/>
+            <stop offset="1" stop-color="#ffffff"/>
+        </linearGradient>
+        <linearGradient id="XMLID_98_" x1="22.3438" y1="75.372597" x2="97.493202" y2="75.372597" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#d3d7cf"/>
+            <stop offset="1" stop-color="#ffffff"/>
+        </linearGradient>
+        <linearGradient id="XMLID_99_" x1="22.0103" y1="10.7866" x2="97.827103" y2="10.7866" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#000000"/>
+            <stop offset="0.0888" stop-color="#2e3436"/>
+            <stop offset="0.8935" stop-color="#2e3436"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="XMLID_100_" x1="0" y1="15.6792" x2="1.6978" y2="15.6792" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#dddddd"/>
+        </linearGradient>
+        <linearGradient id="XMLID_101_" x1="9.4326" y1="13.1841" x2="11.0344" y2="15.6762" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="filter4047" x="-0.069386892" y="-0.15572955" width="1.1387738" height="1.3114591">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.2735 0.2735" result="result1"/>
+        </filter>
+        <linearGradient id="XMLID_102_" x1="19.315399" y1="11.7798" x2="15.1671" y2="16.4816" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0237" stop-color="#000000"/>
+            <stop offset="0.90530002" stop-color="#000000" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="XMLID_103_" x1="1.3892" y1="14.0571" x2="15.4404" y2="14.0571" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#888888"/>
+            <stop offset="0.0613" stop-color="#969696"/>
+            <stop offset="0.1675" stop-color="#a7a7a7"/>
+            <stop offset="0.2997" stop-color="#b2b2b2"/>
+            <stop offset="0.4851" stop-color="#b9b9b9"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_104_" x1="0" y1="10.8921" x2="14.6689" y2="10.8921" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#888888"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_105_" x1="59.970699" y1="16.9189" x2="59.970699" y2="4.1806998" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#555753"/>
+            <stop offset="0.2959" stop-color="#2e3436"/>
+            <stop offset="0.6864" stop-color="#2e3436"/>
+            <stop offset="0.7396" stop-color="#555753"/>
+            <stop offset="0.7901" stop-color="#5b5d59"/>
+            <stop offset="0.856" stop-color="#6b6d69"/>
+            <stop offset="0.9303" stop-color="#868883"/>
+            <stop offset="0.9349" stop-color="#888a85"/>
+            <stop offset="0.9704" stop-color="#babdb6"/>
+            <stop offset="1" stop-color="#555753"/>
+        </linearGradient>
+        <linearGradient id="XMLID_106_" x1="59.918499" y1="13.7939" x2="59.918499" y2="11.54" gradientUnits="userSpaceOnUse">
+            <stop offset="0.1893" stop-color="#babdb6"/>
+            <stop offset="0.2315" stop-color="#c8cac4"/>
+            <stop offset="0.3034" stop-color="#d9dad6"/>
+            <stop offset="0.3904" stop-color="#e5e6e3"/>
+            <stop offset="0.5068" stop-color="#ececea"/>
+            <stop offset="0.7751" stop-color="#eeeeec"/>
+            <stop offset="0.8698" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <radialGradient id="XMLID_107_" cx="59.1675" cy="53.503399" r="44.704201" fx="59.1675" fy="53.503399" gradientUnits="userSpaceOnUse">
+            <stop offset="0.6568" stop-color="#2e3436"/>
+            <stop offset="0.7041" stop-color="#d3d7cf"/>
+            <stop offset="0.7337" stop-color="#888a85"/>
+            <stop offset="0.787" stop-color="#babdb6"/>
+            <stop offset="0.8935" stop-color="#2e3436"/>
+        </radialGradient>
+        <linearGradient id="XMLID_108_" x1="29.3379" y1="20.351101" x2="93.325203" y2="20.351101" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.6739 0 0 1 18.5895 0)">
+            <stop offset="0" stop-color="#2e3436"/>
+            <stop offset="0.0333" stop-color="#3a4041"/>
+            <stop offset="0.1906" stop-color="#717673"/>
+            <stop offset="0.3264" stop-color="#999c98"/>
+            <stop offset="0.434" stop-color="#b1b4ae"/>
+            <stop offset="0.5" stop-color="#babdb6"/>
+            <stop offset="0.566" stop-color="#b1b4ae"/>
+            <stop offset="0.6736" stop-color="#999c98"/>
+            <stop offset="0.8094" stop-color="#717673"/>
+            <stop offset="0.9667" stop-color="#3a4041"/>
+            <stop offset="1" stop-color="#2e3436"/>
+        </linearGradient>
+        <linearGradient id="XMLID_109_" x1="61.330101" y1="23.783199" x2="61.330101" y2="16.9189" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.6739 0 0 1 18.5895 0)">
+            <stop offset="0" stop-color="#2e3436"/>
+            <stop offset="0.3018" stop-color="#888a85"/>
+            <stop offset="0.8935" stop-color="#2e3436"/>
+        </linearGradient>
+        <linearGradient id="XMLID_110_" x1="78.662102" y1="23.783199" x2="78.662102" y2="19.938999" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#426267"/>
+            <stop offset="1" stop-color="#334b4f"/>
+        </linearGradient>
+        <linearGradient id="XMLID_111_" x1="41.174801" y1="23.783199" x2="41.174801" y2="19.938999" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#426267"/>
+            <stop offset="1" stop-color="#334b4f"/>
+        </linearGradient>
+        <radialGradient id="XMLID_112_" cx="54.095699" cy="14.8096" r="17.363199" fx="54.095699" fy="14.8096" gradientUnits="userSpaceOnUse">
+            <stop offset="0.2308" stop-color="#555753"/>
+            <stop offset="0.3195" stop-color="#888a85"/>
+            <stop offset="0.3728" stop-color="#888a85"/>
+            <stop offset="0.6095" stop-color="#2e3436"/>
+            <stop offset="0.7041" stop-color="#888a85"/>
+            <stop offset="0.787" stop-color="#2e3436"/>
+            <stop offset="0.8935" stop-color="#babdb6"/>
+            <stop offset="1" stop-color="#555753"/>
+        </radialGradient>
+        <radialGradient id="XMLID_113_" cx="55.974098" cy="31.335899" r="19.153799" fx="55.974098" fy="31.335899" gradientUnits="userSpaceOnUse">
+            <stop offset="0.6095" stop-color="#9c0f0f"/>
+            <stop offset="0.7041" stop-color="#ff0000"/>
+            <stop offset="0.787" stop-color="#bf0303"/>
+            <stop offset="0.8935" stop-color="#ff0000"/>
+            <stop offset="1" stop-color="#ff8080"/>
+        </radialGradient>
+        <radialGradient id="XMLID_114_" cx="59.918499" cy="20.434099" r="2.3069" fx="59.918499" fy="20.434099" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#d3d7cf"/>
+            <stop offset="0.8935" stop-color="#babdb6"/>
+        </radialGradient>
+        <radialGradient id="XMLID_115_" cx="48.9062" cy="21.082001" r="3.0148001" fx="48.9062" fy="21.082001" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </radialGradient>
+        <linearGradient id="XMLID_116_" x1="71.784203" y1="20.6724" x2="72.954002" y2="19.5625" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <radialGradient id="XMLID_117_" cx="59.506802" cy="18.0986" r="7.2298999" fx="59.506802" fy="18.0986" gradientUnits="userSpaceOnUse">
+            <stop offset="0.5444" stop-color="#ffffff"/>
+            <stop offset="0.8935" stop-color="#c5cad2"/>
+        </radialGradient>
+        <linearGradient id="XMLID_118_" x1="27.7544" y1="12.6558" x2="28.1987" y2="12.6558" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="XMLID_119_" x1="32.849098" y1="12.6553" x2="32.4048" y2="12.6553" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="XMLID_120_" x1="82.1436" y1="12.6558" x2="82.586899" y2="12.6558" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="XMLID_121_" x1="87.237297" y1="12.6553" x2="86.7939" y2="12.6553" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="XMLID_122_" x1="92.913101" y1="12.6553" x2="93.749298" y2="11.8191" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#2e3436"/>
+        </linearGradient>
+        <filter id="filter3658" x="-0.26778463" y="-0.54908514" width="1.5355692" height="2.0981703">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.72525001 0.72525001" result="result1"/>
+        </filter>
+        <filter id="filter4051" x="-0.26905435" y="-0.54382271" width="1.5381087" height="2.0876453">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.49079998 0.49079998" result="result1"/>
+        </filter>
+        <filter id="filter3662" x="-0.26686689" y="-0.55298442" width="1.5337338" height="2.105969">
+            <feGaussianBlur color-interpolation-filters="linearRGB" in="SourceGraphic" stdDeviation="0.65160002 0.65160002" result="result1"/>
+        </filter>
+        <linearGradient id="XMLID_123_" x1="145.60741" y1="12.6553" x2="146.4436" y2="11.8191" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1 0 0 1 172.5312 0)">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#2e3436"/>
+        </linearGradient>
+        <linearGradient id="XMLID_124_" x1="30.3018" y1="14.5171" x2="30.3018" y2="10.8164" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#555753"/>
+            <stop offset="0.182" stop-color="#757772"/>
+            <stop offset="0.3761" stop-color="#90928c"/>
+            <stop offset="0.5486" stop-color="#a0a29c"/>
+            <stop offset="0.6805" stop-color="#a6a8a2"/>
+            <stop offset="0.8284" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_125_" x1="84.691399" y1="14.5171" x2="84.691399" y2="10.8164" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#555753"/>
+            <stop offset="0.182" stop-color="#757772"/>
+            <stop offset="0.3761" stop-color="#90928c"/>
+            <stop offset="0.5486" stop-color="#a0a29c"/>
+            <stop offset="0.6805" stop-color="#a6a8a2"/>
+            <stop offset="0.8284" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_126_" x1="93.680702" y1="14.0708" x2="94.8713" y2="2.5802" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_127_" x1="98.763702" y1="0.90670002" x2="100.1914" y2="0.90670002" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#d3d7cf"/>
+        </linearGradient>
+        <linearGradient id="XMLID_128_" x1="95.107399" y1="3.1143" x2="94.350197" y2="1.4062001" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#dddddd"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_129_" x1="97.073196" y1="1.8403" x2="100.1897" y2="1.8403" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_130_" x1="94.696297" y1="2.9849" x2="100.2012" y2="2.9849" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#bbbbbb"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_131_" x1="150.5645" y1="14.0703" x2="151.755" y2="2.5806999" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1 0 0 1 175.5957 0)">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_132_" x1="95.764603" y1="11.604" x2="96.0728" y2="8.6301003" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_133_" x1="95.947304" y1="8.5228996" x2="99.575203" y2="8.5228996" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#dddddd"/>
+        </linearGradient>
+        <linearGradient id="XMLID_134_" x1="96.176804" y1="9.3334999" x2="99.575203" y2="9.3334999" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#bbbbbb"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_135_" x1="96.343803" y1="9.1836004" x2="96.097198" y2="8.9370003" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#dddddd"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_136_" x1="95.4189" y1="14.0757" x2="95.4189" y2="11.2583" gradientUnits="userSpaceOnUse">
+            <stop offset="0.1893" stop-color="#555753"/>
+            <stop offset="0.2748" stop-color="#757772"/>
+            <stop offset="0.366" stop-color="#90928c"/>
+            <stop offset="0.447" stop-color="#a0a29c"/>
+            <stop offset="0.5089" stop-color="#a6a8a2"/>
+            <stop offset="0.6095" stop-color="#ffffff"/>
+            <stop offset="0.6864" stop-color="#a6a8a2"/>
+            <stop offset="0.7988" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_137_" x1="23.7134" y1="2.7075" x2="24.946301" y2="2.7075" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#888888"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_138_" x1="18.6597" y1="3.5483" x2="24.0396" y2="3.5483" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#bbbbbb"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+        <linearGradient id="XMLID_139_" x1="18.6597" y1="1.9546" x2="24.6294" y2="1.9546" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#dddddd"/>
+        </linearGradient>
+        <linearGradient id="XMLID_140_" x1="24.417999" y1="13.9536" x2="24.417999" y2="11.3799" gradientUnits="userSpaceOnUse">
+            <stop offset="0.1893" stop-color="#555753"/>
+            <stop offset="0.2748" stop-color="#757772"/>
+            <stop offset="0.366" stop-color="#90928c"/>
+            <stop offset="0.447" stop-color="#a0a29c"/>
+            <stop offset="0.5089" stop-color="#a6a8a2"/>
+            <stop offset="0.6095" stop-color="#ffffff"/>
+            <stop offset="0.6864" stop-color="#a6a8a2"/>
+            <stop offset="0.7988" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_141_" x1="16.3647" y1="10.3491" x2="16.3647" y2="9.3631001" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#888a85"/>
+            <stop offset="0.4024" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#888a85"/>
+        </linearGradient>
+        <linearGradient id="XMLID_142_" x1="15.5747" y1="14.1445" x2="18.3454" y2="9.0257998" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#888888"/>
+            <stop offset="0.0613" stop-color="#969696"/>
+            <stop offset="0.1675" stop-color="#a7a7a7"/>
+            <stop offset="0.2997" stop-color="#b2b2b2"/>
+            <stop offset="0.4851" stop-color="#b9b9b9"/>
+            <stop offset="1" stop-color="#bbbbbb"/>
+        </linearGradient>
+    </defs>
+    <g enable-background="new 0 0 120 91.79">
+        <g id="g17622" filter="url(#filter17638)" opacity="0.6" transform="matrix(0.9375 0 0 0.9397426 3.7503206 8.3949971)">
+            <path id="path17634" d="M 4.313 41.249 C 4.667 37.547 8 34.518 11.719 34.518 L 108.755 34.518 C 112.474 34.518 115.807 37.547 116.161 41.249 L 119.969 81.06 C 120.323 84.762 117.57 87.79 113.851 87.79 L 6.623 87.79 C 2.904 87.79 0.151 84.762 0.505 81.06 L 4.313 41.249 Z"/>
+        </g>
+        <path id="path65" fill="url(#XMLID_76_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 111.761 22.699 C 110.258 22.699 108.756 22.699 107.253 22.699 C 107.253 19.694 107.253 16.688 107.253 13.683 C 108.756 13.683 110.258 13.683 111.761 13.683 C 112.713 16.612 112.713 19.769 111.761 22.699 Z"/>
+        <path id="path72" fill="url(#XMLID_77_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 111.761 13.683 C 112.713 16.613 111.586 19.769 110.634 22.699 C 111.009 22.699 111.385 22.699 111.761 22.699 C 112.713 19.769 112.713 16.612 111.761 13.683 Z"/>
+        <path id="polygon79" fill="url(#XMLID_78_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 107.253 18.046 L 109.134 18.046 L 109.134 15.11 L 108.612 13.683 L 107.253 13.683 L 107.253 18.046 Z"/>
+        <path id="path94" fill="url(#XMLID_79_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 8.79 22.699 C 10.293 22.699 11.795 22.699 13.298 22.699 C 13.298 19.694 13.298 16.688 13.298 13.683 C 11.795 13.683 10.293 13.683 8.79 13.683 C 7.837 16.612 7.837 19.769 8.79 22.699 Z"/>
+        <path id="path101" fill="url(#XMLID_80_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 8.79 13.683 C 7.838 16.613 8.965 19.769 9.917 22.699 C 9.542 22.699 9.167 22.699 8.79 22.699 C 7.837 19.769 7.837 16.612 8.79 13.683 Z"/>
+        <path id="polygon108" fill="url(#XMLID_81_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 13.298 18.046 L 11.417 18.046 L 11.417 15.11 L 11.938 13.683 L 13.298 13.683 L 13.298 18.046 Z"/>
+        <path id="path123" fill="url(#XMLID_82_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 4.313 41.249 C 4.667 37.547 8 34.518 11.719 34.518 L 108.755 34.518 C 112.474 34.518 115.807 37.547 116.161 41.249 L 119.969 81.06 C 120.323 84.762 117.57 87.79 113.851 87.79 L 6.623 87.79 C 2.904 87.79 0.151 84.762 0.505 81.06 L 4.313 41.249 Z"/>
+        <path id="path134" fill="url(#XMLID_83_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 4.957 34.518 C 5.311 30.365 115.163 30.365 115.517 34.518 L 119.969 80.24 C 120.323 84.392 0.151 84.392 0.505 80.24 L 4.957 34.518 Z"/>
+        <path id="path143" fill="url(#XMLID_84_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 116.688 46.434 L 115.516 34.517 L 4.957 34.517 L 3.822 46.381 C 14.744 49.664 105.766 49.715 116.688 46.434 Z"/>
+        <path id="path150" fill="url(#XMLID_85_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 1.292 81.867 C 25.609 83.85 94.865 83.85 119.182 81.867"/>
+        <path id="path159" fill="url(#XMLID_86_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 4.313 41.249 L 0.505 81.059 L 15.368 73.696 L 21.22 44.019 L 11.719 34.518 C 8 34.518 4.667 37.546 4.313 41.249 Z"/>
+        <g filter="url(#filter17642)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path172" fill="url(#XMLID_87_)" d="M 5.435 41.356 C 5.435 41.356 1.467 77.121 1.119 80.754 C 3.81 79.422 14.256 74.245 15.068 73.844 C 15.271 72.814 21.001 45.131 21.22 44.019 C 20.479 43.278 12.429 35.228 11.719 34.518 C 8.723 34.724 5.723 38.341 5.435 41.356 Z"/>
+        </g>
+        <path id="path181" fill="url(#XMLID_88_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 116.191 41.249 L 120 81.059 L 105.137 73.696 L 99.284 44.019 L 108.786 34.518 C 112.505 34.518 115.837 37.546 116.191 41.249 Z"/>
+        <g filter="url(#filter17646)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path194" fill="url(#XMLID_89_)" d="M 99.284 44.019 C 99.505 45.131 105.931 71.903 106.135 72.933 C 106.947 73.334 115.993 77.816 118.685 79.149 C 118.338 75.515 115.071 41.356 115.071 41.356 C 114.782 38.341 111.782 34.724 108.787 34.518 C 108.075 35.229 100.026 43.278 99.284 44.019 Z"/>
+        </g>
+        <path id="path205" fill="url(#XMLID_90_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 108.007 16.919 L 108.007 13.983 L 104.48 4.339 C 103.841 2.593 101.797 1.164 99.938 1.164 L 20.537 1.164 C 18.678 1.164 16.633 2.593 15.995 4.339 L 12.468 13.983 L 12.468 13.982 L 12.468 16.919 L 108.007 16.919 Z"/>
+        <path id="path214" fill="url(#XMLID_91_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 16.286 51.505 C 16.843 46.578 21.355 42.547 26.314 42.547 L 94.16 42.547 C 99.119 42.547 103.632 45.452 104.187 50.379 L 106.122 68.64 C 106.678 73.568 103.077 77.599 98.118 77.599 L 22.356 77.599 C 17.398 77.599 13.795 73.568 14.352 68.64 L 16.286 51.505 Z"/>
+        <path id="path221" fill="url(#XMLID_92_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 103.003 11.885 L 58.652 11.885 L 50.545 11.885 L 17.463 11.885 C 12.063 11.885 12.467 15.111 12.467 15.111 L 12.467 16.92 L 50.544 16.92 L 58.651 16.92 L 107.998 16.92 L 108 15.11 C 108 15.11 108.404 11.885 103.003 11.885 Z"/>
+        <path id="path232" fill="url(#XMLID_93_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 8.338 34.518 L 112.136 34.518 C 113.996 34.518 116.156 36.264 115.517 34.518 L 109.308 17.541 C 108.917 16.48 108.007 16.919 108.007 16.919 L 12.468 16.919 C 12.468 16.919 11.554 16.478 11.165 17.545 L 4.957 34.518 C 4.318 36.264 6.479 34.518 8.338 34.518 Z"/>
+        <path id="path236" fill="url(#linearGradient7231)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 16.286 55.767 C 16.843 51.644 21.355 48.271 26.314 48.271 L 94.16 48.271 C 99.119 48.271 103.632 50.701 104.187 54.824 L 106.122 70.102 C 106.678 74.225 103.077 77.598 98.118 77.598 L 22.356 77.598 C 17.398 77.598 13.795 74.225 14.352 70.102 L 16.286 55.767 Z"/>
+        <path id="path245" fill="url(#XMLID_94_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 59.918 32.721 C 30.351 32.721 6.382 33.505 6.382 34.472 C 6.382 34.563 6.599 34.654 7.013 34.741 C 7.444 34.616 7.898 34.518 8.337 34.518 L 112.135 34.518 C 112.47 34.518 112.815 34.576 113.15 34.658 C 113.348 34.597 113.454 34.535 113.454 34.472 C 113.454 33.505 89.486 32.721 59.918 32.721 Z"/>
+        <g opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path252" fill="url(#linearGradient18418)" d="M 12.468 16.919 C 12.468 16.919 11.554 16.478 11.165 17.545 L 4.957 34.518 C 4.318 36.264 6.478 34.518 8.338 34.518 L 33.253 34.518 C 44.273 30.454 57.018 26.206 70.633 22.519 C 78.363 20.426 66.374 18.514 74.508 16.919 L 12.468 16.919 L 12.468 16.919 Z"/>
+        </g>
+        <g filter="url(#filter4105)" opacity="0.5" transform="matrix(0.09500924999999999 0 0 0.09523652042497538 43.926706875 32.82307613797678)">
+            <path id="path4059" fill="#ffffff" fill-rule="evenodd" d="M -83.765624 53.980937 C -84.87356 53.674124 -88.787584 64.017072 -89.85738 63.596129 C -90.927176 63.175186 -86.743468 52.938353 -87.763403 52.407891 C -88.783338 51.87743 -94.762252 61.180589 -95.721151 60.546422 C -96.68005 59.912254 -90.459409 50.768961 -91.346767 50.038036 C -92.234124 49.30711 -100.01662 57.163887 -100.82271 56.344211 C -101.62881 55.524535 -93.643106 47.874389 -94.359104 46.974944 C -95.075103 46.075499 -104.32105 52.142514 -104.93911 51.173154 C -105.55717 50.203794 -96.155415 44.381143 -96.668763 43.352488 C -97.18211 42.323833 -107.48741 46.33593 -107.89042 45.259251 C -108.29344 44.182572 -97.886538 40.441893 -98.174798 39.328986 C -98.463059 38.216079 -109.37733 39.997909 -109.54768 38.860967 C -109.71803 37.724025 -98.760816 36.228805 -98.811391 35.080285 C -98.861965 33.931765 -109.90819 33.405454 -109.83844 32.257939 C -109.76868 31.110424 -98.740039 31.926011 -98.550717 30.792074 C -98.361396 29.658137 -109.05681 26.846686 -108.75 25.73875 C -108.44319 24.630814 -97.825114 27.721563 -97.404171 26.651767 C -96.983228 25.581971 -106.86039 20.608255 -106.32993 19.588321 C -105.79947 18.568386 -96.056029 23.799215 -95.421861 22.840316 C -94.787694 21.881417 -103.41492 14.962811 -102.684 14.075454 C -101.95307 13.188096 -93.5101 20.330394 -92.690424 19.5243 C -91.870749 18.718206 -98.870993 10.157087 -97.971547 9.4410881 C -97.072102 8.7250893 -90.298598 17.466703 -89.329238 16.848644 C -88.359877 16.230586 -93.427192 6.401115 -92.398538 5.8877677 C -91.369883 5.3744204 -86.56188 15.3333 -85.485201 14.930288 C -84.408522 14.527277 -87.321442 3.8590499 -86.208535 3.5707898 C -85.095628 3.2825297 -82.463258 14.023424 -81.326317 13.853073 C -80.189375 13.682723 -80.820592 2.6419918 -79.672072 2.5914173 C -78.523552 2.5408428 -78.181863 13.594323 -77.034348 13.664079 C -75.886834 13.733834 -74.20876 2.8031322 -73.074823 2.9924536 C -71.940886 3.181775 -73.904812 14.064751 -72.796876 14.371564 C -71.68894 14.678377 -67.774916 4.3354285 -66.70512 4.7563715 C -65.635324 5.1773145 -69.819032 15.414148 -68.799097 15.94461 C -67.779162 16.475071 -61.800248 7.1719118 -60.841349 7.8060793 C -59.88245 8.4402467 -66.103091 17.583539 -65.215733 18.314465 C -64.328376 19.045391 -56.54588 11.188614 -55.739786 12.00829 C -54.933692 12.827966 -62.919394 20.478112 -62.203396 21.377557 C -61.487397 22.277002 -52.241452 16.209987 -51.623393 17.179347 C -51.005334 18.148707 -60.407085 23.971358 -59.893737 25.000013 C -59.38039 26.028668 -49.075088 22.016571 -48.672076 23.09325 C -48.269065 24.169929 -58.675962 27.910608 -58.387702 29.023515 C -58.099441 30.136422 -47.185173 28.354592 -47.014822 29.491534 C -46.844472 30.628476 -57.801684 32.123696 -57.751109 33.272216 C -57.700535 34.420736 -46.654306 34.947047 -46.724061 36.094562 C -46.793817 37.242077 -57.822461 36.42649 -58.011783 37.560427 C -58.201104 38.694364 -47.505688 41.505815 -47.812501 42.613751 C -48.119314 43.721687 -58.737386 40.630938 -59.158329 41.700734 C -59.579272 42.77053 -49.70211 47.744245 -50.232571 48.76418 C -50.763033 49.784115 -60.506471 44.553286 -61.140639 45.512185 C -61.774806 46.471084 -53.147578 53.389689 -53.878503 54.277047 C -54.609429 55.164405 -63.0524 48.022107 -63.872076 48.828201 C -64.691751 49.634295 -57.691507 58.195414 -58.590953 58.911413 C -59.490398 59.627412 -66.263902 50.885798 -67.233262 51.503856 C -68.202623 52.121915 -63.135308 61.951386 -64.163962 62.464733 C -65.192617 62.978081 -70.00062 53.019201 -71.077299 53.422212 C -72.153978 53.825224 -69.241058 64.493451 -70.353965 64.781711 C -71.466872 65.069971 -74.099242 54.329077 -75.236183 54.499428 C -76.373125 54.669778 -75.741908 65.710509 -76.890428 65.761084 C -78.038948 65.811658 -78.380637 54.758178 -79.528152 54.688422 C -80.675666 54.618667 -82.35374 65.549369 -83.487677 65.360047 C -84.621614 65.170726 -82.657688 54.28775 -83.765624 53.980937 Z"/>
+        </g>
+        <g filter="url(#filter4105)" opacity="0.7" transform="matrix(0.0557018625 0 0 0.05583510622060926 34.3357940625 34.533153906519125)">
+            <path id="path4109" fill="#ffffff" fill-rule="evenodd" d="M -83.765624 53.980937 C -84.87356 53.674124 -88.787584 64.017072 -89.85738 63.596129 C -90.927176 63.175186 -86.743468 52.938353 -87.763403 52.407891 C -88.783338 51.87743 -94.762252 61.180589 -95.721151 60.546422 C -96.68005 59.912254 -90.459409 50.768961 -91.346767 50.038036 C -92.234124 49.30711 -100.01662 57.163887 -100.82271 56.344211 C -101.62881 55.524535 -93.643106 47.874389 -94.359104 46.974944 C -95.075103 46.075499 -104.32105 52.142514 -104.93911 51.173154 C -105.55717 50.203794 -96.155415 44.381143 -96.668763 43.352488 C -97.18211 42.323833 -107.48741 46.33593 -107.89042 45.259251 C -108.29344 44.182572 -97.886538 40.441893 -98.174798 39.328986 C -98.463059 38.216079 -109.37733 39.997909 -109.54768 38.860967 C -109.71803 37.724025 -98.760816 36.228805 -98.811391 35.080285 C -98.861965 33.931765 -109.90819 33.405454 -109.83844 32.257939 C -109.76868 31.110424 -98.740039 31.926011 -98.550717 30.792074 C -98.361396 29.658137 -109.05681 26.846686 -108.75 25.73875 C -108.44319 24.630814 -97.825114 27.721563 -97.404171 26.651767 C -96.983228 25.581971 -106.86039 20.608255 -106.32993 19.588321 C -105.79947 18.568386 -96.056029 23.799215 -95.421861 22.840316 C -94.787694 21.881417 -103.41492 14.962811 -102.684 14.075454 C -101.95307 13.188096 -93.5101 20.330394 -92.690424 19.5243 C -91.870749 18.718206 -98.870993 10.157087 -97.971547 9.4410881 C -97.072102 8.7250893 -90.298598 17.466703 -89.329238 16.848644 C -88.359877 16.230586 -93.427192 6.401115 -92.398538 5.8877677 C -91.369883 5.3744204 -86.56188 15.3333 -85.485201 14.930288 C -84.408522 14.527277 -87.321442 3.8590499 -86.208535 3.5707898 C -85.095628 3.2825297 -82.463258 14.023424 -81.326317 13.853073 C -80.189375 13.682723 -80.820592 2.6419918 -79.672072 2.5914173 C -78.523552 2.5408428 -78.181863 13.594323 -77.034348 13.664079 C -75.886834 13.733834 -74.20876 2.8031322 -73.074823 2.9924536 C -71.940886 3.181775 -73.904812 14.064751 -72.796876 14.371564 C -71.68894 14.678377 -67.774916 4.3354285 -66.70512 4.7563715 C -65.635324 5.1773145 -69.819032 15.414148 -68.799097 15.94461 C -67.779162 16.475071 -61.800248 7.1719118 -60.841349 7.8060793 C -59.88245 8.4402467 -66.103091 17.583539 -65.215733 18.314465 C -64.328376 19.045391 -56.54588 11.188614 -55.739786 12.00829 C -54.933692 12.827966 -62.919394 20.478112 -62.203396 21.377557 C -61.487397 22.277002 -52.241452 16.209987 -51.623393 17.179347 C -51.005334 18.148707 -60.407085 23.971358 -59.893737 25.000013 C -59.38039 26.028668 -49.075088 22.016571 -48.672076 23.09325 C -48.269065 24.169929 -58.675962 27.910608 -58.387702 29.023515 C -58.099441 30.136422 -47.185173 28.354592 -47.014822 29.491534 C -46.844472 30.628476 -57.801684 32.123696 -57.751109 33.272216 C -57.700535 34.420736 -46.654306 34.947047 -46.724061 36.094562 C -46.793817 37.242077 -57.822461 36.42649 -58.011783 37.560427 C -58.201104 38.694364 -47.505688 41.505815 -47.812501 42.613751 C -48.119314 43.721687 -58.737386 40.630938 -59.158329 41.700734 C -59.579272 42.77053 -49.70211 47.744245 -50.232571 48.76418 C -50.763033 49.784115 -60.506471 44.553286 -61.140639 45.512185 C -61.774806 46.471084 -53.147578 53.389689 -53.878503 54.277047 C -54.609429 55.164405 -63.0524 48.022107 -63.872076 48.828201 C -64.691751 49.634295 -57.691507 58.195414 -58.590953 58.911413 C -59.490398 59.627412 -66.263902 50.885798 -67.233262 51.503856 C -68.202623 52.121915 -63.135308 61.951386 -64.163962 62.464733 C -65.192617 62.978081 -70.00062 53.019201 -71.077299 53.422212 C -72.153978 53.825224 -69.241058 64.493451 -70.353965 64.781711 C -71.466872 65.069971 -74.099242 54.329077 -75.236183 54.499428 C -76.373125 54.669778 -75.741908 65.710509 -76.890428 65.761084 C -78.038948 65.811658 -78.380637 54.758178 -79.528152 54.688422 C -80.675666 54.618667 -82.35374 65.549369 -83.487677 65.360047 C -84.621614 65.170726 -82.657688 54.28775 -83.765624 53.980937 Z"/>
+        </g>
+        <g filter="url(#filter4105)" opacity="0.5" transform="matrix(0.0557018625 0 0 0.05583510622060926 104.64828750000001 34.533153906519125)">
+            <path id="path4111" fill="#ffffff" fill-rule="evenodd" d="M -83.765624 53.980937 C -84.87356 53.674124 -88.787584 64.017072 -89.85738 63.596129 C -90.927176 63.175186 -86.743468 52.938353 -87.763403 52.407891 C -88.783338 51.87743 -94.762252 61.180589 -95.721151 60.546422 C -96.68005 59.912254 -90.459409 50.768961 -91.346767 50.038036 C -92.234124 49.30711 -100.01662 57.163887 -100.82271 56.344211 C -101.62881 55.524535 -93.643106 47.874389 -94.359104 46.974944 C -95.075103 46.075499 -104.32105 52.142514 -104.93911 51.173154 C -105.55717 50.203794 -96.155415 44.381143 -96.668763 43.352488 C -97.18211 42.323833 -107.48741 46.33593 -107.89042 45.259251 C -108.29344 44.182572 -97.886538 40.441893 -98.174798 39.328986 C -98.463059 38.216079 -109.37733 39.997909 -109.54768 38.860967 C -109.71803 37.724025 -98.760816 36.228805 -98.811391 35.080285 C -98.861965 33.931765 -109.90819 33.405454 -109.83844 32.257939 C -109.76868 31.110424 -98.740039 31.926011 -98.550717 30.792074 C -98.361396 29.658137 -109.05681 26.846686 -108.75 25.73875 C -108.44319 24.630814 -97.825114 27.721563 -97.404171 26.651767 C -96.983228 25.581971 -106.86039 20.608255 -106.32993 19.588321 C -105.79947 18.568386 -96.056029 23.799215 -95.421861 22.840316 C -94.787694 21.881417 -103.41492 14.962811 -102.684 14.075454 C -101.95307 13.188096 -93.5101 20.330394 -92.690424 19.5243 C -91.870749 18.718206 -98.870993 10.157087 -97.971547 9.4410881 C -97.072102 8.7250893 -90.298598 17.466703 -89.329238 16.848644 C -88.359877 16.230586 -93.427192 6.401115 -92.398538 5.8877677 C -91.369883 5.3744204 -86.56188 15.3333 -85.485201 14.930288 C -84.408522 14.527277 -87.321442 3.8590499 -86.208535 3.5707898 C -85.095628 3.2825297 -82.463258 14.023424 -81.326317 13.853073 C -80.189375 13.682723 -80.820592 2.6419918 -79.672072 2.5914173 C -78.523552 2.5408428 -78.181863 13.594323 -77.034348 13.664079 C -75.886834 13.733834 -74.20876 2.8031322 -73.074823 2.9924536 C -71.940886 3.181775 -73.904812 14.064751 -72.796876 14.371564 C -71.68894 14.678377 -67.774916 4.3354285 -66.70512 4.7563715 C -65.635324 5.1773145 -69.819032 15.414148 -68.799097 15.94461 C -67.779162 16.475071 -61.800248 7.1719118 -60.841349 7.8060793 C -59.88245 8.4402467 -66.103091 17.583539 -65.215733 18.314465 C -64.328376 19.045391 -56.54588 11.188614 -55.739786 12.00829 C -54.933692 12.827966 -62.919394 20.478112 -62.203396 21.377557 C -61.487397 22.277002 -52.241452 16.209987 -51.623393 17.179347 C -51.005334 18.148707 -60.407085 23.971358 -59.893737 25.000013 C -59.38039 26.028668 -49.075088 22.016571 -48.672076 23.09325 C -48.269065 24.169929 -58.675962 27.910608 -58.387702 29.023515 C -58.099441 30.136422 -47.185173 28.354592 -47.014822 29.491534 C -46.844472 30.628476 -57.801684 32.123696 -57.751109 33.272216 C -57.700535 34.420736 -46.654306 34.947047 -46.724061 36.094562 C -46.793817 37.242077 -57.822461 36.42649 -58.011783 37.560427 C -58.201104 38.694364 -47.505688 41.505815 -47.812501 42.613751 C -48.119314 43.721687 -58.737386 40.630938 -59.158329 41.700734 C -59.579272 42.77053 -49.70211 47.744245 -50.232571 48.76418 C -50.763033 49.784115 -60.506471 44.553286 -61.140639 45.512185 C -61.774806 46.471084 -53.147578 53.389689 -53.878503 54.277047 C -54.609429 55.164405 -63.0524 48.022107 -63.872076 48.828201 C -64.691751 49.634295 -57.691507 58.195414 -58.590953 58.911413 C -59.490398 59.627412 -66.263902 50.885798 -67.233262 51.503856 C -68.202623 52.121915 -63.135308 61.951386 -64.163962 62.464733 C -65.192617 62.978081 -70.00062 53.019201 -71.077299 53.422212 C -72.153978 53.825224 -69.241058 64.493451 -70.353965 64.781711 C -71.466872 65.069971 -74.099242 54.329077 -75.236183 54.499428 C -76.373125 54.669778 -75.741908 65.710509 -76.890428 65.761084 C -78.038948 65.811658 -78.380637 54.758178 -79.528152 54.688422 C -80.675666 54.618667 -82.35374 65.549369 -83.487677 65.360047 C -84.621614 65.170726 -82.657688 54.28775 -83.765624 53.980937 Z"/>
+        </g>
+        <g opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path17586" fill="url(#linearGradient17604)" d="M 32.40625 1.2396638 C 32.863359 5.2955928 33.285362 9.4317278 31.5 11.420209 C 30.268559 12.791749 27.493852 13.645868 24.21875 14.145462 L 24.21875 16.933365 C 24.642681 16.983501 25.097361 17.03927 25.53125 17.089989 L 96.9375 17.089989 C 97.190316 16.112656 96.667603 14.921812 95.15625 13.487643 C 89.470932 8.0926668 83.492641 4.1510668 78.03125 1.2396638 L 32.40625 1.2396638 Z"/>
+        </g>
+        <g id="g16441" filter="url(#filter17570)" opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 13.125 5.582500051372388)">
+            <path id="polygon11583" transform="matrix(1.127107 0 0 -1.1770465 29.02563 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11603" transform="matrix(1.127107 0 0 -1.1770465 29.02563 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11611" transform="matrix(1.127107 0 0 -1.1770465 29.02563 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11619" transform="matrix(1.127107 0 0 -1.1770465 29.02563 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11529" transform="matrix(1.127107 0 0 -1.1770465 35.788571 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11549" transform="matrix(1.127107 0 0 -1.1770465 35.788571 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11557" transform="matrix(1.127107 0 0 -1.1770465 35.788571 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11565" transform="matrix(1.127107 0 0 -1.1770465 35.788571 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11475" transform="matrix(1.127107 0 0 -1.1770465 22.263288 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11495" transform="matrix(1.127107 0 0 -1.1770465 22.263288 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11503" transform="matrix(1.127107 0 0 -1.1770465 22.263288 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11511" transform="matrix(1.127107 0 0 -1.1770465 22.263288 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11421" transform="matrix(1.127107 0 0 -1.1770465 15.500446 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11441" transform="matrix(1.127107 0 0 -1.1770465 15.500446 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11449" transform="matrix(1.127107 0 0 -1.1770465 15.500446 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11457" transform="matrix(1.127107 0 0 -1.1770465 15.500446 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11367" transform="matrix(1.127107 0 0 -1.1770465 62.838938 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11387" transform="matrix(1.127107 0 0 -1.1770465 62.838938 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11395" transform="matrix(1.127107 0 0 -1.1770465 62.838938 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11403" transform="matrix(1.127107 0 0 -1.1770465 62.838938 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11313" transform="matrix(1.127107 0 0 -1.1770465 69.60228 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11333" transform="matrix(1.127107 0 0 -1.1770465 69.60228 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11341" transform="matrix(1.127107 0 0 -1.1770465 69.60228 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11349" transform="matrix(1.127107 0 0 -1.1770465 69.60228 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11259" transform="matrix(1.127107 0 0 -1.1770465 56.076597 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11279" transform="matrix(1.127107 0 0 -1.1770465 56.076597 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11287" transform="matrix(1.127107 0 0 -1.1770465 56.076597 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11295" transform="matrix(1.127107 0 0 -1.1770465 56.076597 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11205" transform="matrix(1.127107 0 0 -1.1770465 83.126963 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11225" transform="matrix(1.127107 0 0 -1.1770465 83.126963 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11233" transform="matrix(1.127107 0 0 -1.1770465 83.126963 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11241" transform="matrix(1.127107 0 0 -1.1770465 83.126963 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11151" transform="matrix(1.127107 0 0 -1.1770465 89.889405 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11171" transform="matrix(1.127107 0 0 -1.1770465 89.889405 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11179" transform="matrix(1.127107 0 0 -1.1770465 89.889405 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11187" transform="matrix(1.127107 0 0 -1.1770465 89.889405 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11097" transform="matrix(1.127107 0 0 -1.1770465 76.364622 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11117" transform="matrix(1.127107 0 0 -1.1770465 76.364622 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11125" transform="matrix(1.127107 0 0 -1.1770465 76.364622 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11133" transform="matrix(1.127107 0 0 -1.1770465 76.364622 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon11043" transform="matrix(1.127107 0 0 -1.1770465 49.313755 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11063" transform="matrix(1.127107 0 0 -1.1770465 49.313755 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11071" transform="matrix(1.127107 0 0 -1.1770465 49.313755 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11079" transform="matrix(1.127107 0 0 -1.1770465 49.313755 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10989" transform="matrix(1.127107 0 0 -1.1770465 42.551413 55.561448)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path11009" transform="matrix(1.127107 0 0 -1.1770465 42.551413 55.561448)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path11017" transform="matrix(1.127107 0 0 -1.1770465 42.551413 55.561448)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path11025" transform="matrix(1.127107 0 0 -1.1770465 42.551413 55.561448)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10935" transform="matrix(1.127107 0 0 -1.1770465 32.407351 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10955" transform="matrix(1.127107 0 0 -1.1770465 32.407351 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10963" transform="matrix(1.127107 0 0 -1.1770465 32.407351 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10971" transform="matrix(1.127107 0 0 -1.1770465 32.407351 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10881" transform="matrix(1.127107 0 0 -1.1770465 39.169692 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10901" transform="matrix(1.127107 0 0 -1.1770465 39.169692 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10909" transform="matrix(1.127107 0 0 -1.1770465 39.169692 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10917" transform="matrix(1.127107 0 0 -1.1770465 39.169692 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10827" transform="matrix(1.127107 0 0 -1.1770465 25.644509 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10847" transform="matrix(1.127107 0 0 -1.1770465 25.644509 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10855" transform="matrix(1.127107 0 0 -1.1770465 25.644509 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10863" transform="matrix(1.127107 0 0 -1.1770465 25.644509 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10773" transform="matrix(1.127107 0 0 -1.1770465 18.881667 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10793" transform="matrix(1.127107 0 0 -1.1770465 18.881667 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10801" transform="matrix(1.127107 0 0 -1.1770465 18.881667 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10809" transform="matrix(1.127107 0 0 -1.1770465 18.881667 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10719" transform="matrix(1.127107 0 0 -1.1770465 12.11933 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10739" transform="matrix(1.127107 0 0 -1.1770465 12.11933 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10747" transform="matrix(1.127107 0 0 -1.1770465 12.11933 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10755" transform="matrix(1.127107 0 0 -1.1770465 12.11933 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10665" transform="matrix(1.127107 0 0 -1.1770465 66.220159 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10685" transform="matrix(1.127107 0 0 -1.1770465 66.220159 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10693" transform="matrix(1.127107 0 0 -1.1770465 66.220159 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10701" transform="matrix(1.127107 0 0 -1.1770465 66.220159 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10611" transform="matrix(1.127107 0 0 -1.1770465 72.983501 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10631" transform="matrix(1.127107 0 0 -1.1770465 72.983501 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10639" transform="matrix(1.127107 0 0 -1.1770465 72.983501 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10647" transform="matrix(1.127107 0 0 -1.1770465 72.983501 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10557" transform="matrix(1.127107 0 0 -1.1770465 59.457717 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10577" transform="matrix(1.127107 0 0 -1.1770465 59.457717 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10585" transform="matrix(1.127107 0 0 -1.1770465 59.457717 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10593" transform="matrix(1.127107 0 0 -1.1770465 59.457717 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10503" transform="matrix(1.127107 0 0 -1.1770465 86.508184 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10523" transform="matrix(1.127107 0 0 -1.1770465 86.508184 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10531" transform="matrix(1.127107 0 0 -1.1770465 86.508184 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10539" transform="matrix(1.127107 0 0 -1.1770465 86.508184 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10449" transform="matrix(1.127107 0 0 -1.1770465 79.745843 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10469" transform="matrix(1.127107 0 0 -1.1770465 79.745843 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10477" transform="matrix(1.127107 0 0 -1.1770465 79.745843 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10485" transform="matrix(1.127107 0 0 -1.1770465 79.745843 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10395" transform="matrix(1.127107 0 0 -1.1770465 52.695376 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10415" transform="matrix(1.127107 0 0 -1.1770465 52.695376 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10423" transform="matrix(1.127107 0 0 -1.1770465 52.695376 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10431" transform="matrix(1.127107 0 0 -1.1770465 52.695376 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10341" transform="matrix(1.127107 0 0 -1.1770465 45.932534 47.321392)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10361" transform="matrix(1.127107 0 0 -1.1770465 45.932534 47.321392)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10369" transform="matrix(1.127107 0 0 -1.1770465 45.932534 47.321392)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10377" transform="matrix(1.127107 0 0 -1.1770465 45.932534 47.321392)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10287" transform="matrix(1.127107 0 0 -1.1770465 31.280244 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10307" transform="matrix(1.127107 0 0 -1.1770465 31.280244 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10315" transform="matrix(1.127107 0 0 -1.1770465 31.280244 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10323" transform="matrix(1.127107 0 0 -1.1770465 31.280244 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10233" transform="matrix(1.127107 0 0 -1.1770465 38.042685 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10253" transform="matrix(1.127107 0 0 -1.1770465 38.042685 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10261" transform="matrix(1.127107 0 0 -1.1770465 38.042685 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10269" transform="matrix(1.127107 0 0 -1.1770465 38.042685 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10179" transform="matrix(1.127107 0 0 -1.1770465 24.517402 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10199" transform="matrix(1.127107 0 0 -1.1770465 24.517402 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10207" transform="matrix(1.127107 0 0 -1.1770465 24.517402 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10215" transform="matrix(1.127107 0 0 -1.1770465 24.517402 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10125" transform="matrix(1.127107 0 0 -1.1770465 17.75456 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10145" transform="matrix(1.127107 0 0 -1.1770465 17.75456 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10153" transform="matrix(1.127107 0 0 -1.1770465 17.75456 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10161" transform="matrix(1.127107 0 0 -1.1770465 17.75456 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10071" transform="matrix(1.127107 0 0 -1.1770465 10.99222 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10091" transform="matrix(1.127107 0 0 -1.1770465 10.99222 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10099" transform="matrix(1.127107 0 0 -1.1770465 10.99222 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10107" transform="matrix(1.127107 0 0 -1.1770465 10.99222 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon10017" transform="matrix(1.127107 0 0 -1.1770465 65.093052 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path10037" transform="matrix(1.127107 0 0 -1.1770465 65.093052 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path10045" transform="matrix(1.127107 0 0 -1.1770465 65.093052 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path10053" transform="matrix(1.127107 0 0 -1.1770465 65.093052 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9963" transform="matrix(1.127107 0 0 -1.1770465 71.856394 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9983" transform="matrix(1.127107 0 0 -1.1770465 71.856394 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9991" transform="matrix(1.127107 0 0 -1.1770465 71.856394 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9999" transform="matrix(1.127107 0 0 -1.1770465 71.856394 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9909" transform="matrix(1.127107 0 0 -1.1770465 58.33071 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9929" transform="matrix(1.127107 0 0 -1.1770465 58.33071 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9937" transform="matrix(1.127107 0 0 -1.1770465 58.33071 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9945" transform="matrix(1.127107 0 0 -1.1770465 58.33071 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9855" transform="matrix(1.127107 0 0 -1.1770465 85.381077 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9875" transform="matrix(1.127107 0 0 -1.1770465 85.381077 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9883" transform="matrix(1.127107 0 0 -1.1770465 85.381077 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9891" transform="matrix(1.127107 0 0 -1.1770465 85.381077 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9801" transform="matrix(1.127107 0 0 -1.1770465 78.618736 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9821" transform="matrix(1.127107 0 0 -1.1770465 78.618736 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9829" transform="matrix(1.127107 0 0 -1.1770465 78.618736 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9837" transform="matrix(1.127107 0 0 -1.1770465 78.618736 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9747" transform="matrix(1.127107 0 0 -1.1770465 51.568369 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9767" transform="matrix(1.127107 0 0 -1.1770465 51.568369 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9775" transform="matrix(1.127107 0 0 -1.1770465 51.568369 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9783" transform="matrix(1.127107 0 0 -1.1770465 51.568369 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9693" transform="matrix(1.127107 0 0 -1.1770465 44.805527 62.623414)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9713" transform="matrix(1.127107 0 0 -1.1770465 44.805527 62.623414)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9721" transform="matrix(1.127107 0 0 -1.1770465 44.805527 62.623414)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9729" transform="matrix(1.127107 0 0 -1.1770465 44.805527 62.623414)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9639" transform="matrix(1.127107 0 0 -1.1770465 27.898623 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9659" transform="matrix(1.127107 0 0 -1.1770465 27.898623 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9667" transform="matrix(1.127107 0 0 -1.1770465 27.898623 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9675" transform="matrix(1.127107 0 0 -1.1770465 27.898623 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9585" transform="matrix(1.127107 0 0 -1.1770465 34.661464 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9605" transform="matrix(1.127107 0 0 -1.1770465 34.661464 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9613" transform="matrix(1.127107 0 0 -1.1770465 34.661464 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9621" transform="matrix(1.127107 0 0 -1.1770465 34.661464 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9531" transform="matrix(1.127107 0 0 -1.1770465 21.136281 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9551" transform="matrix(1.127107 0 0 -1.1770465 21.136281 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9559" transform="matrix(1.127107 0 0 -1.1770465 21.136281 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9567" transform="matrix(1.127107 0 0 -1.1770465 21.136281 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9477" transform="matrix(1.127107 0 0 -1.1770465 14.373439 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9497" transform="matrix(1.127107 0 0 -1.1770465 14.373439 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9505" transform="matrix(1.127107 0 0 -1.1770465 14.373439 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9513" transform="matrix(1.127107 0 0 -1.1770465 14.373439 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9423" transform="matrix(1.127107 0 0 -1.1770465 7.6106 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9443" transform="matrix(1.127107 0 0 -1.1770465 7.6106 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9451" transform="matrix(1.127107 0 0 -1.1770465 7.6106 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9459" transform="matrix(1.127107 0 0 -1.1770465 7.6106 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9369" transform="matrix(1.127107 0 0 -1.1770465 61.711931 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9389" transform="matrix(1.127107 0 0 -1.1770465 61.711931 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9397" transform="matrix(1.127107 0 0 -1.1770465 61.711931 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9405" transform="matrix(1.127107 0 0 -1.1770465 61.711931 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9315" transform="matrix(1.127107 0 0 -1.1770465 68.474273 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9335" transform="matrix(1.127107 0 0 -1.1770465 68.474273 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9343" transform="matrix(1.127107 0 0 -1.1770465 68.474273 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9351" transform="matrix(1.127107 0 0 -1.1770465 68.474273 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9261" transform="matrix(1.127107 0 0 -1.1770465 54.94949 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9281" transform="matrix(1.127107 0 0 -1.1770465 54.94949 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9289" transform="matrix(1.127107 0 0 -1.1770465 54.94949 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9297" transform="matrix(1.127107 0 0 -1.1770465 54.94949 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9207" transform="matrix(1.127107 0 0 -1.1770465 81.999956 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9227" transform="matrix(1.127107 0 0 -1.1770465 81.999956 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9235" transform="matrix(1.127107 0 0 -1.1770465 81.999956 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9243" transform="matrix(1.127107 0 0 -1.1770465 81.999956 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9153" transform="matrix(1.127107 0 0 -1.1770465 88.762298 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9173" transform="matrix(1.127107 0 0 -1.1770465 88.762298 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9181" transform="matrix(1.127107 0 0 -1.1770465 88.762298 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9189" transform="matrix(1.127107 0 0 -1.1770465 88.762298 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9099" transform="matrix(1.127107 0 0 -1.1770465 75.237615 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9119" transform="matrix(1.127107 0 0 -1.1770465 75.237615 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9127" transform="matrix(1.127107 0 0 -1.1770465 75.237615 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9135" transform="matrix(1.127107 0 0 -1.1770465 75.237615 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon9045" transform="matrix(1.127107 0 0 -1.1770465 48.186648 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9065" transform="matrix(1.127107 0 0 -1.1770465 48.186648 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9073" transform="matrix(1.127107 0 0 -1.1770465 48.186648 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9081" transform="matrix(1.127107 0 0 -1.1770465 48.186648 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+            <path id="polygon8991" transform="matrix(1.127107 0 0 -1.1770465 41.423806 69.685379)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path id="path9011" transform="matrix(1.127107 0 0 -1.1770465 41.423806 69.685379)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path id="path9019" transform="matrix(1.127107 0 0 -1.1770465 41.423806 69.685379)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path id="path9027" transform="matrix(1.127107 0 0 -1.1770465 41.423806 69.685379)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use261" clip-path="url(#clipPath1)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 40.379160027299996 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use263" clip-path="url(#clipPath2)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 46.71941791067812 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use265" clip-path="url(#clipPath3)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 34.03946469730312 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use267" clip-path="url(#clipPath4)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 27.69930057282187 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use269" clip-path="url(#clipPath5)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 72.07913681963436 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use271" clip-path="url(#clipPath6)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 78.41976973859998 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use273" clip-path="url(#clipPath7)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 65.73944148963749 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use275" clip-path="url(#clipPath8)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 91.09916039859374 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use277" clip-path="url(#clipPath9)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 97.43894948748748 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use279" clip-path="url(#clipPath10)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 84.75946506859687 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use281" clip-path="url(#clipPath11)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 59.39927736515624 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use283" clip-path="url(#clipPath12)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 53.059582035159366 56.85845893440911)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use287" clip-path="url(#clipPath13)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 43.54952336623124 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use289" clip-path="url(#clipPath14)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 49.88921869622811 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use291" clip-path="url(#clipPath15)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 37.20935924174999 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use293" clip-path="url(#clipPath16)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 30.869195117268745 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use295" clip-path="url(#clipPath17)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 24.529499787271874 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use297" clip-path="url(#clipPath18)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 75.24903136408123 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use299" clip-path="url(#clipPath19)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 81.58966428304686 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use301" clip-path="url(#clipPath20)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 68.9092422751875 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use303" clip-path="url(#clipPath21)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 94.26905494304062 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use305" clip-path="url(#clipPath22)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 87.92935961304373 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use307" clip-path="url(#clipPath23)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 62.569546945190616 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use309" clip-path="url(#clipPath24)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 56.22938282070936 49.114927123975015)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use311" clip-path="url(#clipPath25)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 42.492860598449994 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use313" clip-path="url(#clipPath26)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 48.83264968734374 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use315" clip-path="url(#clipPath27)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 36.15269647396874 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use317" clip-path="url(#clipPath28)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 29.812532349487498 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use319" clip-path="url(#clipPath29)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 23.472837019490623 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use321" clip-path="url(#clipPath30)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 74.19236859629999 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use323" clip-path="url(#clipPath31)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 80.53300151526561 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use325" clip-path="url(#clipPath32)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 67.85267326630311 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use327" clip-path="url(#clipPath33)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 93.21239217525935 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use329" clip-path="url(#clipPath34)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 86.87269684526248 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use331" clip-path="url(#clipPath35)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 61.51297793630624 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use333" clip-path="url(#clipPath36)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 55.17281381182499 63.49488858859267)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use335" clip-path="url(#clipPath37)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 39.322591018415615 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use337" clip-path="url(#clipPath38)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 45.66275514289686 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use339" clip-path="url(#clipPath39)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 32.98289568841874 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use341" clip-path="url(#clipPath40)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 26.642731563937495 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use343" clip-path="url(#clipPath41)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 20.302567439456247 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use345" clip-path="url(#clipPath42)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 71.02256781074998 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use347" clip-path="url(#clipPath43)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 77.36226314074686 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use349" clip-path="url(#clipPath44)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 64.68277872185624 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use351" clip-path="url(#clipPath45)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 90.04259138970936 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use353" clip-path="url(#clipPath46)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 96.38228671970624 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use355" clip-path="url(#clipPath47)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 83.70289605971249 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use357" clip-path="url(#clipPath48)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 58.34261459737499 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <g id="use359" clip-path="url(#clipPath49)" transform="matrix(1.05666276778125 0 0 -1.1061206827077341 52.00245047289374 70.13131824277626)">
+            <path fill="url(#XMLID_72_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.5 -2.878 L -0.5 -2.878 L -0.5 -0.515 L 0.5 -0.515 L 0.5 -2.878 Z"/>
+            <path fill="url(#XMLID_73_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 L -2.538 -0.583 C -2.538 -1.332 -1.402 -1.939 0 -1.939 C 1.402 -1.939 2.538 -1.332 2.538 -0.583 L 2.538 2.417 L -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_74_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.402 1.061 2.538 1.668 2.538 2.417 C 2.538 3.167 1.402 2.774 0 2.774 C -1.402 2.774 -2.538 3.167 -2.538 2.417 Z"/>
+            <path fill="url(#XMLID_75_)" transform="matrix(1.0000000173761947 0 0 1.0000000173761947 0 0.00000005000868830151717)" d="M 0.263 1.323 C -1.139 1.323 -2.275 1.93 -2.275 2.679 C -2.275 2.735 -2.256 2.773 -2.245 2.817 C -2.426 2.756 -2.538 2.642 -2.538 2.417 C -2.538 1.668 -1.402 1.061 0 1.061 C 1.066 1.061 1.976 1.413 2.352 1.912 C 1.894 1.557 1.13 1.323 0.263 1.323 Z"/>
+        </g>
+        <path id="path376" fill="url(#XMLID_96_)" transform="matrix(0.9375889687499999 0 0 0.9814735427752743 3.748684125 1.3960760636582936)" d="M 22.38 74.071 L 22.38 76.325 C 22.38 77.17 39.177 77.854 59.918 77.854 C 80.659 77.854 97.457 77.169 97.457 76.325 L 97.457 74.071 L 22.38 74.071 Z"/>
+        <path id="path383" fill="url(#XMLID_97_)" transform="matrix(0.9375889687499999 0 0 0.9814735427752743 3.748684125 1.3960760636582936)" d="M 22.38 74.071 C 22.38 74.916 59.918 75.6 59.918 75.6 C 59.918 75.6 97.457 74.915 97.457 74.071 C 97.457 73.227 80.659 73.669 59.918 73.669 C 39.177 73.668 22.38 73.226 22.38 74.071 Z"/>
+        <path id="path390" fill="url(#XMLID_98_)" transform="matrix(0.9375889687499999 0 0 0.9814735427752743 3.748684125 1.3960760636582936)" d="M 22.38 74.071 C 22.38 74.916 19.729 76.675 59.918 76.675 C 100.107 76.675 97.457 74.915 97.457 74.071"/>
+        <path id="polygon401" fill="url(#XMLID_99_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 95.752 4.654 L 60.636 4.654 L 59.202 4.654 L 24.087 4.654 L 22.01 11.885 L 22.01 16.919 L 59.202 16.919 L 60.636 16.919 L 97.827 16.919 L 97.827 11.885 L 95.752 4.654 Z"/>
+        <path id="polygon408" fill="url(#XMLID_100_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 0 12.437 L 0.309 18.613 L 1.698 18.921 L 1.389 12.59 L 0 12.437 Z"/>
+        <path id="path415" fill="url(#XMLID_101_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 13.298 13.939 L 13.298 13.683 L 8.79 13.683 C 8.468 14.675 8.264 15.693 8.16 16.719 L 13.298 13.939 Z"/>
+        <g filter="url(#filter4047)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path422" fill="url(#XMLID_102_)" d="M 17.684 13.873 L 16.717 12.368 L 16.545 11.281 L 14.959 12.009 C 12.668 12.39 12.762 13.54 12.55 14.326 L 15.441 13.443 L 15.479 13.275 L 15.496 14.011 L 16.717 13.866 L 16.717 15.496 L 22.01 14.7 L 22.01 14.352 L 17.684 13.873 Z"/>
+        </g>
+        <path id="polygon437" fill="url(#XMLID_103_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 7.72 17.223 L 1.698 18.921 L 1.389 12.59 L 14.669 9.193 L 15.44 9.965 L 15.44 11.818 L 8.029 14.752 L 7.72 17.223 Z"/>
+        <path id="polygon444" fill="url(#XMLID_104_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 14.669 9.193 L 0 12.437 L 1.389 12.59 L 14.669 9.193 Z"/>
+        <path id="rect467" fill="url(#XMLID_105_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 26.155001 4.1810002 L 93.785998 4.1810002 L 93.785998 16.9190002 L 26.155001 16.9190002 Z"/>
+        <path id="rect469" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 26.155001 12.964 L 93.785998 12.964 L 93.785998 14.623 L 26.155001 14.623 Z"/>
+        <path id="rect488" fill="url(#XMLID_106_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 26.108 11.54 L 93.728003 11.54 L 93.728003 13.7939999 L 26.108 13.7939999 Z"/>
+        <path id="rect490" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 28.069 11.943 L 32.5350001 11.943 L 32.5350001 15.644 L 28.069 15.644 Z"/>
+        <path id="rect492" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 82.459 11.943 L 86.9250001 11.943 L 86.9250001 15.644 L 82.459 15.644 Z"/>
+        <path id="polygon505" fill="url(#XMLID_107_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 83.375 19.939 L 73.216 19.939 L 73.216 16.919 L 46.621 16.919 L 46.621 19.939 L 36.461 19.939 L 35.729 23.783 L 84.108 23.783 L 83.375 19.939 Z"/>
+        <path id="polygon530" fill="url(#XMLID_108_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 80.824 19.939 L 71.771 19.939 L 71.771 16.919 L 48.067 16.919 L 48.067 19.939 L 39.012 19.939 L 38.359 23.783 L 81.479 23.783 L 80.824 19.939 Z"/>
+        <path id="polygon539" fill="url(#XMLID_109_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 75.726 19.939 L 68.88 19.939 L 68.88 16.919 L 50.958 16.919 L 50.958 19.939 L 44.111 19.939 L 43.618 23.783 L 76.22 23.783 L 75.726 19.939 Z"/>
+        <path id="polygon550" fill="url(#XMLID_110_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 73.216 21.066 L 83.375 21.066 L 83.894 23.783 L 84.108 23.783 L 83.375 19.939 L 73.216 19.939 L 73.216 21.066 Z"/>
+        <path id="polygon557" fill="url(#XMLID_111_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 36.461 21.066 L 46.621 21.066 L 46.621 19.939 L 36.461 19.939 L 35.729 23.783 L 35.943 23.783 L 36.461 21.066 Z"/>
+        <path id="path576" fill="url(#XMLID_112_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 62.13 18.108 C 61.306 17.741 54.167 18.749 53.16 18.566 C 52.153 18.383 46.621 17.925 46.621 17.925 L 46.621 18.915 C 46.621 18.915 51.238 19.647 50.414 19.647 C 49.59 19.647 53.343 19.83 54.167 19.647 C 54.991 19.464 62.771 19.647 62.771 19.647 C 62.771 19.647 66.34 19.464 65.058 19.647 C 63.776 19.83 73.215 19.31 73.215 19.31 L 73.215 17.559 C 73.215 17.559 71.007 17.742 69.451 18.108 C 67.896 18.474 62.953 18.475 62.13 18.108 Z"/>
+        <path id="path589" fill="url(#XMLID_113_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 65.059 19.648 C 66.341 19.465 62.772 19.648 62.772 19.648 C 62.772 19.648 54.991 19.465 54.168 19.648 C 53.345 19.831 49.591 19.648 50.415 19.648 C 51.239 19.648 46.622 18.916 46.622 18.916 L 46.622 20.671 C 46.622 20.671 51.239 21.403 50.415 21.403 C 49.591 21.403 53.344 21.586 54.168 21.403 C 54.992 21.22 62.772 21.403 62.772 21.403 C 62.772 21.403 66.341 21.22 65.059 21.403 C 63.777 21.586 73.216 21.066 73.216 21.066 L 73.216 19.311 C 73.216 19.311 63.776 19.831 65.059 19.648 Z"/>
+        <path id="polygon596" fill="url(#XMLID_114_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 60.33 18.102 L 60.33 19.756 L 59.507 19.756 L 59.507 18.099 L 57.647 18.092 L 58.774 22.776 L 61.062 22.776 L 62.189 18.108 L 60.33 18.102 Z"/>
+        <g opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path603" fill="url(#XMLID_115_)" d="M 46.621 17.925 C 46.621 17.925 47.089 18.539 47.291 19.285 C 47.493 20.032 47.951 20.739 48.129 20.917 L 46.621 20.67 L 46.621 17.925 Z"/>
+        </g>
+        <g opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path610" fill="url(#XMLID_116_)" d="M 73.216 21.066 L 71.898 21.137 C 71.898 21.137 72.43 20.349 72.43 19.353 C 72.43 18.357 73.216 17.559 73.216 17.559 L 73.216 21.066 Z"/>
+        </g>
+        <path id="polygon619" fill="url(#XMLID_117_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 67.149 21.495 L 52.688 21.495 L 54.976 23.783 L 64.861 23.783 L 67.149 21.495 Z"/>
+        <g opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path626" fill="url(#XMLID_118_)" d="M 28.069 13.771 C 27.896 13.771 27.755 13.271 27.755 12.655 C 27.755 12.039 27.896 11.54 28.069 11.54 C 28.242 11.54 28.242 13.771 28.069 13.771 Z"/>
+        </g>
+        <g opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path633" fill="url(#XMLID_119_)" d="M 32.849 12.655 C 32.849 13.271 32.708 13.771 32.535 13.771 C 32.362 13.771 32.362 11.54 32.535 11.54 C 32.708 11.54 32.849 12.04 32.849 12.655 Z"/>
+        </g>
+        <g opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path640" fill="url(#XMLID_120_)" d="M 82.459 13.771 C 82.285 13.771 82.144 13.271 82.144 12.655 C 82.144 12.039 82.286 11.54 82.459 11.54 C 82.63 11.54 82.63 13.771 82.459 13.771 Z"/>
+        </g>
+        <g opacity="0.7" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="path647" fill="url(#XMLID_121_)" d="M 87.237 12.655 C 87.237 13.271 87.096 13.771 86.925 13.771 C 86.751 13.771 86.751 11.54 86.925 11.54 C 87.097 11.54 87.237 12.04 87.237 12.655 Z"/>
+        </g>
+        <g opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="polygon654" fill="url(#XMLID_122_)" d="M 92.073 11.54 L 93.729 13.794 L 93.729 11.54 L 92.073 11.54 Z"/>
+        </g>
+        <g filter="url(#filter3658)" opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 2.8125 4.645000071179999)">
+            <path id="ellipse656" d="M 101.830002 4.0679998 C 101.830002 4.94337112848 100.37492743695 5.6529998 98.580002 5.6529998 C 96.78507656305 5.6529998 95.330002 4.94337112848 95.330002 4.0679998 C 95.330002 3.19262847152 96.78507656305 2.4829998 98.580002 2.4829998 C 100.37492743695 2.4829998 101.830002 3.19262847152 101.830002 4.0679998 Z"/>
+        </g>
+        <g filter="url(#filter4051)" opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 2.8125 4.645000071179999)">
+            <path id="ellipse658" d="M 101.1939969 10.089 C 101.1939969 10.68712432884 100.21394826215 11.1719999 99.004997 11.1719999 C 97.79604573785 11.1719999 96.8159971 10.68712432884 96.8159971 10.089 C 96.8159971 9.49087567116 97.79604573785 9.0060001 99.004997 9.0060001 C 100.21394826215 9.0060001 101.1939969 9.49087567116 101.1939969 10.089 Z"/>
+        </g>
+        <g filter="url(#filter3662)" opacity="0.51000001" transform="matrix(0.9375 0 0 0.93974258188981 4.6875 4.645000071179999)">
+            <path id="ellipse660" d="M 23.9290011 4.2389998 C 23.9290011 5.01993043626 22.61719537223 5.6529998 20.999001 5.6529998 C 19.38080662777 5.6529998 18.0690009 5.01993043626 18.0690009 4.2389998 C 18.0690009 3.45806916374 19.38080662777 2.8249998 20.999001 2.8249998 C 22.61719537223 2.8249998 23.9290011 3.45806916374 23.9290011 4.2389998 Z"/>
+        </g>
+        <g opacity="0.5" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)">
+            <path id="polygon667" fill="url(#XMLID_123_)" d="M 27.764 11.54 L 26.108 13.794 L 26.108 11.54 L 27.764 11.54 Z"/>
+        </g>
+        <path id="rect684" fill="url(#XMLID_124_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 28.069 10.816 L 32.5350001 10.816 L 32.5350001 14.517 L 28.069 14.517 Z"/>
+        <path id="rect701" fill="url(#XMLID_125_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 82.459 10.816 L 86.9250001 10.816 L 86.9250001 14.517 L 82.459 14.517 Z"/>
+        <path id="polygon708" fill="url(#XMLID_126_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 93.729 14.076 L 94.486 2.377 L 95.151 3.792 L 93.729 14.076 Z"/>
+        <path id="path715" fill="url(#XMLID_127_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 100.19 1.761 C 100.19 1.761 100.26 0.969 99.45 0 L 98.851 0.071 L 98.764 0.74 L 98.852 1.62 L 99.398 1.814"/>
+        <path id="path722" fill="url(#XMLID_128_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 94.696 4.191 C 94.696 4.191 94.238 3.574 94.15 2.272 L 94.626 0.335 L 95.471 1.849 L 95.366 3.716 L 94.696 4.191 Z"/>
+        <path id="path729" fill="url(#XMLID_129_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 94.626 0.335 C 94.626 0.335 94.907 2.008 95.172 2.272 L 99.345 3.61 L 99.398 1.814 C 99.398 1.814 99.698 1.338 98.852 0.071 L 98.183 0.74 L 94.626 0.335 Z"/>
+        <path id="path736" fill="url(#XMLID_130_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 94.696 4.191 C 94.696 4.191 94.872 2.888 95.172 2.272 L 98.5 2.483 C 98.5 2.483 99.204 2.571 99.397 1.814 L 100.19 1.761 C 100.19 1.761 100.295 2.624 99.837 3.821 C 99.837 3.821 97.776 4.032 95.945 3.539 L 95.752 4.208 L 94.696 4.191 Z"/>
+        <path id="polygon738" fill="#888888" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 94.22 13.794 L 93.729 13.794 L 95.087 4.197 L 95.527 4.205 L 94.22 13.794 Z"/>
+        <path id="polygon745" fill="url(#XMLID_131_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 24.982 14.076 L 24.226 2.377 L 23.56 3.792 L 24.982 14.076 Z"/>
+        <path id="polygon747" fill="#888888" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 24.492 13.794 L 24.982 13.794 L 23.625 4.197 L 23.184 4.205 L 24.492 13.794 Z"/>
+        <path id="polygon749" fill="#888888" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 96.528 9.509 L 96.3 8.611 L 96.634 8.594 L 96.898 9.492 L 95.719 11.57 L 95.437 11.57 L 96.528 9.509 Z"/>
+        <path id="polygon756" fill="url(#XMLID_132_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 96.3 8.611 L 95.243 11.358 L 95.437 11.57 L 96.528 9.509 L 96.3 8.611 Z"/>
+        <path id="polygon763" fill="url(#XMLID_133_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 95.947 8.03 L 96.212 9.14 L 99.575 8.893 L 99.293 7.907 L 95.947 8.03 Z"/>
+        <path id="polygon770" fill="url(#XMLID_134_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 96.177 9.773 L 96.212 9.14 L 99.575 8.893 L 99.575 9.544 L 96.177 9.773 Z"/>
+        <path id="polygon777" fill="url(#XMLID_135_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 95.947 8.03 L 95.947 8.752 L 96.177 9.773 L 96.212 9.14 L 95.947 8.03 Z"/>
+        <path id="rect798" fill="url(#XMLID_136_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 93.728996 11.258 L 97.109996 11.258 L 97.109996 14.0749999 L 93.728996 14.0749999 Z"/>
+        <path id="polygon805" fill="url(#XMLID_137_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 24.04 4.746 L 23.713 2.729 L 24.629 0.669 L 24.946 2.606 L 24.04 4.746 Z"/>
+        <path id="polygon812" fill="url(#XMLID_138_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 24.04 4.746 L 23.132 4.755 L 23.044 4.015 L 18.66 4.015 L 18.66 3.24 L 18.765 2.871 L 19.558 2.536 L 21.741 2.483 L 23.432 2.342 L 23.713 2.729 L 24.04 4.746 Z"/>
+        <path id="path819" fill="url(#XMLID_139_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 23.713 2.729 L 19.24 2.888 C 19.24 2.888 18.659 2.888 18.659 3.24 L 18.659 2.888 L 19.522 1.145 C 19.522 1.145 19.681 0.863 20.491 0.863 C 21.301 0.863 24.629 0.669 24.629 0.669 L 23.713 2.729 Z"/>
+        <path id="rect840" fill="url(#XMLID_140_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 22.728001 11.38 L 26.109001 11.38 L 26.109001 13.9539999 L 22.728001 13.9539999 Z"/>
+        <path id="polygon851" fill="url(#XMLID_141_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 14.838 9.691 L 14.979 12.415 L 15.496 12.556 L 15.449 9.926 L 17.891 9.504 L 17.327 9.269 L 14.838 9.691 Z"/>
+        <path id="polygon866" fill="url(#XMLID_142_)" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 15.496 12.556 L 16.717 12.368 L 16.717 14.481 L 18.36 13.448 L 17.891 9.504 L 15.449 9.926 L 15.496 12.556 Z"/>
+        <path id="polygon868" fill="#d3d7cf" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 20.567 14.622 L 16.717 14.481 L 16.717 14.105 L 20.567 14.105 L 20.567 14.622 Z"/>
+        <path id="polygon870" fill="#888a85" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 24.841 13.119 L 20.567 14.105 L 20.567 14.622 L 24.841 13.589 L 24.841 13.119 Z"/>
+        <path id="polygon872" fill="#babdb6" transform="matrix(0.9375 0 0 0.93974258188981 3.75 4.645000071179999)" d="M 18.36 13.448 L 23.108 13.519 L 20.567 14.105 L 17.315 14.105 L 18.36 13.448 Z"/>
+    </g>
+</svg>
