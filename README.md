@@ -46,7 +46,14 @@ optional arguments:
    - [x] tspan
 
 ### Demo
-Text
-![prompt][/demo/prompt.png]
-Material design icons
+**Text**
+
+![prompt](/demo/prompt.png)
+
+**Some Icons**
+
+![icons](/demo/icons.png)
+
+**Material design icons**
+
 ![material design icons](/demo/material-design.png)
