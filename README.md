@@ -53,7 +53,3 @@ optional arguments:
 **Some Icons**
 
 ![icons](/demo/icons.png)
-
-**Material design icons**
-
-![material design icons](/demo/material-design.png)
