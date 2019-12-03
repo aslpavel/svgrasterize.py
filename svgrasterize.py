@@ -1929,6 +1929,7 @@ BEZIER3_SPLIT = np.array(
 )
 BEZIER3_MAT = np.array([[1, 0, 0, 0], [-3, 3, 0, 0], [3, -6, 3, 0], [-1, 3, -3, 1]], dtype=FLOAT)
 BEZIER2_MAT = np.array([[1, 0, 0], [-2, 2, 0], [1, -2, 1]], dtype=FLOAT)
+BEZIER3_ABC = np.array([[-3, 9, -9, 3], [6, -12, 6, 0], [-3, 3, 0, 0]], dtype=FLOAT)
 BEZIER2_TO_BEZIER3 = np.array(
     [[1, 0, 0], [1.0 / 3, 2.0 / 3, 0], [0, 2.0 / 3.0, 1.0 / 3], [0, 0, 1]], dtype=FLOAT
 )
@@ -1954,7 +1955,7 @@ def bezier3_flatness_batch(batch):
 
     It is equal to `f = maxarg d(t) where d(t) = |b(t) - l(t)|, l(t) = (1 - t) * b0 + t * b3`
     for b(t) bezier3 curve with b{0..3} control points, in other words maximum distance
-    from parametric line to bezier3 curve for the same parameter t. It is proven in article
+    from parametric line to bezier3 curve for the same parameter t. It is proven in the article
     that:
         f^2 <= 1/16 (max{u_x^2, v_x^2} + max{u_y^2, v_y^2})
     where:
@@ -1977,6 +1978,18 @@ def bezier3_flatten_batch(batch, flatness):
         lines.append(batch[flat_mask][..., [0, 3], :])
         batch = bezier3_split_batch(batch[~flat_mask])
     return np.concatenate(lines)
+
+
+def bezier3_bbox(points):
+    a, b, c = BEZIER3_ABC @ points
+    det = b ** 2 - 4 * a * c
+    t0 = (-b + np.sqrt(det)) / (2 * a)
+    t1 = (-b - np.sqrt(det)) / (2 * a)
+    curve = bezier_parametric(points)
+    exterm = np.array([curve(t) for t in [0, 1, *t0, *t1] if 0 <= t <= 1])
+    min_x, min_y = exterm.min(axis=0)
+    max_x, max_y = exterm.max(axis=0)
+    return (min_x, min_y, max_x - min_x, max_y - min_y)
 
 
 def bezier3_offset(curve, distance):
@@ -3224,19 +3237,19 @@ def svg_rect_to_path(x, y, width, height, rx=None, ry=None):
             rx, ry = 0, 0
 
     ops = []
-    ops.append(f"M{x + rx},{y}")
-    ops.append(f"H{x + width - rx}")
+    ops.append(f"M{x + rx:g},{y:g}")
+    ops.append(f"H{x + width - rx:g}")
     if rx > 0 and ry > 0:
-        ops.append(f"A{rx},{ry},0,0,1,{x + width},{y + ry}")
-    ops.append(f"V{y + height - ry}")
+        ops.append(f"A{rx:g},{ry:g},0,0,1,{x + width:g},{y + ry:g}")
+    ops.append(f"V{y + height - ry:g}")
     if rx > 0 and ry > 0:
-        ops.append(f"A{rx},{ry},0,0,1,{x + width - rx},{y + height}")
-    ops.append(f"H{x + rx}")
+        ops.append(f"A{rx:g},{ry:g},0,0,1,{x + width - rx:g},{y + height:g}")
+    ops.append(f"H{x + rx:g}")
     if rx > 0 and ry > 0:
-        ops.append(f"A{rx},{ry},0,0,1,{x},{y + height - ry}")
-    ops.append(f"V{y + ry}")
+        ops.append(f"A{rx:g},{ry:g},0,0,1,{x:g},{y + height - ry:g}")
+    ops.append(f"V{y + ry:g}")
     if rx > 0 and ry > 0:
-        ops.append(f"A{rx},{ry},0,0,1,{x + rx},{y}")
+        ops.append(f"A{rx:g},{ry:g},0,0,1,{x + rx:g},{y:g}")
     ops.append("z")
     return " ".join(ops)
 
@@ -3253,11 +3266,11 @@ def svg_ellipse_to_path(cx, cy, rx, ry):
             return ""
 
     ops = []
-    ops.append(f"M{cx + rx},{cy}")
-    ops.append(f"A{rx},{ry},0,0,1,{cx},{cy + ry}")
-    ops.append(f"A{rx},{ry},0,0,1,{cx - rx},{cy}")
-    ops.append(f"A{rx},{ry},0,0,1,{cx},{cy - ry}")
-    ops.append(f"A{rx},{ry},0,0,1,{cx + rx},{cy}")
+    ops.append(f"M{cx + rx:g},{cy:g}")
+    ops.append(f"A{rx:g},{ry:g},0,0,1,{cx:g},{cy + ry:g}")
+    ops.append(f"A{rx:g},{ry:g},0,0,1,{cx - rx:g},{cy:g}")
+    ops.append(f"A{rx:g},{ry:g},0,0,1,{cx:g},{cy - ry:g}")
+    ops.append(f"A{rx:g},{ry:g},0,0,1,{cx + rx:g},{cy:g}")
     ops.append("z")
     return " ".join(ops)
 
