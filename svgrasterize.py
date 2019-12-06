@@ -1093,18 +1093,18 @@ class Path:
                     (x0, y0), (x1, y1) = args
                     if cmd_prev != cmd:
                         if cmd_prev is None:
-                            output.write(f"M{x0},{y0} ")
+                            output.write(f"M{x0:g},{y0:g} ")
                         else:
                             output.write("L")
-                    output.write(f"{x1},{y1} ")
+                    output.write(f"{x1:g},{y1:g} ")
                     cmd_prev = PATH_LINE
                 elif cmd == PATH_QUAD:
                     (x0, y0), (x1, y1), (x2, y2) = args
                     if cmd_prev != cmd:
                         if cmd_prev is None:
-                            output.write(f"M{x0},{y0} ")
+                            output.write(f"M{x0:g},{y0:g} ")
                         output.write("Q")
-                    output.write(f"{x1},{y1} {x2},{y2} ")
+                    output.write(f"{x1:g},{y1:g} {x2:g},{y2:g} ")
                     cmd_prev = PATH_QUAD
                 elif cmd in {PATH_CUBIC, PATH_ARC}:
                     if cmd == PATH_ARC:
@@ -1115,9 +1115,9 @@ class Path:
                         (x0, y0), (x1, y1), (x2, y2), (x3, y3) = args
                         if cmd_prev != cmd:
                             if cmd_prev is None:
-                                output.write(f"M{x0},{y0} ")
+                                output.write(f"M{x0:g},{y0:g} ")
                             output.write("C")
-                        output.write(f"{x1},{y1} {x2},{y2} {x3},{y3} ")
+                        output.write(f"{x1:g},{y1:g} {x2:g},{y2:g} {x3:g},{y3:g} ")
                         cmd_prev = PATH_CUBIC
                 elif cmd == PATH_CLOSED:
                     output.write("Z ")
@@ -2322,7 +2322,7 @@ def arc_svg_to_parametric(src, dst, rx, ry, x_axis_rot, large_flag, sweep_flag):
     v2 = np.array([(-x1 - cx) / rx, (-y1 - cy) / ry])
     # initial angle
     eta = angle_between(v0, v1)
-    # delta anple to be covered when t changes from 0..1
+    # delta angle to be covered when t changes from 0..1
     eta_delta = math.fmod(angle_between(v1, v2), 2 * math.pi)
     if not sweep_flag and eta_delta > 0:
         eta_delta -= 2 * math.pi
