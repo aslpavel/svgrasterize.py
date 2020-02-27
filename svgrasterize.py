@@ -64,11 +64,11 @@ class Layer(NamedTuple):
 
     @property
     def width(self):
-        return self.image.shape[0]
+        return self.image.shape[1]
 
     @property
     def height(self):
-        return self.image.shape[1]
+        return self.image.shape[0]
 
     @property
     def channels(self):
@@ -709,6 +709,48 @@ class Scene(tuple):
         else:
             raise ValueError(f"unhandled scene type: {type}")
 
+    def to_path(self, transform: Transform):
+        """Try to convert whole scene to a path (used only for testing)"""
+        def to_path(scene, transform):
+            type, args = scene
+            if type == RENDER_FILL:
+                path, _paint, _fill_rule = args
+                yield path.transform(transform)
+
+            elif type == RENDER_STROKE:
+                path, paint, width, linecap, linejoin = args
+                yield path.transform(transform).stroke(width, linecap, linejoin)
+
+            elif type == RENDER_GROUP:
+                for child in args:
+                    yield from to_path(child, transform)
+
+            elif type == RENDER_OPACITY:
+                target, _opacity = args
+                yield from to_path(target, transform)
+
+            elif type == RENDER_CLIP:
+                target, _clip, _bbox_units = args
+                yield from to_path(target, transform)
+
+            elif type == RENDER_TRANSFORM:
+                target, target_transfrom = args
+                yield from to_path(target, transform @ target_transfrom)
+
+            elif type == RENDER_MASK:
+                target, _mask_scene, _bbox_units = args
+                yield from to_path(target, transform)
+
+            elif type == RENDER_FILTER:
+                target, _filter = args
+                yield from to_path(target, transform)
+
+            else:
+                raise ValueError(f"unhandled scene type: {type}")
+
+        subpaths = [spath for path in to_path(self, transform) for spath in path.subpaths]
+        return Path(subpaths)
+
     def __repr__(self):
         def repr_rec(scene, output, depth):
             output.write(indent * depth)
@@ -964,12 +1006,9 @@ class Path:
                 np.remainder(offsets - [paint.x, paint.y], [paint.width, paint.height])
             )
             offsets = offsets.astype(int)
-            corners = repeat_tr([
-                [0, 0],
-                [paint.width, 0],
-                [0, paint.height],
-                [paint.width, paint.height],
-            ])
+            corners = repeat_tr(
+                [[0, 0], [paint.width, 0], [0, paint.height], [paint.width, paint.height],]
+            )
             max_x, max_y = corners.max(axis=0).astype(int)
             min_x, min_y = corners.min(axis=0).astype(int)
             w, h = max_x - min_x, max_y - min_y
@@ -3669,7 +3708,9 @@ def main():
     parser.add_argument("-fg", type=svg_color, help="set default foreground color")
     parser.add_argument("-w", "--width", type=int, help="output width")
     parser.add_argument("-id", help="render single element with specified `id`")
-    parser.add_argument("-t", "--transform", type=svg_transform, help="apply additional transformation")
+    parser.add_argument(
+        "-t", "--transform", type=svg_transform, help="apply additional transformation"
+    )
     parser.add_argument("--linear-rgb", action="store_true", help="use linear RGB for rendering")
     parser.add_argument("--fonts", nargs="*", help="paths to SVG files containing all fonts")
     opts = parser.parse_args()
