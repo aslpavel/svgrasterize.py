@@ -2242,7 +2242,7 @@ def line_intersect(l0, l1):
         return None, 0, 0
     t0 = ((y3 - y4) * (x1 - x3) + (x4 - x3) * (y1 - y3)) / det
     t1 = ((y1 - y2) * (x1 - x3) + (x2 - x1) * (y1 - y3)) / det
-    return np.matmul([1 - t0, t0], l0), t0, t1
+    return [x1 * (1 - t0) + x2 * t0, y1 * (1 - t0) + y2 * t0], t0, t1
 
 
 def line_offset(line, distance):
