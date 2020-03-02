@@ -929,7 +929,7 @@ class Path:
         output = Layer(mask[..., None], (min_x, min_y), pre_alpha=True, linear_rgb=True)
         return output, ConvexHull(lines)
 
-    def fill(self, transform, paint, fill_rule=None, viewport=None, linear_rgb=None):
+    def fill(self, transform, paint, fill_rule=None, viewport=None, linear_rgb=True):
         """Render path by fill-ing it.
         """
         if paint is None:
