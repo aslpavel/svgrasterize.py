@@ -711,6 +711,7 @@ class Scene(tuple):
 
     def to_path(self, transform: Transform):
         """Try to convert whole scene to a path (used only for testing)"""
+
         def to_path(scene, transform):
             type, args = scene
             if type == RENDER_FILL:
@@ -2511,6 +2512,7 @@ class Glyph:
 class Font(NamedTuple):
     family: str
     weight: int
+    style: str
     ascent: float
     descent: float
     units_per_em: float
@@ -2568,14 +2570,15 @@ class Font(NamedTuple):
         return Path(subpaths), offset * scale
 
     def __repr__(self):
-        return 'Font(family="{}", weight={}, glyphs_count={})'.format(
-            self.family, self.weight, len(self.glyphs)
+        return 'Font(family="{}", weight={}, style={}, glyphs_count={})'.format(
+            self.family, self.weight, self.style, len(self.glyphs)
         )
 
 
 FONTS_SANS = {"arial", "verdana"}
 FONTS_SERIF = {"times new roman", "times", "georgia"}
 FONTS_MONO = {"iosevka", "courier", "pragmatapro"}
+FONT_STYLE_NORMAL = "normal"
 FONT_SIZE = 12
 
 
@@ -2598,7 +2601,7 @@ class FontsDB:
         """
         self.fonts_files.append(font)
 
-    def resolve(self, family, weight=None):
+    def resolve(self, family, weight=None, style=None):
         # load fonts from sources if any
         while self.fonts_files:
             source = self.fonts_files.pop()
@@ -2609,8 +2612,8 @@ class FontsDB:
 
         # find family
         family = "serif" if family is None else family.lower()
-        font_family = self.fonts.get(family)
-        if font_family is None:
+        matches = self.fonts.get(family)
+        if matches is None:
             if "sans" in family or family in FONTS_SANS:
                 family = "sans"
             elif "serif" in family or family in FONTS_SERIF:
@@ -2619,20 +2622,24 @@ class FontsDB:
                 family = "monospace"
             else:
                 family = "serif"
-            font_family = self.fonts.get(family, self.fonts.get("seif"))
-        if font_family is None:
+            matches = self.fonts.get(family, self.fonts.get("seif"))
+        if matches is None:
             return None
+
+        # find style
+        style = style or FONT_STYLE_NORMAL
+        matches_out = [match for match in matches if match.style == style]
+        if not matches_out:
+            matches_out = [match for match in matches if match.style == FONT_STYLE_NORMAL]
+        if not matches_out:
+            return None
+        matches = matches_out
 
         # find weight
         weight = weight or 400
-        font_result = None
-        for font in font_family:
-            if font_result is None:
-                font_result = font
-            elif abs(font.weight - weight) < abs(font_result.weight - weight):
-                font_result = font
+        matches = list(sorted(matches, key=lambda f: abs(f.weight - weight)))
 
-        return font_result
+        return matches[0]
 
 
 # ------------------------------------------------------------------------------
@@ -3559,10 +3566,11 @@ def svg_font(element):
         elif tag == "font-face":
             family = attrs.get("font-family", f"{id(element)}")
             weight = svg_font_weight(attrs.get("font-weight"))
+            style = attrs.get("font-style", FONT_STYLE_NORMAL)
             units_per_em = float(attrs.get("units-per-em", "2048"))
             ascent = float(attrs.get("ascent", str(units_per_em)))
             descent = float(attrs.get("descent", "0"))
-            font = Font(family, weight, ascent, descent, units_per_em, {}, None, {})
+            font = Font(family, weight, style, ascent, descent, units_per_em, {}, None, {})
 
         elif tag == "hkern":
             left = []
