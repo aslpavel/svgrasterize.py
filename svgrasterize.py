@@ -156,10 +156,10 @@ class Layer(NamedTuple):
             return self
         return Layer(out_image, out_offset, out_pre_alpha, out_linear_rgb)
 
-    def background(self, color: np.ndarray, linear_rgb=False) -> "Layer":
-        layer = self.convert(pre_alpha=True, linear_rgb=linear_rgb)
+    def background(self, color: np.ndarray) -> "Layer":
+        layer = self.convert(pre_alpha=True, linear_rgb=True)
         image = canvas_compose(COMPOSE_OVER, color[None, None, ...], layer.image)
-        return Layer(image, layer.offset, pre_alpha=True, linear_rgb=linear_rgb)
+        return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
     def opacity(self, opacity: float, linear_rgb=False) -> "Layer":
         """Apply additinal opacity
@@ -2809,12 +2809,13 @@ def svg_scene(path, fg=None, width=None, fonts=None):
             if id is not None:
                 for child in element:
                     group.extend(svg_scene_rec(child, inherit))
-                scene, group = Scene.group(group), []
-                transform = svg_transform(attrs.get("transform"))
-                if transform is not None:
-                    scene = scene.transform(transform)
-                bbox_units = attrs.get("clipPathUnits")
-                ids[id] = (scene, bbox_units == SVG_UNITS_BBOX)
+                if group:
+                    scene, group = Scene.group(group), []
+                    transform = svg_transform(attrs.get("transform"))
+                    if transform is not None:
+                        scene = scene.transform(transform)
+                    bbox_units = attrs.get("clipPathUnits")
+                    ids[id] = (scene, bbox_units == SVG_UNITS_BBOX)
             return []
 
         elif tag == "mask":
@@ -3770,7 +3771,7 @@ def main():
         output = Layer(image, (0, 0), pre_alpha=True, linear_rgb=opts.linear_rgb)
 
     if opts.bg is not None:
-        output = output.background(opts.bg, linear_rgb=opts.linear_rgb)
+        output = output.background(opts.bg)
 
     filename = opts.output if opts.output != "-" else 1
     closefd = opts.output != "-"
