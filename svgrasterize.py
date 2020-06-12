@@ -2578,6 +2578,9 @@ class Font(NamedTuple):
         """Create speciment path that contains all symbols in the font
         """
         import unicodedata
+        db = FontsDB()
+        db.register_file(DEFAULT_FONTS)
+        font = db.resolve("sans")
 
         categories: Dict[str, Dict[str, Glyph]] = {}
         for name, glyph in self.glyphs.items():
@@ -2609,7 +2612,7 @@ class Font(NamedTuple):
             # category name
             row += 1
             x, y = 2.0, row * size + size / 2.0
-            (cname_path, offset) = self.str_to_path(size / 1.5, cname + " ")
+            (cname_path, offset) = font.str_to_path(size / 1.5, cname + " ")
             subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
             line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, (cols - 1) * size - offset))
             subpaths.extend(line.stroke(2).subpaths)
