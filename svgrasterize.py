@@ -3792,8 +3792,10 @@ def main():
 
     if opts.svg.endswith(".path"):
         path = Path.from_svg(open(opts.svg).read())
-        scene = Scene.fill(path, opts.fg or svg_color("black"))
-        opts.bg = opts.bg or svg_color("white")
+        opts.bg = svg_color("white") if opts.bg is None else opts.bg
+        opts.fg = svg_color("black") if opts.fg is None else opts.fg
+        scene = Scene.fill(path, opts.fg)
+
         ids, size = {}, None
     else:
         scene, ids, size = svg_scene(opts.svg, fg=opts.fg, width=opts.width, fonts=fonts)
