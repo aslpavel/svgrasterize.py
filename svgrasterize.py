@@ -1421,7 +1421,7 @@ def stroke_line_join(c0, c1, linejoin=None, miterlimit=4):
     if np.allclose(l0[-1], l1[0]):
         return []
     p, t0, t1 = line_intersect(l0, l1)
-    if p is None or (abs(t0) < 1 and abs(t1) < 1):
+    if p is None or (0 <= t0 <= 1 and 0 <= t1 <= 1):
         # curves intersect or parallel
         return [np.array([c0[-1], c1[0]])]
     # FIXME correctly determine miterlength: stroke_width / sin(eta / 2)
@@ -2574,6 +2574,57 @@ class Font(NamedTuple):
             self.family, self.weight, self.style, len(self.glyphs)
         )
 
+    def speciment(self, size: float = 32.0) -> Path:
+        """Create speciment path that contains all symbols in the font
+        """
+        import unicodedata
+
+        categories: Dict[str, Dict[str, Glyph]] = {}
+        for name, glyph in self.glyphs.items():
+            try:
+                cname = unicodedata.category(name)
+            except TypeError:
+                cname = "Other"
+            category = categories.get(cname)
+            if category is None:
+                categories[cname] = {name: glyph}
+            else:
+                category[name] = glyph
+
+        scale = (size - 4) / self.units_per_em
+        tr = (
+            Transform()
+            .translate(2, 2)
+            .scale(scale, -scale)
+            .translate(0, -self.units_per_em - self.descent)
+        )
+        subpaths: Any = []
+
+        row = -1
+        cols = 32
+        for cname, category in sorted(categories.items()):
+            if cname in {'Cc', 'Zs', 'Cf', 'Zl', 'Zp'}:
+                continue
+
+            # category name
+            row += 1
+            x, y = 2.0, row * size + size / 2.0
+            (cname_path, offset) = self.str_to_path(size / 1.5, cname + " ")
+            subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
+            line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, (cols - 1) * size - offset))
+            subpaths.extend(line.stroke(2).subpaths)
+
+            # category
+            for index, (_name, glyph) in enumerate(sorted(category.items())):
+                col = index % cols
+                if col == 0:
+                    row += 1
+                offset = Transform().translate(col * size, row * size)
+                path = glyph.path.transform(offset @ tr)
+                subpaths.extend(path.subpaths)
+
+        return Path(subpaths)
+
 
 FONTS_SANS = {"arial", "verdana"}
 FONTS_SERIF = {"times new roman", "times", "georgia"}
@@ -3630,17 +3681,17 @@ def svg_text(element, attrs, fonts, ids, fg):
     def text_from_attrs(text, attrs, offset, space):
         # handle shfits/offsest evene if there is nothing to render
         ox, oy = offset
-        x = svg_float(attrs.pop("x", None))
+        x = svg_size(attrs.pop("x", None))
         if x is not None:
             ox = x
-        dx = svg_float(attrs.pop("dx", None))
+        dx = svg_size(attrs.pop("dx", None))
         if dx is not None:
             ox += dx
 
-        y = svg_float(attrs.pop("y", None))
+        y = svg_size(attrs.pop("y", None))
         if y is not None:
             oy = y
-        dy = svg_float(attrs.pop("dy", None))
+        dy = svg_size(attrs.pop("dy", None))
         if dy is not None:
             oy += dy
 
