@@ -2614,7 +2614,7 @@ class Font(NamedTuple):
             x, y = 2.0, row * size + size / 2.0
             (cname_path, offset) = font.str_to_path(size / 1.5, cname + " ")
             subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
-            line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, (cols - 1) * size - offset))
+            line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, cols * size - offset - 4))
             subpaths.extend(line.stroke(2).subpaths)
 
             # category
@@ -3790,7 +3790,13 @@ def main():
     if opts.transform:
         transform @= opts.transform
 
-    scene, ids, size = svg_scene(opts.svg, fg=opts.fg, width=opts.width, fonts=fonts)
+    if opts.svg.endswith(".path"):
+        path = Path.from_svg(open(opts.svg).read())
+        scene = Scene.fill(path, opts.fg or svg_color("black"))
+        opts.bg = opts.bg or svg_color("white")
+        ids, size = {}, None
+    else:
+        scene, ids, size = svg_scene(opts.svg, fg=opts.fg, width=opts.width, fonts=fonts)
     if scene is None:
         sys.stderr.write("[error] nothing to render\n")
 
