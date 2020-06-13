@@ -2574,62 +2574,6 @@ class Font(NamedTuple):
             self.family, self.weight, self.style, len(self.glyphs)
         )
 
-    def speciment(self, size: float = 32.0) -> Path:
-        """Create speciment path that contains all symbols in the font
-        """
-        import unicodedata
-        db = FontsDB()
-        db.register_file(DEFAULT_FONTS)
-        font = db.resolve("sans")
-
-        categories: Dict[str, Dict[str, Glyph]] = {}
-        for name, glyph in self.glyphs.items():
-            try:
-                cname = unicodedata.category(name)
-            except TypeError:
-                cname = "Other"
-            category = categories.get(cname)
-            if category is None:
-                categories[cname] = {name: glyph}
-            else:
-                category[name] = glyph
-
-        scale = (size - 4) / self.units_per_em
-        tr = (
-            Transform()
-            .translate(2, 2)
-            .scale(scale, -scale)
-            .translate(0, -self.units_per_em - self.descent)
-        )
-        subpaths: Any = []
-
-        row = -1
-        cols = 32
-        for cname, category in sorted(categories.items()):
-            if cname in {'Cc', 'Zs', 'Cf', 'Zl', 'Zp'}:
-                continue
-
-            # category name
-            row += 1
-            x, y = 2.0, row * size + size / 2.0
-            (cname_path, offset) = font.str_to_path(size / 1.5, cname + " ")
-            subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
-            line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, cols * size - offset - 4))
-            subpaths.extend(line.stroke(2).subpaths)
-
-            # category
-            for index, (_name, glyph) in enumerate(sorted(category.items())):
-                col = index % cols
-                if col == 0:
-                    row += 1
-                offset = Transform().translate(col * size, row * size)
-                if glyph.advance > self.units_per_em:
-                    offset = offset.scale(self.units_per_em / glyph.advance)
-                path = glyph.path.transform(offset @ tr)
-                subpaths.extend(path.subpaths)
-
-        return Path(subpaths)
-
 
 FONTS_SANS = {"arial", "verdana"}
 FONTS_SERIF = {"times new roman", "times", "georgia"}
