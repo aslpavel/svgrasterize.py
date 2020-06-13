@@ -2623,6 +2623,8 @@ class Font(NamedTuple):
                 if col == 0:
                     row += 1
                 offset = Transform().translate(col * size, row * size)
+                if glyph.advance > self.units_per_em:
+                    offset = offset.scale(self.units_per_em / glyph.advance)
                 path = glyph.path.transform(offset @ tr)
                 subpaths.extend(path.subpaths)
 
