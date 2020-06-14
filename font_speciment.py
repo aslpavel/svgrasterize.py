@@ -37,8 +37,16 @@ def speciment(font, size: float = 32.0) -> Path:
     )
     subpaths: Any = []
 
-    row = -1
+    row = 0
     cols = 32
+    # render label
+    label_path, label_width = label_font.str_to_path(
+        size / 1.5,
+        "{} {}".format(font.family, size),
+    )
+    label_tr = Transform().translate((cols * size - label_width) / 2.0, size)
+    subpaths.extend(label_path.transform(label_tr).subpaths)
+    # render categories
     for cname, category in sorted(categories.items()):
         if cname in {"Cc", "Zs", "Cf", "Zl", "Zp"}:
             continue
@@ -48,11 +56,12 @@ def speciment(font, size: float = 32.0) -> Path:
         x, y = 2.0, row * size + size / 2.0
         (cname_path, offset) = label_font.str_to_path(size / 1.5, cname + " ")
         subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
-        line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, cols * size - offset - 4))
+        line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, cols * size - offset - size / 3.0))
         subpaths.extend(line.stroke(2).subpaths)
 
         # category
-        for index, (_name, glyph) in enumerate(sorted(category.items())):
+        index = 0
+        for _name, glyph in sorted(category.items()):
             col = index % cols
             if col == 0:
                 row += 1
@@ -60,7 +69,9 @@ def speciment(font, size: float = 32.0) -> Path:
             if glyph.advance > font.units_per_em:
                 offset = offset.scale(font.units_per_em / glyph.advance)
             path = glyph.path.transform(offset @ tr)
-            subpaths.extend(path.subpaths)
+            if path.subpaths:
+                subpaths.extend(path.subpaths)
+                index += 1
 
     return Path(subpaths)
 
@@ -78,6 +89,7 @@ def main():
         db.resolve("")
         font = db.fonts.popitem()[1][0]
     else:
+        sys.stderr.write("[info] no such file trying to find font with this name\n")
         db.register_file(DEFAULT_FONTS)
         font = db.resolve(font_filename)
     if font is None:
