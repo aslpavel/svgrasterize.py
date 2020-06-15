@@ -1,0 +1,20 @@
+#!/usr/bin/env fontforge
+# -*- mode: python -*-
+import sys
+import fontforge as ff
+
+
+def main():
+    if len(sys.argv) < 2:
+        sys.stderr.write(f"Usage: {sys.argv[0]} <font.ttf> [<font.svg>]\n")
+        sys.exit(1)
+    input = sys.argv[1]
+    if len(sys.argv) == 2:
+        output = input.splitext()[0] + ".svg"
+    else:
+        output = sys.argv[2]
+    ff.open(input).generate(output)
+
+
+if __name__ == "__main__":
+    main()
