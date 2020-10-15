@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 from svgrasterize import Transform, Path, FontsDB, DEFAULT_FONTS, Glyph
+import subprocess
 from typing import Any, Dict
 import unicodedata
 import sys
 import os
 
+TTF_2_SVG = os.path.dirname(__file__) + "/ttf2svg"
 
 def speciment(font, size: float = 32.0) -> Path:
     """Create speciment path that contains all symbols in the font
@@ -76,11 +78,20 @@ def speciment(font, size: float = 32.0) -> Path:
     return Path(subpaths)
 
 
+def convert_to_svg(filename):
+    filename_out, ext = os.path.splitext(os.path.basename(filename))
+    if ext == ".svg":
+        return filename
+    filename_out = f"/tmp/{filename_out}.svg"
+    subprocess.run([TTF_2_SVG, filename, filename_out])
+    return filename_out
+
+
 def main():
     if len(sys.argv) > 3 or len(sys.argv) < 2:
-        sys.stderr.write("Usage: {} <font.svg> [<font.path>]\n".format(sys.argv[0]))
+        sys.stderr.write("Usage: {} <font.{{svg|ttf}}> [<font.path>]\n".format(sys.argv[0]))
         sys.exit(1)
-    font_filename = sys.argv[1]
+    font_filename = convert_to_svg(sys.argv[1])
     path_filename = None if len(sys.argv) < 3 else sys.argv[2]
 
     db = FontsDB()
