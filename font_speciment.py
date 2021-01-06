@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 from svgrasterize import Transform, Path, FontsDB, DEFAULT_FONTS, Glyph
-import subprocess
 from typing import Any, Dict
-import unicodedata
-import sys
+import json
 import os
+import subprocess
+import sys
+import unicodedata
 
 TTF_2_SVG = os.path.dirname(__file__) + "/ttf2svg"
 
+
 def speciment(font, size: float = 32.0) -> Path:
-    """Create speciment path that contains all symbols in the font
-    """
+    """Create speciment path that contains all symbols in the font"""
     if os.path.isfile(DEFAULT_FONTS):
         db = FontsDB()
         db.register_file(DEFAULT_FONTS)
@@ -88,11 +89,14 @@ def convert_to_svg(filename):
 
 
 def main():
-    if len(sys.argv) > 3 or len(sys.argv) < 2:
-        sys.stderr.write("Usage: {} <font.{{svg|ttf}}> [<font.path>]\n".format(sys.argv[0]))
+    if len(sys.argv) > 4 or len(sys.argv) < 2:
+        sys.stderr.write(
+            "Usage: {} <font.{{svg|ttf}}> [<font.path>] [<symbols.json>]\n".format(sys.argv[0])
+        )
         sys.exit(1)
     font_filename = convert_to_svg(sys.argv[1])
     path_filename = None if len(sys.argv) < 3 else sys.argv[2]
+    symbols_filename = None if len(sys.argv) < 4 else sys.argv[3]
 
     db = FontsDB()
     if os.path.isfile(font_filename):
@@ -114,6 +118,9 @@ def main():
     if path_filename:
         with open(path_filename, "w") as file:
             file.write(path.to_svg())
+        if symbols_filename:
+            with open(symbols_filename, "w") as file:
+                json.dump(font.names(), file)
     else:
         mask = path.mask(tr)[0]
         mask.image[...] = 1.0 - mask.image

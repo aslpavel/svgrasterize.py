@@ -2569,6 +2569,9 @@ class Font(NamedTuple):
                 subpaths.append(subpath)
         return Path(subpaths), offset * scale
 
+    def names(self):
+        return {glyph.name: glyph.unicode for glyph in self.glyphs.values()}
+
     def __repr__(self):
         return 'Font(family="{}", weight={}, style={}, glyphs_count={})'.format(
             self.family, self.weight, self.style, len(self.glyphs)
