@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 from svgrasterize import Transform, Path, FontsDB, DEFAULT_FONTS, Glyph
 from typing import Any, Dict
+import argparse
 import json
 import os
+import pathlib
 import subprocess
 import sys
 import unicodedata
 
-TTF_2_SVG = os.path.dirname(__file__) + "/ttf2svg"
+TTF_2_SVG = pathlib.Path(__file__).expanduser().resolve().parent / "ttf2svg"
 
 
 def speciment(font, size: float = 32.0) -> Path:
@@ -84,20 +86,21 @@ def convert_to_svg(filename):
     if ext == ".svg":
         return filename
     filename_out = f"/tmp/{filename_out}.svg"
-    subprocess.run([TTF_2_SVG, filename, filename_out])
+    subprocess.run([str(TTF_2_SVG), filename, filename_out])
     return filename_out
 
 
 def main():
-    if len(sys.argv) > 4 or len(sys.argv) < 2:
-        sys.stderr.write(
-            "Usage: {} <font.{{svg|ttf}}> [<font.path>] [<symbols.json>]\n".format(sys.argv[0])
-        )
-        sys.exit(1)
-    font_filename = convert_to_svg(sys.argv[1])
-    path_filename = None if len(sys.argv) < 3 else sys.argv[2]
-    symbols_filename = None if len(sys.argv) < 4 else sys.argv[3]
+    parser = argparse.ArgumentParser(description="Generate font speciment")
+    parser.add_argument("font", help="SVG|TTF font")
+    parser.add_argument("--size", "-s", help="font size", default=32.0, type=float)
+    parser.add_argument("--path", help="generate font speciment as SVG path")
+    parser.add_argument(
+        "--map", help="generate JSON map between names and unicode representations of glyphs"
+    )
+    args = parser.parse_args()
 
+    font_filename = convert_to_svg(args.font)
     db = FontsDB()
     if os.path.isfile(font_filename):
         db.register_file(font_filename)
@@ -113,14 +116,15 @@ def main():
         )
         sys.exit(1)
 
+    if args.map:
+        with open(args.map, "w") as file:
+            json.dump(font.names(), file)
+
     tr = Transform().matrix(0, 1, 0, 1, 0, 0)
-    path = speciment(font)
-    if path_filename:
-        with open(path_filename, "w") as file:
+    path = speciment(font, args.size)
+    if args.path:
+        with open(args.path, "w") as file:
             file.write(path.to_svg())
-        if symbols_filename:
-            with open(symbols_filename, "w") as file:
-                json.dump(font.names(), file)
     else:
         mask = path.mask(tr)[0]
         mask.image[...] = 1.0 - mask.image
