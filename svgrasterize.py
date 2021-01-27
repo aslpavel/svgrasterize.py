@@ -197,6 +197,8 @@ class Layer(NamedTuple):
         return Layer(image, offset, pre_alpha=pre_alpha, linear_rgb=linear_rgb)
 
     def write_png(self, output=None):
+        if self.channels != 4:
+            raise ValueError("Only RGBA layers are supported")
         layer = self.convert(pre_alpha=False, linear_rgb=False)
         return canvas_to_png(layer.image, output)
 

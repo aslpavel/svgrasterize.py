@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from svgrasterize import Transform, Path, FontsDB, DEFAULT_FONTS, Glyph
+from svgrasterize import Transform, Path, FontsDB, DEFAULT_FONTS, Glyph, Layer
 from typing import Any, Dict
 import argparse
 import json
@@ -12,7 +12,7 @@ import unicodedata
 TTF_2_SVG = pathlib.Path(__file__).expanduser().resolve().parent / "ttf2svg"
 
 
-def speciment(font, size: float = 32.0) -> Path:
+def speciment(font, size: float = 32.0) -> (Path, (int, int)):
     """Create speciment path that contains all symbols in the font"""
     if os.path.isfile(DEFAULT_FONTS):
         db = FontsDB()
@@ -43,7 +43,7 @@ def speciment(font, size: float = 32.0) -> Path:
     subpaths: Any = []
 
     row = 0
-    cols = 32
+    cols = 42
     # render label
     label_path, label_width = label_font.str_to_path(
         size / 1.5,
@@ -78,7 +78,7 @@ def speciment(font, size: float = 32.0) -> Path:
                 subpaths.extend(path.subpaths)
                 index += 1
 
-    return Path(subpaths)
+    return Path(subpaths), (cols * size, (row + 1) * size)
 
 
 def convert_to_svg(filename):
@@ -89,15 +89,27 @@ def convert_to_svg(filename):
     subprocess.run([str(TTF_2_SVG), filename, filename_out])
     return filename_out
 
+SVG = """\
+<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <path fill="#ffffff" d="M0,0 H{width} V{height} H-{width}Z" />
+  <path fill="#000000" d="{path}" />
+</svg>
+"""
+
+
+FORMAT_SVG = "svg"
+FORMAT_PATH = "path"
+FORMAT_JSON = "json"
+FORMAT_PNG = "png"
+FORMAT_ALL = [FORMAT_SVG, FORMAT_PATH, FORMAT_JSON, FORMAT_PNG]
+
 
 def main():
     parser = argparse.ArgumentParser(description="Generate font speciment")
     parser.add_argument("font", help="SVG|TTF font")
+    parser.add_argument("output", nargs="?", help="output file, render to terminal if not provided")
+    parser.add_argument("--format", "-f", choices=FORMAT_ALL, help="output format")
     parser.add_argument("--size", "-s", help="font size", default=32.0, type=float)
-    parser.add_argument("--path", help="generate font speciment as SVG path")
-    parser.add_argument(
-        "--map", help="generate JSON map between names and unicode representations of glyphs"
-    )
     args = parser.parse_args()
 
     font_filename = convert_to_svg(args.font)
@@ -116,20 +128,37 @@ def main():
         )
         sys.exit(1)
 
-    if args.map:
-        with open(args.map, "w") as file:
-            json.dump(font.names(), file)
-
     tr = Transform().matrix(0, 1, 0, 1, 0, 0)
-    path = speciment(font, args.size)
-    if args.path:
-        with open(args.path, "w") as file:
-            file.write(path.to_svg())
-    else:
+    path, (width, height) = speciment(font, args.size)
+
+    if args.output is None:
         mask = path.mask(tr)[0]
         mask.image[...] = 1.0 - mask.image
         mask.show()
+        return
 
+    format = args.format
+    if format is None:
+        _, ext = os.path.splitext(args.output)
+        format = ext[1:].lower()
+
+    if format == FORMAT_JSON:
+        with open(args.output, "w") as file:
+            json.dump(font.names(), file)
+    elif format == FORMAT_PATH:
+        with open(args.output, "w") as file:
+            file.write(path.to_svg())
+    elif format == FORMAT_PNG:
+        mask = path.mask(tr)[0]
+        image = [1.0, 1.0, 1.0, 1.0] - mask.image * [1.0, 1.0, 1.0, 0.0]
+        layer = Layer(image, (0, 0), False, True)
+        with open(args.output, "wb") as file:
+            layer.write_png(file)
+    elif format == FORMAT_SVG:
+        with open(args.output, "w") as file:
+            file.write(SVG.format(width=int(width), height=int(height), path=path.to_svg()))
+    else:
+        sys.stderr.write(f"unsupported format: {format}\n")
 
 if __name__ == "__main__":
     main()
