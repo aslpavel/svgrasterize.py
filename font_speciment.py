@@ -11,8 +11,24 @@ import unicodedata
 
 TTF_2_SVG = pathlib.Path(__file__).expanduser().resolve().parent / "ttf2svg"
 
+SVG = """\
+<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+  <path fill="#ffffff" d="M0,0 H{width} V{height} H-{width}Z" />
+  <path fill="#000000" d="{path}" />
+</svg>
+"""
 
-def speciment(font, size: float = 32.0) -> (Path, (int, int)):
+FORMAT_SVG = "svg"
+FORMAT_PATH = "path"
+FORMAT_JSON = "json"
+FORMAT_PNG = "png"
+FORMAT_ALL = [FORMAT_SVG, FORMAT_PATH, FORMAT_JSON, FORMAT_PNG]
+
+DEFAULT_COLS = 42
+DEFAULT_SIZE = 32.0
+
+
+def speciment(font, size: float = DEFAULT_SIZE, cols: int = DEFAULT_COLS) -> (Path, (int, int)):
     """Create speciment path that contains all symbols in the font"""
     if os.path.isfile(DEFAULT_FONTS):
         db = FontsDB()
@@ -43,7 +59,6 @@ def speciment(font, size: float = 32.0) -> (Path, (int, int)):
     subpaths: Any = []
 
     row = 0
-    cols = 42
     # render label
     label_path, label_width = label_font.str_to_path(
         size / 1.5,
@@ -89,27 +104,14 @@ def convert_to_svg(filename):
     subprocess.run([str(TTF_2_SVG), filename, filename_out])
     return filename_out
 
-SVG = """\
-<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}">
-  <path fill="#ffffff" d="M0,0 H{width} V{height} H-{width}Z" />
-  <path fill="#000000" d="{path}" />
-</svg>
-"""
-
-
-FORMAT_SVG = "svg"
-FORMAT_PATH = "path"
-FORMAT_JSON = "json"
-FORMAT_PNG = "png"
-FORMAT_ALL = [FORMAT_SVG, FORMAT_PATH, FORMAT_JSON, FORMAT_PNG]
-
 
 def main():
     parser = argparse.ArgumentParser(description="Generate font speciment")
     parser.add_argument("font", help="SVG|TTF font")
     parser.add_argument("output", nargs="?", help="output file, render to terminal if not provided")
     parser.add_argument("--format", "-f", choices=FORMAT_ALL, help="output format")
-    parser.add_argument("--size", "-s", help="font size", default=32.0, type=float)
+    parser.add_argument("--size", "-s", help="font size", default=DEFAULT_SIZE, type=float)
+    parser.add_argument("--cols", help="number of columns", default=DEFAULT_COLS, type=int)
     args = parser.parse_args()
 
     font_filename = convert_to_svg(args.font)
@@ -129,7 +131,7 @@ def main():
         sys.exit(1)
 
     tr = Transform().matrix(0, 1, 0, 1, 0, 0)
-    path, (width, height) = speciment(font, args.size)
+    path, (width, height) = speciment(font, args.size, args.cols)
 
     if args.output is None:
         mask = path.mask(tr)[0]
@@ -159,6 +161,7 @@ def main():
             file.write(SVG.format(width=int(width), height=int(height), path=path.to_svg()))
     else:
         sys.stderr.write(f"unsupported format: {format}\n")
+
 
 if __name__ == "__main__":
     main()
