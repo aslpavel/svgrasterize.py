@@ -93,7 +93,7 @@ def speciment(
                 if show_baseline:
                     baseline_y = row * size + font.ascent * size / font.units_per_em
                     baseline = Path.from_svg(
-                        "M{},{} h{}Z".format(s_offset, baseline_y, cols * size - s_offset * 2.0)
+                        "M{},{} h{}Z".format(s_offset * 0.5, baseline_y, cols * size - s_offset)
                     )
                     subpaths.extend(baseline.stroke(0.25).subpaths)
 
