@@ -28,7 +28,12 @@ DEFAULT_COLS = 42
 DEFAULT_SIZE = 32.0
 
 
-def speciment(font, size: float = DEFAULT_SIZE, cols: int = DEFAULT_COLS) -> (Path, (int, int)):
+def speciment(
+    font,
+    size: float = DEFAULT_SIZE,
+    cols: int = DEFAULT_COLS,
+    show_baseline: bool = False,
+) -> (Path, (int, int)):
     """Create speciment path that contains all symbols in the font"""
     if os.path.isfile(DEFAULT_FONTS):
         db = FontsDB()
@@ -73,10 +78,10 @@ def speciment(font, size: float = DEFAULT_SIZE, cols: int = DEFAULT_COLS) -> (Pa
 
         # category name
         row += 1
-        x, y = 2.0, row * size + size / 2.0
-        (cname_path, offset) = label_font.str_to_path(size / 1.5, cname + " ")
+        x, y = 2.0, (row + 0.5) * size
+        (cname_path, s_offset) = label_font.str_to_path(size / 1.5, cname + " ")
         subpaths.extend(cname_path.transform(Transform().translate(x, y + size * 0.2)).subpaths)
-        line = Path.from_svg("M{},{} h{}Z".format(x + offset, y, cols * size - offset - size / 3.0))
+        line = Path.from_svg("M{},{} h{}Z".format(x + s_offset, y, cols * size - s_offset - size / 3.0))
         subpaths.extend(line.stroke(2).subpaths)
 
         # category
@@ -85,6 +90,13 @@ def speciment(font, size: float = DEFAULT_SIZE, cols: int = DEFAULT_COLS) -> (Pa
             col = index % cols
             if col == 0:
                 row += 1
+                if show_baseline:
+                    baseline_y = row * size + font.ascent * size / font.units_per_em
+                    baseline = Path.from_svg(
+                        "M{},{} h{}Z".format(s_offset, baseline_y, cols * size - s_offset * 2.0)
+                    )
+                    subpaths.extend(baseline.stroke(0.25).subpaths)
+
             offset = Transform().translate(col * size, row * size)
             if glyph.advance > font.units_per_em:
                 offset = offset.scale(font.units_per_em / glyph.advance)
@@ -112,6 +124,7 @@ def main():
     parser.add_argument("--format", "-f", choices=FORMAT_ALL, help="output format")
     parser.add_argument("--size", "-s", help="font size", default=DEFAULT_SIZE, type=float)
     parser.add_argument("--cols", help="number of columns", default=DEFAULT_COLS, type=int)
+    parser.add_argument("--baseline", "-b", help="show baseline", action="store_true")
     args = parser.parse_args()
 
     font_filename = convert_to_svg(args.font)
@@ -131,7 +144,7 @@ def main():
         sys.exit(1)
 
     tr = Transform().matrix(0, 1, 0, 1, 0, 0)
-    path, (width, height) = speciment(font, args.size, args.cols)
+    path, (width, height) = speciment(font, args.size, args.cols, args.baseline)
 
     if args.output is None:
         mask = path.mask(tr)[0]
