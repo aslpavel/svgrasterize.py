@@ -83,8 +83,7 @@ class Layer(NamedTuple):
         return Layer(self.image, offset, self.pre_alpha, self.linear_rgb)
 
     def color_matrix(self, matrix: np.ndarray):
-        """Apply color matrix transformation
-        """
+        """Apply color matrix transformation"""
         if not isinstance(matrix, np.ndarray) or matrix.shape != (4, 5):
             raise ValueError("expected 4x5 matrix")
         layer = self.convert(pre_alpha=False, linear_rgb=True)
@@ -95,8 +94,7 @@ class Layer(NamedTuple):
         return Layer(image, layer.offset, pre_alpha=False, linear_rgb=True)
 
     def convolve(self, kernel: np.ndarray) -> "Layer":
-        """Convlve layer
-        """
+        """Convlve layer"""
         try:
             from scipy.signal import convolve
 
@@ -119,8 +117,7 @@ class Layer(NamedTuple):
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
     def convert(self, pre_alpha=None, linear_rgb=None):
-        """Convert image if needed to specified alpha and colorspace
-        """
+        """Convert image if needed to specified alpha and colorspace"""
         pre_alpha = self.pre_alpha if pre_alpha is None else pre_alpha
         linear_rgb = self.linear_rgb if linear_rgb is None else linear_rgb
 
@@ -162,8 +159,7 @@ class Layer(NamedTuple):
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
     def opacity(self, opacity: float, linear_rgb=False) -> "Layer":
-        """Apply additinal opacity
-        """
+        """Apply additinal opacity"""
         layer = self.convert(pre_alpha=True, linear_rgb=linear_rgb)
         image = layer.image * opacity
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=linear_rgb)
@@ -237,8 +233,7 @@ def canvas_create(width, height, bg=None):
 
 
 def canvas_to_png(canvas, output=None):
-    """Convert (height, width, rgba{float64}) to PNG
-    """
+    """Convert (height, width, rgba{float64}) to PNG"""
 
     def png_pack(output, tag, data):
         checksum = 0xFFFFFFFF & zlib.crc32(data, zlib.crc32(tag))
@@ -319,8 +314,7 @@ def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
 
 
 def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
-    """Blend multiple `layers` into single large enough image
-    """
+    """Blend multiple `layers` into single large enough image"""
     if not layers:
         raise ValueError("can not blend zero layers")
     elif len(layers) == 1:
@@ -368,8 +362,7 @@ def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
 
 
 def canvas_merge_intersect(layers, blend=canvas_compose_over):
-    """Blend multiple `layers` into single image coverd by all layers
-    """
+    """Blend multiple `layers` into single image coverd by all layers"""
     if not layers:
         raise ValueError("can not blend zero layers")
     elif len(layers) == 1:
@@ -470,8 +463,7 @@ def color_straight_to_pre_alpha(rgba):
 
 
 def color_linear_to_srgb(rgba):
-    """Convert pixels from linear RGB to sRGB inplace
-    """
+    """Convert pixels from linear RGB to sRGB inplace"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.0031308
     rgb[small] = rgb[small] * 12.92
@@ -481,8 +473,7 @@ def color_linear_to_srgb(rgba):
 
 
 def color_srgb_to_linear(rgba):
-    """Convert pixels from sRGB to linear RGB inplace
-    """
+    """Convert pixels from sRGB to linear RGB inplace"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.04045
     rgb[small] = rgb[small] / 12.92
@@ -612,8 +603,7 @@ class Scene(tuple):
         return Scene(RENDER_FILTER, (self, filter))
 
     def render(self, transform, mask_only=False, viewport=None, linear_rgb=False):
-        """Render graph
-        """
+        """Render graph"""
         type, args = self
         if type == RENDER_FILL:
             path, paint, fill_rule = args
@@ -868,8 +858,7 @@ class Path:
         return bool(self.subpaths)
 
     def mask(self, transform: Transform, fill_rule=None, viewport=None):
-        """Render path as a mask (alpha channel only image)
-        """
+        """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
         lines_defs, cubics_defs = [], []
         for path in self.subpaths:
@@ -932,8 +921,7 @@ class Path:
         return output, ConvexHull(lines)
 
     def fill(self, transform, paint, fill_rule=None, viewport=None, linear_rgb=True):
-        """Render path by fill-ing it.
-        """
+        """Render path by fill-ing it."""
         if paint is None:
             return None
 
@@ -1010,7 +998,12 @@ class Path:
             )
             offsets = offsets.astype(int)
             corners = repeat_tr(
-                [[0, 0], [paint.width, 0], [0, paint.height], [paint.width, paint.height],]
+                [
+                    [0, 0],
+                    [paint.width, 0],
+                    [0, paint.height],
+                    [paint.width, paint.height],
+                ]
             )
             max_x, max_y = corners.max(axis=0).astype(int)
             min_x, min_y = corners.min(axis=0).astype(int)
@@ -1123,8 +1116,7 @@ class Path:
         return Path(paths_out)
 
     def to_svg(self) -> str:
-        """Convert to SVG path
-        """
+        """Convert to SVG path"""
         output = io.StringIO()
         for path in self.subpaths:
             if not path:
@@ -1168,6 +1160,7 @@ class Path:
                     cmd_prev = None
                 else:
                     raise ValueError("unhandled path type: `{cmd}`")
+            output.write("\n")
         return output.getvalue()[:-1]
 
     @staticmethod
@@ -1349,6 +1342,9 @@ class Path:
             paths.append(path)
 
         return Path(paths)
+
+    def is_empty(self):
+        return not bool(self.subpaths)
 
     def __repr__(self):
         if not self.subpaths:
@@ -1569,8 +1565,7 @@ class GradRadial(NamedTuple):
 
 
 def grad_pixels(viewport):
-    """Create pixels matrix to be filled by gradient
-    """
+    """Create pixels matrix to be filled by gradient"""
     off_x, off_y, width, height = viewport
     xs, ys = np.indices((width, height)).astype(FLOAT)
     offset = [off_x + 0.5, off_y + 0.5]
@@ -1588,8 +1583,7 @@ def grad_spread(offsets, spread):
 
 
 def grad_interpolate(offset, stops, linear_rgb):
-    """Create gradient by interpolating offsets from stops
-    """
+    """Create gradient by interpolating offsets from stops"""
     stops = grad_stops_colorspace(stops, linear_rgb)
     output = np.zeros((*offset.shape, 4), dtype=FLOAT)
     o_min, c_min = stops[0]
@@ -1717,8 +1711,7 @@ class Filter(NamedTuple):
         return self.add_filter(FE_MORPHOLOGY, (rx, ry, method), [input], result)
 
     def __call__(self, transform, source):
-        """Execute fiter on the provided source
-        """
+        """Execute fiter on the provided source"""
         alpha = Layer(
             source.image[..., -1:] * np.array([0, 0, 0, 1]),
             source.offset,
@@ -1864,8 +1857,7 @@ def blur_kernel(transform, sigma):
 
 
 def color_matrix_hue_rotate(angle):
-    """Hue rotation matrix for speicified angle in radians
-    """
+    """Hue rotation matrix for speicified angle in radians"""
     matrix = np.eye(4, 5)
     matrix[:3, :3] = np.dot(COLOR_MATRIX_HUE.T, [1, math.cos(angle), math.sin(angle)]).T
     return matrix
@@ -1890,8 +1882,7 @@ class ConvexHull:
     __slots__ = ["points"]
 
     def __init__(self, points):
-        """Construct convex hull of a set of points using graham scan
-        """
+        """Construct convex hull of a set of points using graham scan"""
         if isinstance(points, np.ndarray):
             points = points.reshape(-1, 2).tolist()
 
@@ -1914,16 +1905,14 @@ class ConvexHull:
 
     @classmethod
     def merge(cls, hulls):
-        """Merge multiple convex hulls into one
-        """
+        """Merge multiple convex hulls into one"""
         points = []
         for hull in hulls:
             points.extend(hull.points)
         return cls(points)
 
     def bbox(self, transform):
-        """Bounding box in user coordinate system
-        """
+        """Bounding box in user coordinate system"""
         points = transform.invert(np.array(self.points))
         min_x, min_y = points.min(axis=0)
         max_x, max_y = points.max(axis=0)
@@ -1987,8 +1976,7 @@ def bezier3_split(points):
 
 
 def bezier3_split_batch(batch):
-    """Split N bezier3 curves in 2xN bezier3 curves at t=0.5
-    """
+    """Split N bezier3 curves in 2xN bezier3 curves at t=0.5"""
     return np.moveaxis(np.dot(BEZIER3_SPLIT, batch), 0, -2).reshape((-1, 4, 2))
 
 
@@ -2104,8 +2092,7 @@ def bezier3_offset(curve, distance):
 
 
 def bezier2_to_bezier3(points):
-    """Convert bezier2 to bezier3 curve
-    """
+    """Convert bezier2 to bezier3 curve"""
     return BEZIER2_TO_BEZIER3 @ points
 
 
@@ -2261,8 +2248,7 @@ def line_offset(line, distance):
 
 
 def line_offset_batch(batch, distance):
-    """Offset a batch of line segments to specified distance
-    """
+    """Offset a batch of line segments to specified distance"""
     norms = np.matmul([-1, 1], batch) @ [[0, 1], [-1, 0]]
     norms_len = np.sqrt((norms ** 2).sum(-1))[..., None]
     offset = norms * distance / norms_len
@@ -2394,8 +2380,7 @@ def arc_deriv_parametric(center, rx, ry, phi, eta, eta_delta):
 
 
 def angle_between(v0, v1):
-    """Calculate angle between two vectors
-    """
+    """Calculate angle between two vectors"""
     angle_cos = np.dot(v0, v1) / (np.linalg.norm(v0) * np.linalg.norm(v1))
     angle = math.acos(np.clip(angle_cos, -1, 1))
     if np.cross(v0, v1) < 0:
@@ -2446,8 +2431,7 @@ def put_point(canvas, diam, color, point):
 
 
 def sample_curve(canvas, radius, color, count, curve, curve_deriv=None):
-    """Render parametric curve by sampling
-    """
+    """Render parametric curve by sampling"""
     color_inv = 1 - color
     color_inv[3] = 1
 
@@ -2471,8 +2455,7 @@ def sample_curve(canvas, radius, color, count, curve, curve_deriv=None):
 
 
 def sample_curve_points(canvas, ps):
-    """Render curve control points by sampling lines
-    """
+    """Render curve control points by sampling lines"""
     color = svg_color("crimson")
 
     h, w, _ = canvas.shape
@@ -2523,8 +2506,7 @@ class Font(NamedTuple):
     hkern: Dict[Tuple[str, str], float]
 
     def str_to_glyphs(self, string: str) -> Tuple[List[Tuple[float, Glyph]], float]:
-        """Convert string to a list of glyphs with offsets
-        """
+        """Convert string to a list of glyphs with offsets"""
         offset = 0.0
         output = []
         glyph_prev = None
@@ -2555,8 +2537,7 @@ class Font(NamedTuple):
         return output, offset
 
     def str_to_path(self, size: float, string: str) -> Tuple[Path, float]:
-        """Convert string to a `Path` using this font
-        """
+        """Convert string to a `Path` using this font"""
         subpaths = []
         scale = size / self.units_per_em
         glyphs, offset = self.str_to_glyphs(string)
@@ -2613,7 +2594,7 @@ class FontsDB:
             if not os.path.isfile(source):
                 warnings.warn(f"failed to find fonts file: {source}")
                 continue
-            svg_scene(source, fonts=self)
+            svg_scene_from_filepath(source, fonts=self)
 
         # find family
         family = "serif" if family is None else family.lower()
@@ -2728,9 +2709,8 @@ SVG_COLORS = {
 # fmt: on
 
 
-def svg_scene(path, fg=None, width=None, fonts=None):
-    """Load SVG scene from a file
-    """
+def svg_scene(file, fg=None, width=None, fonts=None):
+    """Load SVG scene from a file object"""
     fonts = FontsDB() if fonts is None else fonts
 
     def svg_scene_rec(element, inherit, top=False, width=None):
@@ -3001,21 +2981,31 @@ def svg_scene(path, fg=None, width=None, fonts=None):
 
         return group
 
-    _, ext = os.path.splitext(path)
-    path = os.path.expanduser(path)
-    if ext in {".gz", ".svgz"}:
-        with gzip.open(path, mode="rt", encoding="utf-8") as file:
-            tree = etree.parse(file)
-    else:
-        tree = etree.parse(path)
-
     ids = {}
     size = None
+    tree = etree.parse(file)
     root = tree.getroot()
     group = svg_scene_rec(root, {}, True, width)
     if not group:
         return None, ids, size
     return Scene.group(group), ids, size
+
+
+def svg_scene_from_filepath(path, fg=None, width=None, fonts=None):
+    """Load SVG scene from a file at specified path"""
+    _, ext = os.path.splitext(path)
+    path = os.path.expanduser(path)
+    if ext in {".gz", ".svgz"}:
+        with gzip.open(path, mode="rt", encoding="utf-8") as file:
+            return svg_scene(file, fg, width, fonts)
+    else:
+        with open(path, encoding="utf-8") as file:
+            return svg_scene(file, fg, width, fonts)
+
+
+def svg_scene_from_str(string, fg=None, width=None, fonts=None):
+    """Load SVG scene from a string"""
+    return svg_scene(io.StringIO(string), fg, width, fonts)
 
 
 def svg_attrs(attrs, inherit=None):
@@ -3052,8 +3042,7 @@ def svg_viewbox_transform(bbox, viewbox):
 
 
 def svg_path(attrs, ids, fg, path=None):
-    """Create scene for SVG path from its attributes
-    """
+    """Create scene for SVG path from its attributes"""
     if path is None:
         path_str = attrs.get("d")
         if path_str is None:
@@ -3091,8 +3080,7 @@ def svg_path(attrs, ids, fg, path=None):
 
 
 def svg_grad(element, parent, is_linear):
-    """Create gradient object from SVG element
-    """
+    """Create gradient object from SVG element"""
     attr = element.attrib
     parent = {} if parent is None else parent._asdict()
 
@@ -3307,8 +3295,7 @@ def svg_rect_to_path(x, y, width, height, rx=None, ry=None):
 
 
 def svg_ellipse_to_path(cx, cy, rx, ry):
-    """Convert ellipse SVG element to path
-    """
+    """Convert ellipse SVG element to path"""
     if rx is None or ry is None:
         if rx is not None:
             rx, ry = rx, rx
@@ -3328,8 +3315,7 @@ def svg_ellipse_to_path(cx, cy, rx, ry):
 
 
 def svg_transform(input):
-    """Parse SVG transform
-    """
+    """Parse SVG transform"""
     if input is None:
         return None
 
@@ -3422,8 +3408,7 @@ def svg_floats(text, min=None, max=None):
 
 
 def svg_angle(angle):
-    """Convert SVG angle to radians
-    """
+    """Convert SVG angle to radians"""
     angle = angle.strip()
     if angle.endswith("deg"):
         return float(angle[:-3]) * math.pi / 180
@@ -3466,8 +3451,7 @@ def svg_size(size, default=None, dpi=96):
 
 
 def svg_url(url, ids):
-    """Resolve SVG url
-    """
+    """Resolve SVG url"""
     match = re.match(r"url\(\#([^)]+)\)", url.strip())
     if match is None:
         return None
@@ -3479,8 +3463,7 @@ def svg_url(url, ids):
 
 
 def svg_paint(paint, ids):
-    """Resolve SVG paint
-    """
+    """Resolve SVG paint"""
     if paint is None:
         return None
     paint = paint.strip()
@@ -3749,7 +3732,9 @@ def main():
 
         ids, size = {}, None
     else:
-        scene, ids, size = svg_scene(opts.svg, fg=opts.fg, width=opts.width, fonts=fonts)
+        scene, ids, size = svg_scene_from_filepath(
+            opts.svg, fg=opts.fg, width=opts.width, fonts=fonts
+        )
     if scene is None:
         sys.stderr.write("[error] nothing to render\n")
 

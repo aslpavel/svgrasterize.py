@@ -76,6 +76,9 @@ def speciment(
         if cname in {"Cc", "Zs", "Cf", "Zl", "Zp"}:
             continue
 
+        if all(glyph.path.is_empty() for name, glyph in category.items()):
+            continue
+
         # category name
         row += 1
         x, y = 2.0, (row + 0.5) * size
