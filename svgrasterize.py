@@ -1060,6 +1060,8 @@ class Path:
                 else:
                     raise ValueError(f"unsupported path type: `{cmd}`")
             closed = cmd == PATH_CLOSED
+            if not forward:
+                continue
 
             # connect curves
             curves = []
@@ -2637,6 +2639,7 @@ COLOR_RE = re.compile("#?([0-9A-Fa-f]+)$")
 COLOR_RGB_RE = re.compile(r"\s*(rgba?|hsl)\(([^\)]+)\)\s*")
 TRANSFORM_RE = re.compile(r"\s*(translate|scale|rotate|skewX|skewY|matrix)\s*\(([^\)]+)\)\s*")
 SVG_INHERIT = {
+    "color": None,
     "fill": "black",
     "fill-rule": PATH_FILL_NONZERO,
     "fill-opacity": None,
@@ -2985,7 +2988,8 @@ def svg_scene(file, fg=None, width=None, fonts=None):
     size = None
     tree = etree.parse(file)
     root = tree.getroot()
-    group = svg_scene_rec(root, {}, True, width)
+    inherit = dict(color=np.array([0.0, 0.0, 0.0, 1.0]) if fg is None else fg)
+    group = svg_scene_rec(root, inherit, True, width)
     if not group:
         return None, ids, size
     return Scene.group(group), ids, size
@@ -3052,7 +3056,10 @@ def svg_path(attrs, ids, fg, path=None):
     group = []
     fill = attrs.get("fill")
     if fill is not None:
-        fill = svg_paint(fill, ids)
+        if fill == "currentColor":
+            fill = attrs.get("color")
+        else:
+            fill = svg_paint(fill, ids)
     elif fg is not None:
         fill = fg
     else:
@@ -3065,7 +3072,11 @@ def svg_path(attrs, ids, fg, path=None):
             scene = scene.opacity(fill_opacity)
         group.append(scene)
 
-    stroke = svg_paint(attrs.get("stroke"), ids)
+    stroke = attrs.get("stroke")
+    if stroke == "currentColor":
+        stroke = attrs.get("color")
+    else:
+        stroke = svg_paint(stroke, ids)
     stroke_width = svg_float(attrs.get("stroke-width", "1"))
     stroke_opacity = svg_float(attrs.get("stroke-opacity"))
     stroke_linecap = attrs.get("stroke-linecap")
@@ -3737,6 +3748,7 @@ def main():
         )
     if scene is None:
         sys.stderr.write("[error] nothing to render\n")
+        return
 
     if opts.id is not None:
         size = None
