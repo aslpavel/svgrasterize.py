@@ -16,11 +16,13 @@ KNOWN PROBLEMS:
     - multiple pathes over going over the same pixels are breakin antialising
       (would draw all pixels with multiplied AA coverage (clamped)).
 """
+from __future__ import annotations
 import builtins
 import gzip
 import io
 import math
 import numpy as np
+import numpy.typing as npt
 import os
 import re
 import struct
@@ -31,7 +33,7 @@ import warnings
 import xml.etree.ElementTree as etree
 import zlib
 from functools import reduce, partial
-from typing import Any, NamedTuple, List, Tuple, Optional, Dict
+from typing import Any, Callable, NamedTuple, List, Tuple, Optional, Dict
 
 EPSILON = sys.float_info.epsilon
 FLOAT_RE = re.compile(r"[-+]?(?:(?:\d*\.\d+)|(?:\d+\.?))(?:[Ee][+-]?\d+)?")
@@ -48,41 +50,45 @@ COMPOSE_XOR = 4
 COMPOSE_PRE_ALPHA = {COMPOSE_OVER, COMPOSE_OUT, COMPOSE_IN, COMPOSE_ATOP, COMPOSE_XOR}
 
 
+BBox = Tuple[float, float, float, float]
+FNDArray = npt.NDArray[FLOAT]
+
+
 class Layer(NamedTuple):
-    image: np.ndarray
+    image: np.ndarray[Tuple[int, int, int], FLOAT]
     offset: Tuple[int, int]
     pre_alpha: bool
     linear_rgb: bool
 
     @property
-    def x(self):
+    def x(self) -> int:
         return self.offset[0]
 
     @property
-    def y(self):
+    def y(self) -> int:
         return self.offset[1]
 
     @property
-    def width(self):
+    def width(self) -> int:
         return self.image.shape[1]
 
     @property
-    def height(self):
+    def height(self) -> int:
         return self.image.shape[0]
 
     @property
-    def channels(self):
+    def channels(self) -> int:
         return self.image.shape[2]
 
     @property
-    def bbox(self):
+    def bbox(self) -> BBox:
         return (*self.offset, *self.image.shape[:2])
 
-    def translate(self, x: int, y: int) -> "Layer":
+    def translate(self, x: int, y: int) -> Layer:
         offset = (self.x + x, self.y + y)
         return Layer(self.image, offset, self.pre_alpha, self.linear_rgb)
 
-    def color_matrix(self, matrix: np.ndarray):
+    def color_matrix(self, matrix: np.ndarray) -> Layer:
         """Apply color matrix transformation"""
         if not isinstance(matrix, np.ndarray) or matrix.shape != (4, 5):
             raise ValueError("expected 4x5 matrix")
@@ -93,7 +99,7 @@ class Layer(NamedTuple):
         np.clip(image, 0, 1, out=image)
         return Layer(image, layer.offset, pre_alpha=False, linear_rgb=True)
 
-    def convolve(self, kernel: np.ndarray) -> "Layer":
+    def convolve(self, kernel: np.ndarray) -> Layer:
         """Convlve layer"""
         try:
             from scipy.signal import convolve
@@ -107,7 +113,7 @@ class Layer(NamedTuple):
             warnings.warn("Layer::convolve requires `scipy`")
             return self
 
-    def morphology(self, x: int, y: int, method: str) -> "Layer":
+    def morphology(self, x: int, y: int, method: str) -> Layer:
         """Morphology filter operation
 
         Morphology is essentially {min|max} pooling with [1, 1] stride
@@ -116,7 +122,7 @@ class Layer(NamedTuple):
         image = pooling(layer.image, ksize=(x, y), stride=(1, 1), method=method)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def convert(self, pre_alpha=None, linear_rgb=None):
+    def convert(self, pre_alpha=None, linear_rgb=None) -> Layer:
         """Convert image if needed to specified alpha and colorspace"""
         pre_alpha = self.pre_alpha if pre_alpha is None else pre_alpha
         linear_rgb = self.linear_rgb if linear_rgb is None else linear_rgb
@@ -153,19 +159,19 @@ class Layer(NamedTuple):
             return self
         return Layer(out_image, out_offset, out_pre_alpha, out_linear_rgb)
 
-    def background(self, color: np.ndarray) -> "Layer":
+    def background(self, color: np.ndarray) -> Layer:
         layer = self.convert(pre_alpha=True, linear_rgb=True)
         image = canvas_compose(COMPOSE_OVER, color[None, None, ...], layer.image)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def opacity(self, opacity: float, linear_rgb=False) -> "Layer":
+    def opacity(self, opacity: float, linear_rgb=False) -> Layer:
         """Apply additinal opacity"""
         layer = self.convert(pre_alpha=True, linear_rgb=linear_rgb)
         image = layer.image * opacity
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=linear_rgb)
 
     @staticmethod
-    def compose(layers: List["Layer"], method=COMPOSE_OVER, linear_rgb=False):
+    def compose(layers: List[Layer], method=COMPOSE_OVER, linear_rgb=False) -> Optional[Layer]:
         """Compose multiple layers into one with specified `method`
 
         Composition in linear RGB is correct one but SVG composes in sRGB
@@ -487,6 +493,8 @@ def color_srgb_to_linear(rgba):
 # ------------------------------------------------------------------------------
 class Transform:
     __slots__: List[str] = ["m", "_m_inv"]
+    m: np.ndarray[Tuple[int, int], FLOAT]
+    _m_inv: np.ndarray[Tuple[int, int], FLOAT]
 
     def __init__(self, matrix=None, matrix_inv=None):
         if matrix is None:
@@ -496,21 +504,21 @@ class Transform:
             self.m = matrix
             self._m_inv = matrix_inv
 
-    def __matmul__(self, other):
+    def __matmul__(self, other: Transform) -> Transform:
         return Transform(self.m @ other.m)
 
     @property
-    def invert(self):
+    def invert(self) -> Transform:
         if self._m_inv is None:
             self._m_inv = np.linalg.inv(self.m)
         return Transform(self._m_inv, self.m)
 
-    def __call__(self, points: np.ndarray) -> np.ndarray:
+    def __call__(self, points: FNDArray) -> FNDArray:
         if len(points) == 0:
             return points
         return points @ self.m[:2, :2].T + self.m[:2, 2]
 
-    def apply(self):
+    def apply(self) -> Callable[[FNDArray], FNDArray]:
         M = self.m[:2, :2].T
         B = self.m[:2, 2]
         return lambda points: points @ M + B
@@ -518,7 +526,7 @@ class Transform:
     def matrix(self, m00, m01, m02, m10, m11, m12):
         return Transform(self.m @ np.array([[m00, m01, m02], [m10, m11, m12], [0, 0, 1]]))
 
-    def translate(self, tx, ty):
+    def translate(self, tx: float, ty: float) -> Transform:
         return Transform(self.m @ np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]]))
 
     def scale(self, sx, sy=None):
@@ -744,7 +752,7 @@ class Scene(tuple):
         subpaths = [spath for path in to_path(self, transform) for spath in path.subpaths]
         return Path(subpaths)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         def repr_rec(scene, output, depth):
             output.write(indent * depth)
             type, args = scene
@@ -846,6 +854,7 @@ class Path:
     """
 
     __slots__ = ["subpaths"]
+    subpaths: List[List[Tuple[int, Tuple[Any, ...]]]]
 
     def __init__(self, subpaths):
         self.subpaths = subpaths
@@ -854,10 +863,15 @@ class Path:
         """Itearte over subpaths"""
         return iter(self.subpaths)
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return bool(self.subpaths)
 
-    def mask(self, transform: Transform, fill_rule=None, viewport=None):
+    def mask(
+        self,
+        transform: Transform,
+        fill_rule: Optional[str] = None,
+        viewport: Optional[BBox] = None,
+    ):
         """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
         lines_defs, cubics_defs = [], []
