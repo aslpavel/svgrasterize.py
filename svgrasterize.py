@@ -3719,7 +3719,7 @@ def svg_text(element, attrs, fonts, ids, fg):
 DEFAULT_FONTS = os.path.join(os.path.dirname(os.path.realpath(__file__)), "fonts.svgz")
 
 
-def main():
+def main() -> int:
     import os
     import argparse
 
@@ -3735,17 +3735,18 @@ def main():
     )
     parser.add_argument("--linear-rgb", action="store_true", help="use linear RGB for rendering")
     parser.add_argument("--fonts", nargs="*", help="paths to SVG files containing all fonts")
+    parser.add_argument("--as-path", action="store_true", help="render output as svg path")
     opts = parser.parse_args()
 
     if not os.path.exists(opts.svg):
         sys.stderr.write(f"[error] file does not exsits: {opts.svg}\n")
-        sys.exit(1)
+        return 1
 
     fonts = FontsDB()
     for font in opts.fonts or [DEFAULT_FONTS]:
         fonts.register_file(font)
 
-    transform = Transform().matrix(0, 1, 0, 1, 0, 0)
+    transform = Transform() if opts.as_path else Transform().matrix(0, 1, 0, 1, 0, 0)
     if opts.transform:
         transform @= opts.transform
 
@@ -3762,14 +3763,19 @@ def main():
         )
     if scene is None:
         sys.stderr.write("[error] nothing to render\n")
-        return
+        return 0
 
     if opts.id is not None:
         size = None
         scene = ids.get(opts.id)
         if scene is None:
             sys.stderr.write(f"[error] no object with id: {opts.id}\n")
-            sys.exit(1)
+            return 1
+
+    if opts.as_path:
+        with open(opts.output if opts.output != "-" else os.dup(1), "w") as file:
+            file.write(scene.to_path(transform).to_svg())
+        return 0
 
     start = time.time()
     if size is not None:
@@ -3784,7 +3790,7 @@ def main():
     sys.stderr.flush()
     if result is None:
         sys.stderr.write("[error] nothing to render\n")
-        sys.exit(1)
+        return 1
     output, _convex_hull = result
 
     if size is not None:
@@ -3797,11 +3803,10 @@ def main():
     if opts.bg is not None:
         output = output.background(opts.bg)
 
-    filename = opts.output if opts.output != "-" else 1
-    closefd = opts.output != "-"
-    with open(filename, "wb", closefd=closefd) as file:
+    with open(opts.output if opts.output != "-" else os.dup(1), "wb") as file:
         output.write_png(file)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
