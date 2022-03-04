@@ -13,7 +13,7 @@ PARTIALLY SUPPORTED:
         - style font attribute is not parsed only font-* attrs are supported
 
 KNOWN PROBLEMS:
-    - multiple pathes over going over the same pixels are breakin antialising
+    - multiple pathes over going over the same pixels are breaking antialising
       (would draw all pixels with multiplied AA coverage (clamped)).
 """
 from __future__ import annotations
@@ -100,7 +100,7 @@ class Layer(NamedTuple):
         return Layer(image, layer.offset, pre_alpha=False, linear_rgb=True)
 
     def convolve(self, kernel: np.ndarray) -> Layer:
-        """Convlve layer"""
+        """Convolve layer"""
         try:
             from scipy.signal import convolve
 
@@ -165,7 +165,7 @@ class Layer(NamedTuple):
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
     def opacity(self, opacity: float, linear_rgb=False) -> Layer:
-        """Apply additinal opacity"""
+        """Apply additional opacity"""
         layer = self.convert(pre_alpha=True, linear_rgb=linear_rgb)
         image = layer.image * opacity
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=linear_rgb)
@@ -294,7 +294,7 @@ canvas_compose_over = partial(canvas_compose, COMPOSE_OVER)
 
 
 def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
-    """Alpha blend `overlay` on top of `base` at offset coordintate
+    """Alpha blend `overlay` on top of `base` at offset coordinate
 
     Updates `base` with `overlay` in place.
     """
@@ -368,7 +368,7 @@ def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
 
 
 def canvas_merge_intersect(layers, blend=canvas_compose_over):
-    """Blend multiple `layers` into single image coverd by all layers"""
+    """Blend multiple `layers` into single image covered by all layers"""
     if not layers:
         raise ValueError("can not blend zero layers")
     elif len(layers) == 1:
@@ -454,7 +454,7 @@ def pooling(mat, ksize, stride=None, method="max", pad=False):
 
 
 def color_pre_to_straight_alpha(rgba):
-    """Convert from premultiplied alpha inplace"""
+    """Convert from premultiplied alpha in place"""
     rgb = rgba[..., :-1]
     alpha = rgba[..., -1:]
     np.divide(rgb, alpha, out=rgb, where=alpha > 0.0001)
@@ -463,13 +463,13 @@ def color_pre_to_straight_alpha(rgba):
 
 
 def color_straight_to_pre_alpha(rgba):
-    """Convert to premultiplied alpha inplace"""
+    """Convert to premultiplied alpha in place"""
     rgba[..., :-1] *= rgba[..., -1:]
     return rgba
 
 
 def color_linear_to_srgb(rgba):
-    """Convert pixels from linear RGB to sRGB inplace"""
+    """Convert pixels from linear RGB to sRGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.0031308
     rgb[small] = rgb[small] * 12.92
@@ -479,7 +479,7 @@ def color_linear_to_srgb(rgba):
 
 
 def color_srgb_to_linear(rgba):
-    """Convert pixels from sRGB to linear RGB inplace"""
+    """Convert pixels from sRGB to linear RGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.04045
     rgb[small] = rgb[small] / 12.92
@@ -847,7 +847,7 @@ class Path:
         - `(PATH_CUBIC, (p0, c0, c1, p1))` - cubic bezier curve from p0 to p1 with control c0, c1
         - `(PATH_QUAD, (p0, c0, p1))` - quadratic bezier curve from p0 to p1 with control c0
         - `(PATH_ARC, (center, rx, ry, phi, eta, eta_delta)` - arc with a center and to radii rx, ry
-            rotated to phi angle, going from inital eta to eta + eta_delta angle.
+            rotated to phi angle, going from initial eta to eta + eta_delta angle.
         - `(PATH_CLOSED | PATH_UNCLOSED, (p0, p1))` - last segment of subpath `"closed"` if
            path was closed and `"unclosed"` if path was not closed. p0 - end subpath
            p1 - beggining of this subpath.
@@ -860,7 +860,7 @@ class Path:
         self.subpaths = subpaths
 
     def __iter__(self):
-        """Itearte over subpaths"""
+        """Iterate over subpaths"""
         return iter(self.subpaths)
 
     def __bool__(self) -> bool:
@@ -929,7 +929,7 @@ class Path:
             mask = np.fabs(np.remainder(mask + 1.0, 2.0) - 1.0)
         else:
             raise ValueError(f"Invalid fill rule: {fill_rule}")
-        mask[mask < 1e-6] = 0  # reound down to zero very small mask values
+        mask[mask < 1e-6] = 0  # round down to zero very small mask values
 
         output = Layer(mask[..., None], (min_x, min_y), pre_alpha=True, linear_rgb=True)
         return output, ConvexHull(lines)
@@ -1206,7 +1206,7 @@ class Path:
         args = []
         cmd = None
         pos = [0.0, 0.0]
-        first = True  # true if this is a frist command
+        first = True  # true if this is a first command
         start = [0.0, 0.0]
 
         smooth_cubic = None
@@ -1539,7 +1539,7 @@ class GradRadial(NamedTuple):
             fcenter = self.center if self.fcenter is None else self.fcenter
             fradius = self.fradius or 0
 
-            # This is SVG 1.1 behaviour. If focal center is outside of circle it
+            # This is SVG 1.1 behavior. If focal center is outside of circle it
             # should be moved inside. But in SVG 2.0 it should produce a cone
             # shaped gradient.
             # fdist = np.linalg.norm(fcenter - self.center)
@@ -1727,7 +1727,7 @@ class Filter(NamedTuple):
         return self.add_filter(FE_MORPHOLOGY, (rx, ry, method), [input], result)
 
     def __call__(self, transform, source):
-        """Execute fiter on the provided source"""
+        """Execute filter on the provided source"""
         alpha = Layer(
             source.image[..., -1:] * np.array([0, 0, 0, 1]),
             source.offset,
@@ -1781,7 +1781,7 @@ def filter_offset(transform, dx, dy):
 def filter_morphology(transform, rx, ry, method):
     def filter_morphology_apply(input):
         # NOTE:
-        # I have no idea how to account for rotation, except to roate
+        # I have no idea how to account for rotation, except to rotate
         # apply morphology and rotate back, but it is slow, so I'm not doing it
         ux, uy = transform([[rx, 0], [0, ry]]) - transform([[0, 0], [0, 0]])
         x = int(np.linalg.norm(ux) * 2)
@@ -1829,17 +1829,17 @@ def filter_blur(transform, std_x, std_y=None):
 
 
 def blur_kernel(transform, sigma):
-    """Gaussian blur convolution kerenel
+    """Gaussian blur convolution kernel
 
-    Gaussiange kernel ginven presentation transformation and sigma in user
+    Gaussian kernel ginven presentation transformation and sigma in user
     coordinate system.
     """
     sigma_x, sigma_y = sigma
 
     # if one of the sigmas is smaller then a pixel rotatetion produces
     # incorrect degenerate state when the whole convolution is the same as over
-    # a delta function. So we need to adjust it. If both simgas are smallerd
-    # then a pixel then gaussian blur is a nonop.
+    # a delta function. So we need to adjust it. If both simgas are smaller
+    # then a pixel then gaussian blur is a no-op.
     scale_x, scale_y = np.linalg.norm(transform(np.eye(2)) - transform([0, 0]), axis=1)
     if scale_x * sigma_x < 0.5 and scale_y * sigma_y < 0.5:
         return None
@@ -1873,7 +1873,7 @@ def blur_kernel(transform, sigma):
 
 
 def color_matrix_hue_rotate(angle):
-    """Hue rotation matrix for speicified angle in radians"""
+    """Hue rotation matrix for specified angle in radians"""
     matrix = np.eye(4, 5)
     matrix[:3, :3] = np.dot(COLOR_MATRIX_HUE.T, [1, math.cos(angle), math.sin(angle)]).T
     return matrix
@@ -2039,10 +2039,10 @@ def bezier3_bbox(points):
 
 
 def bezier3_offset(curve, distance):
-    """Offset beizer3 curve with a list of bezier3 curves
+    """Offset bezier3 curve with a list of bezier3 curves
 
     Offset bezier curve using Tiller-Hanson method. In short, just offset line
-    segement corresponding to control points, find intersection of this lines
+    segment corresponding to control points, find intersection of this lines
     and treat them as new control points.
     """
 
@@ -2056,7 +2056,7 @@ def bezier3_offset(curve, distance):
         a1 = np.cross(c3 - c0, c2 - c0)
         if a0 * a1 < 0:
             return True
-        # distance between center mass and midpoint of a cruve,
+        # distance between center mass and midpoint of a curve,
         # bigger then .1 of bounding box diagonal.
         c_mass = curve.sum(0) / 4  # center mass
         c_mid = [0.125, 0.375, 0.375, 0.125] @ curve  # t = 0.5
@@ -2156,7 +2156,7 @@ def line_signed_coverage(canvas, line):
     p0, p1 = line[0], line[1]
 
     if p0[Y] == p1[Y]:
-        return  # does not introduce any signed converage
+        return  # does not introduce any signed coverage
     dir, p0, p1 = (1.0, p0, p1) if p0[Y] < p1[Y] else (-1.0, p1, p0)
     dxdy = (p1[X] - p0[X]) / (p1[Y] - p0[Y])
     # Find first point to trace. Since we are going to interate over Y's
@@ -2177,7 +2177,7 @@ def line_signed_coverage(canvas, line):
         # lower bound of effected x pixels
         x0_floor = floor(x0)
         x0i = int(x0_floor)
-        # uppwer bound of effected x pixels
+        # upper bound of effected x pixels
         x1_ceil = ceil(x1)
         x1i = int(x1_ceil)
         if x1i <= x0i + 1:
@@ -2279,11 +2279,11 @@ def line_parametric(points):
 # Arc
 # ------------------------------------------------------------------------------
 def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
-    """Approximate arc with a sequnce of cubic bezier curves
+    """Approximate arc with a sequence of cubic bezier curves
 
-    [Drawing an elliptical arc using polylines, quadraticor cubic Bezier curves]
+    [Drawing an elliptical arc using polylines, quadratic or cubic Bezier curves]
     (http://www.spaceroots.org/documents/ellipse/elliptical-arc.pdf)
-    [Approximating Arcs Using Cubic Bézier Curves]
+    [Approximating Arcs Using Cubic Bezier Curves]
     (https://www.joecridge.me/content/pdf/bezier-arcs.pdf)
 
     We are using following formula to split arc segment from `eta_1` to `eta_2`
@@ -2323,16 +2323,16 @@ def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
 def arc_svg_to_parametric(src, dst, rx, ry, x_axis_rot, large_flag, sweep_flag):
     """Convert arc from SVG arguments to parametric curve
 
-    This code mostly comes from arc implementation notes from svg sepc
+    This code mostly comes from arc implementation notes from svg spec
     (Arc to Parametric)[https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes]
 
     Returns arc parameters in parameteric form:
         - `src`, `dst` - usefull if implementation wants to know stat and end without recomputation
-        - `center`     - center of an elpise
-        - `rx`, `ry`   - elipse radii
-        - `phi`        - eplise rotation with regard to x axis
-        - `eta`        - initial parameter anple
-        - `eta_delta`  - differentse between final and initial `eta` values
+        - `center`     - center of an ellipse
+        - `rx`, `ry`   - ellipse radii
+        - `phi`        - ellipse rotation with regard to x axis
+        - `eta`        - initial parameter angle
+        - `eta_delta`  - difference between final and initial `eta` values
 
     Curve is specified in a following form:
         eta(t) = eta + t * eta_delta
@@ -3042,7 +3042,7 @@ def svg_attrs(attrs, inherit=None):
 def svg_viewbox_transform(bbox, viewbox):
     """Convert svg view_box and x, y, width and height cooridate to transformation
 
-    FIXME: default value for width and height is acutally 100% so it should proabaly
+    FIXME: default value for width and height is actually 100% so it should probably
            be handled differently
     """
     vx, vy, vw, vh = viewbox
@@ -3125,7 +3125,7 @@ def svg_grad(element, parent, is_linear):
     else:
         raise ValueError(f"invalid gradient unites: {units}")
 
-    # valid graidents should have at least two stops
+    # valid gradients should have at least two stops
     stops = svg_stops(element) or parent.get("stops")
     if not stops:
         # no stops mean, paint = "none"
@@ -3641,7 +3641,7 @@ def svg_font_weight(weight):
 
 def svg_text(element, attrs, fonts, ids, fg):
     def text_from_attrs(text, attrs, offset, space):
-        # handle shfits/offsest evene if there is nothing to render
+        # handle shfits/offsest even if there is nothing to render
         ox, oy = offset
         x = svg_size(attrs.pop("x", None))
         if x is not None:
