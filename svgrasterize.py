@@ -13,11 +13,12 @@ PARTIALLY SUPPORTED:
         - style font attribute is not parsed only font-* attrs are supported
 
 KNOWN PROBLEMS:
-    - multiple pathes over going over the same pixels are breaking antialising
+    - multiple paths over going over the same pixels are breaking antialiasing
       (would draw all pixels with multiplied AA coverage (clamped)).
 """
 from __future__ import annotations
 import builtins
+from email.generator import Generator
 import gzip
 import io
 import math
@@ -52,10 +53,11 @@ COMPOSE_PRE_ALPHA = {COMPOSE_OVER, COMPOSE_OUT, COMPOSE_IN, COMPOSE_ATOP, COMPOS
 
 BBox = Tuple[float, float, float, float]
 FNDArray = npt.NDArray[FLOAT]
+Image = npt.NDArray[FLOAT]
 
 
 class Layer(NamedTuple):
-    image: np.ndarray[Tuple[int, int, int], FLOAT]
+    image: Image
     offset: Tuple[int, int]
     pre_alpha: bool
     linear_rgb: bool
@@ -122,7 +124,7 @@ class Layer(NamedTuple):
         image = pooling(layer.image, ksize=(x, y), stride=(1, 1), method=method)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def convert(self, pre_alpha=None, linear_rgb=None) -> Layer:
+    def convert(self, pre_alpha: Optional[bool] = None, linear_rgb: Optional[bool] = None) -> Layer:
         """Convert image if needed to specified alpha and colorspace"""
         pre_alpha = self.pre_alpha if pre_alpha is None else pre_alpha
         linear_rgb = self.linear_rgb if linear_rgb is None else linear_rgb
@@ -181,7 +183,7 @@ class Layer(NamedTuple):
             return None
         elif len(layers) == 1:
             return layers[0]
-        images = []
+        images: List[Tuple[Image, Tuple[int, int]]] = []
         pre_alpha = method in COMPOSE_PRE_ALPHA
         for layer in layers:
             layer = layer.convert(pre_alpha=pre_alpha, linear_rgb=linear_rgb)
@@ -238,10 +240,10 @@ def canvas_create(width, height, bg=None):
     return canvas, Transform().matrix(0, 1, 0, 1, 0, 0)
 
 
-def canvas_to_png(canvas, output=None):
+def canvas_to_png(canvas: Image, output: Optional[io.IOBase] = None) -> io.IOBase:
     """Convert (height, width, rgba{float64}) to PNG"""
 
-    def png_pack(output, tag, data):
+    def png_pack(output: io.IOBase, tag: bytes, data: bytes):
         checksum = 0xFFFFFFFF & zlib.crc32(data, zlib.crc32(tag))
         output.write(struct.pack("!I", len(data)))
         output.write(tag)
@@ -266,7 +268,7 @@ def canvas_to_png(canvas, output=None):
     return output
 
 
-def canvas_compose(mode, dst, src):
+def canvas_compose(mode: int, dst: Image, src: Image) -> Image:
     """Compose two alpha premultiplied images
 
     https://ciechanow.ski/alpha-compositing/
@@ -290,10 +292,10 @@ def canvas_compose(mode, dst, src):
     raise ValueError(f"invalid compose mode: {mode}")
 
 
-canvas_compose_over = partial(canvas_compose, COMPOSE_OVER)
+CANVAS_COMPOSE_OVER: Callable[[Image, Image], Image] = partial(canvas_compose, COMPOSE_OVER)
 
 
-def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
+def canvas_merge_at(base, overlay, offset, blend=CANVAS_COMPOSE_OVER):
     """Alpha blend `overlay` on top of `base` at offset coordinate
 
     Updates `base` with `overlay` in place.
@@ -319,7 +321,11 @@ def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
     return base
 
 
-def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
+def canvas_merge_union(
+    layers: List[Tuple[FNDArray, Tuple[int, int]]],
+    full=True,
+    blend: Callable[[FNDArray, FNDArray], FNDArray] = CANVAS_COMPOSE_OVER,
+) -> Tuple[FNDArray, Tuple[int, int]]:
     """Blend multiple `layers` into single large enough image"""
     if not layers:
         raise ValueError("can not blend zero layers")
@@ -367,7 +373,10 @@ def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
     return output, (min_x, min_y)
 
 
-def canvas_merge_intersect(layers, blend=canvas_compose_over):
+def canvas_merge_intersect(
+    layers: List[Tuple[Image, Tuple[int, int]]],
+    blend: Callable[[Image, Image], Image] = CANVAS_COMPOSE_OVER,
+) -> Optional[Tuple[Image, Tuple[int, int]]]:
     """Blend multiple `layers` into single image covered by all layers"""
     if not layers:
         raise ValueError("can not blend zero layers")
@@ -378,7 +387,7 @@ def canvas_merge_intersect(layers, blend=canvas_compose_over):
     for layer, offset in layers:
         x, y = offset
         w, h = layer.shape[:2]
-        if min_x is None:
+        if min_x is None and max_y is None:
             min_x, min_y = x, y
             max_x, max_y = x + w, y + h
         else:
@@ -453,7 +462,7 @@ def pooling(mat, ksize, stride=None, method="max", pad=False):
     return result
 
 
-def color_pre_to_straight_alpha(rgba):
+def color_pre_to_straight_alpha(rgba: Image) -> Image:
     """Convert from premultiplied alpha in place"""
     rgb = rgba[..., :-1]
     alpha = rgba[..., -1:]
@@ -462,13 +471,13 @@ def color_pre_to_straight_alpha(rgba):
     return rgba
 
 
-def color_straight_to_pre_alpha(rgba):
+def color_straight_to_pre_alpha(rgba: Image) -> Image:
     """Convert to premultiplied alpha in place"""
     rgba[..., :-1] *= rgba[..., -1:]
     return rgba
 
 
-def color_linear_to_srgb(rgba):
+def color_linear_to_srgb(rgba: Image) -> Image:
     """Convert pixels from linear RGB to sRGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.0031308
@@ -478,7 +487,7 @@ def color_linear_to_srgb(rgba):
     return rgba
 
 
-def color_srgb_to_linear(rgba):
+def color_srgb_to_linear(rgba: Image) -> Image:
     """Convert pixels from sRGB to linear RGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.04045
@@ -493,10 +502,10 @@ def color_srgb_to_linear(rgba):
 # ------------------------------------------------------------------------------
 class Transform:
     __slots__: List[str] = ["m", "_m_inv"]
-    m: np.ndarray[Tuple[int, int], FLOAT]
-    _m_inv: np.ndarray[Tuple[int, int], FLOAT]
+    m: FNDArray
+    _m_inv: Optional[FNDArray]
 
-    def __init__(self, matrix=None, matrix_inv=None):
+    def __init__(self, matrix: Optional[FNDArray] = None, matrix_inv: Optional[FNDArray] = None):
         if matrix is None:
             self.m = np.identity(3)
             self._m_inv = self.m
@@ -523,30 +532,32 @@ class Transform:
         B = self.m[:2, 2]
         return lambda points: points @ M + B
 
-    def matrix(self, m00, m01, m02, m10, m11, m12):
+    def matrix(
+        self, m00: float, m01: float, m02: float, m10: float, m11: float, m12: float
+    ) -> Transform:
         return Transform(self.m @ np.array([[m00, m01, m02], [m10, m11, m12], [0, 0, 1]]))
 
     def translate(self, tx: float, ty: float) -> Transform:
         return Transform(self.m @ np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]]))
 
-    def scale(self, sx, sy=None):
+    def scale(self, sx: float, sy: Optional[float] = None) -> Transform:
         sy = sx if sy is None else sy
         return Transform(self.m @ np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]]))
 
-    def rotate(self, angle):
+    def rotate(self, angle: float) -> Transform:
         cos_a = math.cos(angle)
         sin_a = math.sin(angle)
         return Transform(self.m @ np.array([[cos_a, -sin_a, 0], [sin_a, cos_a, 0], [0, 0, 1]]))
 
-    def skew(self, ax, ay):
+    def skew(self, ax: float, ay: float) -> Transform:
         return Transform(
             np.matmul(self.m, np.array([[1, math.tan(ax), 0], [math.tan(ay), 1, 0], [0, 0, 1]]))
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(np.around(self.m, 4).tolist()[:2])
 
-    def no_translate(self):
+    def no_translate(self) -> Transform:
         m = self.m.copy()
         m[0, 2] = 0
         m[1, 2] = 0
@@ -573,33 +584,40 @@ class Scene(tuple):
         return tuple.__new__(cls, (type, args))
 
     @classmethod
-    def fill(cls, path, paint, fill_rule=None):
+    def fill(cls, path: Path, paint, fill_rule: Optional[str] = None) -> Scene:
         return cls(RENDER_FILL, (path, paint, fill_rule))
 
     @classmethod
-    def stroke(cls, path, paint, width, linecap=None, linejoin=None):
+    def stroke(
+        cls,
+        path: Path,
+        paint,
+        width: float,
+        linecap: Optional[str] = None,
+        linejoin: Optional[str] = None,
+    ) -> Scene:
         return cls(RENDER_STROKE, (path, paint, width, linecap, linejoin))
 
     @classmethod
-    def group(cls, children):
+    def group(cls, children: List[Scene]) -> Scene:
         if not children:
             raise ValueError("group have to contain at least one child")
         if len(children) == 1:
             return children[0]
         return cls(RENDER_GROUP, children)
 
-    def opacity(self, opacity):
+    def opacity(self, opacity: float) -> Scene:
         if opacity > 0.999:
             return self
         return Scene(RENDER_OPACITY, (self, opacity))
 
-    def clip(self, clip, bbox_units=False):
+    def clip(self, clip: Path, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_CLIP, (self, clip, bbox_units))
 
-    def mask(self, mask, bbox_units=False):
+    def mask(self, mask: Path, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_MASK, (self, mask, bbox_units))
 
-    def transform(self, transform):
+    def transform(self, transform: Transform) -> Scene:
         type, args = self
         if type == RENDER_TRANSFORM:
             target, target_transform = args
@@ -607,10 +625,12 @@ class Scene(tuple):
         else:
             return Scene(RENDER_TRANSFORM, (self, transform))
 
-    def filter(self, filter):
+    def filter(self, filter: Filter) -> Scene:
         return Scene(RENDER_FILTER, (self, filter))
 
-    def render(self, transform, mask_only=False, viewport=None, linear_rgb=False):
+    def render(
+        self, transform: Transform, mask_only=False, viewport=None, linear_rgb=False
+    ) -> Optional[Tuple[Layer, ConvexHull]]:
         """Render graph"""
         type, args = self
         if type == RENDER_FILL:
@@ -709,10 +729,10 @@ class Scene(tuple):
         else:
             raise ValueError(f"unhandled scene type: {type}")
 
-    def to_path(self, transform: Transform):
+    def to_path(self, transform: Transform) -> Path:
         """Try to convert whole scene to a path (used only for testing)"""
 
-        def to_path(scene, transform):
+        def to_path(scene: Scene, transform: Transform):
             type, args = scene
             if type == RENDER_FILL:
                 path, _paint, _fill_rule = args
@@ -850,7 +870,7 @@ class Path:
             rotated to phi angle, going from initial eta to eta + eta_delta angle.
         - `(PATH_CLOSED | PATH_UNCLOSED, (p0, p1))` - last segment of subpath `"closed"` if
            path was closed and `"unclosed"` if path was not closed. p0 - end subpath
-           p1 - beggining of this subpath.
+           p1 - beginning of this subpath.
     """
 
     __slots__ = ["subpaths"]
@@ -871,7 +891,7 @@ class Path:
         transform: Transform,
         fill_rule: Optional[str] = None,
         viewport: Optional[BBox] = None,
-    ):
+    ) -> Optional[Tuple[Layer, ConvexHull]]:
         """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
         lines_defs, cubics_defs = [], []
@@ -894,7 +914,7 @@ class Path:
         lines = transform(np.array(lines_defs, dtype=FLOAT))
         cubics = transform(np.array(cubics_defs, dtype=FLOAT))
 
-        # flattend (convet to lines) all curves
+        # flattened (converted to lines) all curves
         if cubics.size != 0:
             # flatness of 0.1px gives good accuracy
             if lines.size != 0:
@@ -905,6 +925,10 @@ class Path:
             return
 
         # calculate size of the mask
+        min_x: int
+        min_y: int
+        max_x: int
+        max_y: int
         min_x, min_y = np.floor(lines.reshape(-1, 2).min(axis=0)).astype(int) - 1
         max_x, max_y = np.ceil(lines.reshape(-1, 2).max(axis=0)).astype(int) + 1
         if viewport is not None:
@@ -934,7 +958,7 @@ class Path:
         output = Layer(mask[..., None], (min_x, min_y), pre_alpha=True, linear_rgb=True)
         return output, ConvexHull(lines)
 
-    def fill(self, transform, paint, fill_rule=None, viewport=None, linear_rgb=True):
+    def fill(self, transform: Transform, paint, fill_rule=None, viewport=None, linear_rgb=True):
         """Render path by fill-ing it."""
         if paint is None:
             return None
@@ -1037,7 +1061,12 @@ class Path:
 
         return output, hull
 
-    def stroke(self, width, linecap=None, linejoin=None) -> "Path":
+    def stroke(
+        self,
+        width: float,
+        linecap: Optional[str] = None,
+        linejoin: Optional[str] = None,
+    ) -> Path:
         """Convert path to stroked path"""
         curve_names = {2: PATH_LINE, 3: PATH_QUAD, 4: PATH_CUBIC}
 
@@ -1109,7 +1138,7 @@ class Path:
 
         return Path(outputs)
 
-    def transform(self, transform: Transform) -> "Path":
+    def transform(self, transform: Transform) -> Path:
         """Apply transformation to a path
 
         This method is usually not used directly but rather transformation is
@@ -1180,7 +1209,7 @@ class Path:
         return output.getvalue()[:-1]
 
     @staticmethod
-    def from_svg(input: str) -> "Path":
+    def from_svg(input: str) -> Path:
         """Parse SVG path
 
         For more info see [SVG spec](https://www.w3.org/TR/SVG11/paths.html)
@@ -1549,9 +1578,9 @@ class GradRadial(NamedTuple):
             cd = self.center - fcenter
             pd = pixels - fcenter
             rd = self.radius - fradius
-            a = (cd ** 2).sum() - rd ** 2
+            a = (cd**2).sum() - rd**2
             b = (pd * cd).sum(axis=-1) + fradius * rd
-            c = (pd ** 2).sum(axis=-1) - fradius ** 2
+            c = (pd**2).sum(axis=-1) - fradius**2
 
             det = b * b - a * c
             if (det < 0).any():
@@ -1726,7 +1755,7 @@ class Filter(NamedTuple):
     def morphology(self, rx, ry, method, input, result=None):
         return self.add_filter(FE_MORPHOLOGY, (rx, ry, method), [input], result)
 
-    def __call__(self, transform, source):
+    def __call__(self, transform: Transform, source: Layer) -> Layer:
         """Execute filter on the provided source"""
         alpha = Layer(
             source.image[..., -1:] * np.array([0, 0, 0, 1]),
@@ -2018,7 +2047,7 @@ def bezier3_flatness_batch(batch):
 
 def bezier3_flatten_batch(batch, flatness):
     lines = []
-    flatness = (flatness ** 2) * 16
+    flatness = (flatness**2) * 16
     while batch.size > 0:
         flat_mask = bezier3_flatness_batch(batch) < flatness
         lines.append(batch[flat_mask][..., [0, 3], :])
@@ -2028,7 +2057,7 @@ def bezier3_flatten_batch(batch, flatness):
 
 def bezier3_bbox(points):
     a, b, c = BEZIER3_ABC @ points
-    det = b ** 2 - 4 * a * c
+    det = b**2 - 4 * a * c
     t0 = (-b + np.sqrt(det)) / (2 * a)
     t1 = (-b - np.sqrt(det)) / (2 * a)
     curve = bezier_parametric(points)
@@ -2138,7 +2167,7 @@ def bezier_deriv_parametric(points):
 # ------------------------------------------------------------------------------
 # Line
 # ------------------------------------------------------------------------------
-def line_signed_coverage(canvas, line):
+def line_signed_coverage(canvas: Image, line: Tuple[Tuple[float, float], Tuple[float, float]]) -> Image:
     """Trace line on a canvas rendering signed coverage
 
     Implementation details:
@@ -2195,7 +2224,7 @@ def line_signed_coverage(canvas, line):
             x0f = x0 - x0_floor  # fractional part of x0
             x1f = x1 - x1_ceil + 1.0  # fraction part of x1
             a0 = 0.5 * s * (1 - x0f) ** 2  # area of the smallest x pixel
-            am = 0.5 * s * x1f ** 2  # area of the largest x pixel
+            am = 0.5 * s * x1f**2  # area of the largest x pixel
             # first pixel
             if x0i >= w:
                 continue
@@ -2266,7 +2295,7 @@ def line_offset(line, distance):
 def line_offset_batch(batch, distance):
     """Offset a batch of line segments to specified distance"""
     norms = np.matmul([-1, 1], batch) @ [[0, 1], [-1, 0]]
-    norms_len = np.sqrt((norms ** 2).sum(-1))[..., None]
+    norms_len = np.sqrt((norms**2).sum(-1))[..., None]
     offset = norms * distance / norms_len
     return batch + offset[..., None, :]
 
@@ -2426,7 +2455,7 @@ def point_mask(d):
         row = []
         for y in range(0, s):
             dist = np.array([x + 0.5, y + 0.5]) + samples - center
-            row.append(((dist ** 2).sum(axis=1) < (d / 2) ** 2).sum() / 5)
+            row.append(((dist**2).sum(axis=1) < (d / 2) ** 2).sum() / 5)
         rows.append(row)
     return np.array(rows)[..., None]
 
