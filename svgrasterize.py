@@ -13,7 +13,7 @@ PARTIALLY SUPPORTED:
         - style font attribute is not parsed only font-* attrs are supported
 
 KNOWN PROBLEMS:
-    - multiple pathes over going over the same pixels are breakin antialising
+    - multiple paths over going over the same pixels are breaking antialiasing
       (would draw all pixels with multiplied AA coverage (clamped)).
 """
 from __future__ import annotations
@@ -33,7 +33,20 @@ import warnings
 import xml.etree.ElementTree as etree
 import zlib
 from functools import reduce, partial
-from typing import Any, Callable, NamedTuple, List, Tuple, Optional, Dict
+from typing import (
+    Any,
+    Callable,
+    Iterable,
+    NamedTuple,
+    List,
+    Tuple,
+    Optional,
+    Dict,
+    Iterator,
+    BinaryIO,
+    Sequence,
+    Literal,
+)
 
 EPSILON = sys.float_info.epsilon
 FLOAT_RE = re.compile(r"[-+]?(?:(?:\d*\.\d+)|(?:\d+\.?))(?:[Ee][+-]?\d+)?")
@@ -52,10 +65,11 @@ COMPOSE_PRE_ALPHA = {COMPOSE_OVER, COMPOSE_OUT, COMPOSE_IN, COMPOSE_ATOP, COMPOS
 
 BBox = Tuple[float, float, float, float]
 FNDArray = npt.NDArray[FLOAT]
+Color = FNDArray
 
 
 class Layer(NamedTuple):
-    image: np.ndarray[Tuple[int, int, int], FLOAT]
+    image: FNDArray
     offset: Tuple[int, int]
     pre_alpha: bool
     linear_rgb: bool
@@ -88,7 +102,7 @@ class Layer(NamedTuple):
         offset = (self.x + x, self.y + y)
         return Layer(self.image, offset, self.pre_alpha, self.linear_rgb)
 
-    def color_matrix(self, matrix: np.ndarray) -> Layer:
+    def color_matrix(self, matrix: FNDArray) -> Layer:
         """Apply color matrix transformation"""
         if not isinstance(matrix, np.ndarray) or matrix.shape != (4, 5):
             raise ValueError("expected 4x5 matrix")
@@ -99,8 +113,8 @@ class Layer(NamedTuple):
         np.clip(image, 0, 1, out=image)
         return Layer(image, layer.offset, pre_alpha=False, linear_rgb=True)
 
-    def convolve(self, kernel: np.ndarray) -> Layer:
-        """Convlve layer"""
+    def convolve(self, kernel: FNDArray) -> Layer:
+        """Convolve layer"""
         try:
             from scipy.signal import convolve
 
@@ -159,19 +173,23 @@ class Layer(NamedTuple):
             return self
         return Layer(out_image, out_offset, out_pre_alpha, out_linear_rgb)
 
-    def background(self, color: np.ndarray) -> Layer:
+    def background(self, color: Color) -> Layer:
         layer = self.convert(pre_alpha=True, linear_rgb=True)
         image = canvas_compose(COMPOSE_OVER, color[None, None, ...], layer.image)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def opacity(self, opacity: float, linear_rgb=False) -> Layer:
-        """Apply additinal opacity"""
+    def opacity(self, opacity: float, linear_rgb: bool = False) -> Layer:
+        """Apply additional opacity"""
         layer = self.convert(pre_alpha=True, linear_rgb=linear_rgb)
         image = layer.image * opacity
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=linear_rgb)
 
     @staticmethod
-    def compose(layers: List[Layer], method=COMPOSE_OVER, linear_rgb=False) -> Optional[Layer]:
+    def compose(
+        layers: Sequence[Layer],
+        method: int = COMPOSE_OVER,
+        linear_rgb: bool = False,
+    ) -> Optional[Layer]:
         """Compose multiple layers into one with specified `method`
 
         Composition in linear RGB is correct one but SVG composes in sRGB
@@ -238,10 +256,10 @@ def canvas_create(width, height, bg=None):
     return canvas, Transform().matrix(0, 1, 0, 1, 0, 0)
 
 
-def canvas_to_png(canvas, output=None):
+def canvas_to_png(canvas: FNDArray, output: Optional[BinaryIO] = None) -> BinaryIO:
     """Convert (height, width, rgba{float64}) to PNG"""
 
-    def png_pack(output, tag, data):
+    def png_pack(output: BinaryIO, tag: bytes, data: bytes) -> None:
         checksum = 0xFFFFFFFF & zlib.crc32(data, zlib.crc32(tag))
         output.write(struct.pack("!I", len(data)))
         output.write(tag)
@@ -259,14 +277,14 @@ def canvas_to_png(canvas, output=None):
 
     output = io.BytesIO() if output is None else output
     output.write(b"\x89PNG\r\n\x1a\n")
-    png_pack(output, b"IHDR", struct.pack("!2I5B", width, height, 8, 6, 0, 0, 0)),
-    png_pack(output, b"IDAT", data.getvalue()),
+    png_pack(output, b"IHDR", struct.pack("!2I5B", width, height, 8, 6, 0, 0, 0))
+    png_pack(output, b"IDAT", data.getvalue())
     png_pack(output, b"IEND", b"")
 
     return output
 
 
-def canvas_compose(mode, dst, src):
+def canvas_compose(mode: int, dst: FNDArray, src: FNDArray) -> FNDArray:
     """Compose two alpha premultiplied images
 
     https://ciechanow.ski/alpha-compositing/
@@ -493,10 +511,10 @@ def color_srgb_to_linear(rgba):
 # ------------------------------------------------------------------------------
 class Transform:
     __slots__: List[str] = ["m", "_m_inv"]
-    m: np.ndarray[Tuple[int, int], FLOAT]
-    _m_inv: np.ndarray[Tuple[int, int], FLOAT]
+    m: FNDArray
+    _m_inv: Optional[FNDArray]
 
-    def __init__(self, matrix=None, matrix_inv=None):
+    def __init__(self, matrix: Optional[FNDArray] = None, matrix_inv: Optional[FNDArray] = None):
         if matrix is None:
             self.m = np.identity(3)
             self._m_inv = self.m
@@ -523,30 +541,32 @@ class Transform:
         B = self.m[:2, 2]
         return lambda points: points @ M + B
 
-    def matrix(self, m00, m01, m02, m10, m11, m12):
+    def matrix(
+        self, m00: float, m01: float, m02: float, m10: float, m11: float, m12: float
+    ) -> Transform:
         return Transform(self.m @ np.array([[m00, m01, m02], [m10, m11, m12], [0, 0, 1]]))
 
     def translate(self, tx: float, ty: float) -> Transform:
         return Transform(self.m @ np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]]))
 
-    def scale(self, sx, sy=None):
+    def scale(self, sx, sy=None) -> Transform:
         sy = sx if sy is None else sy
         return Transform(self.m @ np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]]))
 
-    def rotate(self, angle):
+    def rotate(self, angle) -> Transform:
         cos_a = math.cos(angle)
         sin_a = math.sin(angle)
         return Transform(self.m @ np.array([[cos_a, -sin_a, 0], [sin_a, cos_a, 0], [0, 0, 1]]))
 
-    def skew(self, ax, ay):
+    def skew(self, ax, ay) -> Transform:
         return Transform(
             np.matmul(self.m, np.array([[1, math.tan(ax), 0], [math.tan(ay), 1, 0], [0, 0, 1]]))
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(np.around(self.m, 4).tolist()[:2])
 
-    def no_translate(self):
+    def no_translate(self) -> Transform:
         m = self.m.copy()
         m[0, 2] = 0
         m[1, 2] = 0
@@ -564,42 +584,50 @@ RENDER_CLIP = 4
 RENDER_TRANSFORM = 5
 RENDER_FILTER = 6
 RENDER_MASK = 7
+SceneType = Literal[0, 1, 2, 3, 4, 5, 6, 7]
 
 
 class Scene(tuple):
     __slots__: List[str] = []
 
-    def __new__(cls, type, args):
+    def __new__(cls, type: SceneType, args: Tuple[Any, ...]) -> Scene:
         return tuple.__new__(cls, (type, args))
 
     @classmethod
-    def fill(cls, path, paint, fill_rule=None):
+    def fill(cls, path: Path, paint: Paint, fill_rule: Optional[str] = None) -> Scene:
         return cls(RENDER_FILL, (path, paint, fill_rule))
 
     @classmethod
-    def stroke(cls, path, paint, width, linecap=None, linejoin=None):
+    def stroke(
+        cls,
+        path: Path,
+        paint: Paint,
+        width: float,
+        linecap: Optional[str] = None,
+        linejoin: Optional[str] = None,
+    ) -> Scene:
         return cls(RENDER_STROKE, (path, paint, width, linecap, linejoin))
 
     @classmethod
-    def group(cls, children):
+    def group(cls, children: Tuple[Scene]) -> Scene:
         if not children:
             raise ValueError("group have to contain at least one child")
         if len(children) == 1:
             return children[0]
         return cls(RENDER_GROUP, children)
 
-    def opacity(self, opacity):
+    def opacity(self, opacity: float) -> Scene:
         if opacity > 0.999:
             return self
         return Scene(RENDER_OPACITY, (self, opacity))
 
-    def clip(self, clip, bbox_units=False):
+    def clip(self, clip, bbox_units=False) -> Scene:
         return Scene(RENDER_CLIP, (self, clip, bbox_units))
 
-    def mask(self, mask, bbox_units=False):
+    def mask(self, mask, bbox_units=False) -> Scene:
         return Scene(RENDER_MASK, (self, mask, bbox_units))
 
-    def transform(self, transform):
+    def transform(self, transform: Transform) -> Scene:
         type, args = self
         if type == RENDER_TRANSFORM:
             target, target_transform = args
@@ -607,10 +635,16 @@ class Scene(tuple):
         else:
             return Scene(RENDER_TRANSFORM, (self, transform))
 
-    def filter(self, filter):
+    def filter(self, filter: Filter) -> Scene:
         return Scene(RENDER_FILTER, (self, filter))
 
-    def render(self, transform, mask_only=False, viewport=None, linear_rgb=False):
+    def render(
+        self,
+        transform: Transform,
+        mask_only: bool = False,
+        viewport=None,
+        linear_rgb: bool = False,
+    ) -> Optional[Tuple[Layer, ConvexHull]]:
         """Render graph"""
         type, args = self
         if type == RENDER_FILL:
@@ -709,10 +743,10 @@ class Scene(tuple):
         else:
             raise ValueError(f"unhandled scene type: {type}")
 
-    def to_path(self, transform: Transform):
+    def to_path(self, transform: Transform) -> Path:
         """Try to convert whole scene to a path (used only for testing)"""
 
-        def to_path(scene, transform):
+        def to_path(scene: Scene, transform: Transform):
             type, args = scene
             if type == RENDER_FILL:
                 path, _paint, _fill_rule = args
@@ -826,6 +860,8 @@ PATH_LINE = 0
 PATH_QUAD = 1
 PATH_CUBIC = 2
 PATH_ARC = 3
+PathType = Literal[0, 1, 2, 3]
+
 PATH_CLOSED = 4
 PATH_UNCLOSED = 5
 PATH_LINES = {PATH_LINE, PATH_CLOSED, PATH_UNCLOSED}
@@ -838,6 +874,8 @@ STROKE_CAP_BUTT = "butt"
 STROKE_CAP_ROUND = "round"
 STROKE_CAP_SQUARE = "square"
 
+Segment = Tuple[PathType, Tuple[float, ...]]
+
 
 class Path:
     """Single rendering unit that can be filled or converted to stroke path
@@ -847,20 +885,20 @@ class Path:
         - `(PATH_CUBIC, (p0, c0, c1, p1))` - cubic bezier curve from p0 to p1 with control c0, c1
         - `(PATH_QUAD, (p0, c0, p1))` - quadratic bezier curve from p0 to p1 with control c0
         - `(PATH_ARC, (center, rx, ry, phi, eta, eta_delta)` - arc with a center and to radii rx, ry
-            rotated to phi angle, going from inital eta to eta + eta_delta angle.
+            rotated to phi angle, going from initial eta to eta + eta_delta angle.
         - `(PATH_CLOSED | PATH_UNCLOSED, (p0, p1))` - last segment of subpath `"closed"` if
            path was closed and `"unclosed"` if path was not closed. p0 - end subpath
-           p1 - beggining of this subpath.
+           p1 - beginning of this subpath.
     """
 
     __slots__ = ["subpaths"]
-    subpaths: List[List[Tuple[int, Tuple[Any, ...]]]]
+    subpaths: List[List[Segment]]
 
-    def __init__(self, subpaths):
+    def __init__(self, subpaths: List[List[Segment]]):
         self.subpaths = subpaths
 
-    def __iter__(self):
-        """Itearte over subpaths"""
+    def __iter__(self) -> Iterator[List[Segment]]:
+        """Iterate over sub-paths"""
         return iter(self.subpaths)
 
     def __bool__(self) -> bool:
@@ -871,7 +909,7 @@ class Path:
         transform: Transform,
         fill_rule: Optional[str] = None,
         viewport: Optional[BBox] = None,
-    ):
+    ) -> Optional[Tuple[Layer, ConvexHull]]:
         """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
         lines_defs, cubics_defs = [], []
@@ -894,7 +932,7 @@ class Path:
         lines = transform(np.array(lines_defs, dtype=FLOAT))
         cubics = transform(np.array(cubics_defs, dtype=FLOAT))
 
-        # flattend (convet to lines) all curves
+        # flattened (convert to lines) all curves
         if cubics.size != 0:
             # flatness of 0.1px gives good accuracy
             if lines.size != 0:
@@ -929,12 +967,19 @@ class Path:
             mask = np.fabs(np.remainder(mask + 1.0, 2.0) - 1.0)
         else:
             raise ValueError(f"Invalid fill rule: {fill_rule}")
-        mask[mask < 1e-6] = 0  # reound down to zero very small mask values
+        mask[mask < 1e-6] = 0  # round down to zero very small mask values
 
         output = Layer(mask[..., None], (min_x, min_y), pre_alpha=True, linear_rgb=True)
         return output, ConvexHull(lines)
 
-    def fill(self, transform, paint, fill_rule=None, viewport=None, linear_rgb=True):
+    def fill(
+        self,
+        transform: Transform,
+        paint: Paint,
+        fill_rule: Optional[str] = None,
+        viewport: Optional[BBox] = None,
+        linear_rgb: bool = True,
+    ) -> Optional[Tuple[Layer, ConvexHull]]:
         """Render path by fill-ing it."""
         if paint is None:
             return None
@@ -1037,7 +1082,12 @@ class Path:
 
         return output, hull
 
-    def stroke(self, width, linecap=None, linejoin=None) -> "Path":
+    def stroke(
+        self,
+        width: float,
+        linecap: Optional[str] = None,
+        linejoin: Optional[str] = None,
+    ) -> Path:
         """Convert path to stroked path"""
         curve_names = {2: PATH_LINE, 3: PATH_QUAD, 4: PATH_CUBIC}
 
@@ -1109,7 +1159,7 @@ class Path:
 
         return Path(outputs)
 
-    def transform(self, transform: Transform) -> "Path":
+    def transform(self, transform: Transform) -> Path:
         """Apply transformation to a path
 
         This method is usually not used directly but rather transformation is
@@ -1180,7 +1230,7 @@ class Path:
         return output.getvalue()[:-1]
 
     @staticmethod
-    def from_svg(input: str) -> "Path":
+    def from_svg(input: str) -> Path:
         """Parse SVG path
 
         For more info see [SVG spec](https://www.w3.org/TR/SVG11/paths.html)
@@ -1206,7 +1256,7 @@ class Path:
         args = []
         cmd = None
         pos = [0.0, 0.0]
-        first = True  # true if this is a frist command
+        first = True  # true if this is a first command
         start = [0.0, 0.0]
 
         smooth_cubic = None
@@ -1359,7 +1409,7 @@ class Path:
 
         return Path(paths)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         return not bool(self.subpaths)
 
     def __repr__(self):
@@ -1385,11 +1435,11 @@ class Path:
         return output.getvalue()[:-1]
 
 
-def repr_coords(coords):
+def repr_coords(coords: List[Tuple[float, ...]]) -> str:
     return " ".join(f"{x:.4g},{y:.4g}" for x, y in coords)
 
 
-# offset along tanget to approximate circle with four bezier3 curves
+# offset along tangent to approximate circle with four bezier3 curves
 CIRCLE_BEIZER_OFFSET = 4 * (math.sqrt(2) - 1) / 3
 
 
@@ -1549,9 +1599,9 @@ class GradRadial(NamedTuple):
             cd = self.center - fcenter
             pd = pixels - fcenter
             rd = self.radius - fradius
-            a = (cd ** 2).sum() - rd ** 2
+            a = (cd**2).sum() - rd**2
             b = (pd * cd).sum(axis=-1) + fradius * rd
-            c = (pd ** 2).sum(axis=-1) - fradius ** 2
+            c = (pd**2).sum(axis=-1) - fradius**2
 
             det = b * b - a * c
             if (det < 0).any():
@@ -1580,7 +1630,7 @@ class GradRadial(NamedTuple):
         return overlay
 
 
-def grad_pixels(viewport):
+def grad_pixels(viewport: BBox) -> FNDArray:
     """Create pixels matrix to be filled by gradient"""
     off_x, off_y, width, height = viewport
     xs, ys = np.indices((width, height)).astype(FLOAT)
@@ -1640,6 +1690,8 @@ class Pattern(NamedTuple):
         return (self.x, self.y, self.width, self.height)
 
 
+Paint = GradLinear | GradRadial | Color
+
 # ------------------------------------------------------------------------------
 # Filter
 # ------------------------------------------------------------------------------
@@ -1680,7 +1732,7 @@ class Filter(NamedTuple):
     filters: List[Tuple[int, List[Any], List[int]]]  # [(type, attrs, inputs)]
 
     @classmethod
-    def empty(cls):
+    def empty(cls) -> Filter:
         return cls({FE_SOURCE_ALPHA: 0, FE_SOURCE_GRAPHIC: 1}, [])
 
     def add_filter(self, type, attrs, inputs, result):
@@ -1727,7 +1779,7 @@ class Filter(NamedTuple):
         return self.add_filter(FE_MORPHOLOGY, (rx, ry, method), [input], result)
 
     def __call__(self, transform, source):
-        """Execute fiter on the provided source"""
+        """Execute filter on the provided source"""
         alpha = Layer(
             source.image[..., -1:] * np.array([0, 0, 0, 1]),
             source.offset,
@@ -1769,8 +1821,8 @@ def filter_color_matrix(_transform, matrix):
     return filter_color_matrix_apply
 
 
-def filter_offset(transform, dx, dy):
-    def filter_offset_apply(input):
+def filter_offset(transform: Transform, dx: float, dy: float) -> Callable[[Layer], Layer]:
+    def filter_offset_apply(input: Layer) -> Layer:
         x, y = input.offset
         tx, ty = transform(transform.invert([x, y]) + [dx, dy])
         return input.translate(int(tx) - x, int(ty) - y)
@@ -1829,17 +1881,17 @@ def filter_blur(transform, std_x, std_y=None):
 
 
 def blur_kernel(transform, sigma):
-    """Gaussian blur convolution kerenel
+    """Gaussian blur convolution kernel
 
-    Gaussiange kernel ginven presentation transformation and sigma in user
+    Gaussian kernel given presentation transformation and sigma in user
     coordinate system.
     """
     sigma_x, sigma_y = sigma
 
-    # if one of the sigmas is smaller then a pixel rotatetion produces
+    # if one of the sigmas is smaller then a pixel rotation produces
     # incorrect degenerate state when the whole convolution is the same as over
-    # a delta function. So we need to adjust it. If both simgas are smallerd
-    # then a pixel then gaussian blur is a nonop.
+    # a delta function. So we need to adjust it. If both simga are smaller
+    # then a pixel then gaussian blur is a noop.
     scale_x, scale_y = np.linalg.norm(transform(np.eye(2)) - transform([0, 0]), axis=1)
     if scale_x * sigma_x < 0.5 and scale_y * sigma_y < 0.5:
         return None
@@ -1873,7 +1925,7 @@ def blur_kernel(transform, sigma):
 
 
 def color_matrix_hue_rotate(angle):
-    """Hue rotation matrix for speicified angle in radians"""
+    """Hue rotation matrix for specified angle in radians"""
     matrix = np.eye(4, 5)
     matrix[:3, :3] = np.dot(COLOR_MATRIX_HUE.T, [1, math.cos(angle), math.sin(angle)]).T
     return matrix
@@ -1920,24 +1972,24 @@ class ConvexHull:
         self.points = left
 
     @classmethod
-    def merge(cls, hulls):
+    def merge(cls, hulls: Iterable[ConvexHull]) -> ConvexHull:
         """Merge multiple convex hulls into one"""
         points = []
         for hull in hulls:
             points.extend(hull.points)
         return cls(points)
 
-    def bbox(self, transform):
+    def bbox(self, transform: Transform) -> BBox:
         """Bounding box in user coordinate system"""
         points = transform.invert(np.array(self.points))
         min_x, min_y = points.min(axis=0)
         max_x, max_y = points.max(axis=0)
         return [min_x, min_y, max_x - min_x, max_y - min_y]
 
-    def bbox_transform(self, transform):
+    def bbox_transform(self, transform: Transform):
         """Transformation matrix for `objectBoundingBox` units
 
-        Create bounding box transfrom for `objectBoundingBox`, using convex hull in the
+        Create bounding box transform for `objectBoundingBox`, using convex hull in the
         canvas coordinate system and current user space transformation.
         `objectBoundingBox` is a coordinate system where bounding box is a unit square.
         Returns `objectBoundingBox` transform.
@@ -1997,7 +2049,7 @@ def bezier3_split_batch(batch):
 
 
 def bezier3_flatness_batch(batch):
-    """Flattness criteria for a batch of bezier3 curves
+    """Flatness criteria for a batch of bezier3 curves
 
     It is equal to `f = maxarg d(t) where d(t) = |b(t) - l(t)|, l(t) = (1 - t) * b0 + t * b3`
     for b(t) bezier3 curve with b{0..3} control points, in other words maximum distance
@@ -2016,9 +2068,9 @@ def bezier3_flatness_batch(batch):
     return uv.max(-2).sum(-1)
 
 
-def bezier3_flatten_batch(batch, flatness):
+def bezier3_flatten_batch(batch, flatness: float):
     lines = []
-    flatness = (flatness ** 2) * 16
+    flatness = (flatness**2) * 16
     while batch.size > 0:
         flat_mask = bezier3_flatness_batch(batch) < flatness
         lines.append(batch[flat_mask][..., [0, 3], :])
@@ -2028,7 +2080,7 @@ def bezier3_flatten_batch(batch, flatness):
 
 def bezier3_bbox(points):
     a, b, c = BEZIER3_ABC @ points
-    det = b ** 2 - 4 * a * c
+    det = b**2 - 4 * a * c
     t0 = (-b + np.sqrt(det)) / (2 * a)
     t1 = (-b - np.sqrt(det)) / (2 * a)
     curve = bezier_parametric(points)
@@ -2042,7 +2094,7 @@ def bezier3_offset(curve, distance):
     """Offset beizer3 curve with a list of bezier3 curves
 
     Offset bezier curve using Tiller-Hanson method. In short, just offset line
-    segement corresponding to control points, find intersection of this lines
+    segment corresponding to control points, find intersection of this lines
     and treat them as new control points.
     """
 
@@ -2177,7 +2229,7 @@ def line_signed_coverage(canvas, line):
         # lower bound of effected x pixels
         x0_floor = floor(x0)
         x0i = int(x0_floor)
-        # uppwer bound of effected x pixels
+        # upper bound of effected x pixels
         x1_ceil = ceil(x1)
         x1i = int(x1_ceil)
         if x1i <= x0i + 1:
@@ -2195,7 +2247,7 @@ def line_signed_coverage(canvas, line):
             x0f = x0 - x0_floor  # fractional part of x0
             x1f = x1 - x1_ceil + 1.0  # fraction part of x1
             a0 = 0.5 * s * (1 - x0f) ** 2  # area of the smallest x pixel
-            am = 0.5 * s * x1f ** 2  # area of the largest x pixel
+            am = 0.5 * s * x1f**2  # area of the largest x pixel
             # first pixel
             if x0i >= w:
                 continue
@@ -2231,7 +2283,7 @@ def line_signed_coverage(canvas, line):
 
 
 def line_intersect(l0, l1):
-    """Find intersection betwee two line segments
+    """Find intersection between two line segments
 
     Solved by solving l(t) for both lines:
     l(t) = (1 - t) * l[0] + t * l[1]
@@ -2266,7 +2318,7 @@ def line_offset(line, distance):
 def line_offset_batch(batch, distance):
     """Offset a batch of line segments to specified distance"""
     norms = np.matmul([-1, 1], batch) @ [[0, 1], [-1, 0]]
-    norms_len = np.sqrt((norms ** 2).sum(-1))[..., None]
+    norms_len = np.sqrt((norms**2).sum(-1))[..., None]
     offset = norms * distance / norms_len
     return batch + offset[..., None, :]
 
@@ -2279,9 +2331,9 @@ def line_parametric(points):
 # Arc
 # ------------------------------------------------------------------------------
 def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
-    """Approximate arc with a sequnce of cubic bezier curves
+    """Approximate arc with a sequence of cubic bezier curves
 
-    [Drawing an elliptical arc using polylines, quadraticor cubic Bezier curves]
+    [Drawing an elliptical arc using polylines, quadratic or cubic Bezier curves]
     (http://www.spaceroots.org/documents/ellipse/elliptical-arc.pdf)
     [Approximating Arcs Using Cubic Bézier Curves]
     (https://www.joecridge.me/content/pdf/bezier-arcs.pdf)
@@ -2323,16 +2375,16 @@ def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
 def arc_svg_to_parametric(src, dst, rx, ry, x_axis_rot, large_flag, sweep_flag):
     """Convert arc from SVG arguments to parametric curve
 
-    This code mostly comes from arc implementation notes from svg sepc
+    This code mostly comes from arc implementation notes from svg spec
     (Arc to Parametric)[https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes]
 
-    Returns arc parameters in parameteric form:
-        - `src`, `dst` - usefull if implementation wants to know stat and end without recomputation
-        - `center`     - center of an elpise
-        - `rx`, `ry`   - elipse radii
-        - `phi`        - eplise rotation with regard to x axis
-        - `eta`        - initial parameter anple
-        - `eta_delta`  - differentse between final and initial `eta` values
+    Returns arc parameters in parametric form:
+        - `src`, `dst` - useful if implementation wants to know stat and end without recomputation
+        - `center`     - center of an ellipse
+        - `rx`, `ry`   - ellipse radii
+        - `phi`        - ellipse rotation with regard to x axis
+        - `eta`        - initial parameter angle
+        - `eta_delta`  - difference between final and initial `eta` values
 
     Curve is specified in a following form:
         eta(t) = eta + t * eta_delta
@@ -2358,7 +2410,7 @@ def arc_svg_to_parametric(src, dst, rx, ry, x_axis_rot, large_flag, sweep_flag):
         sq = -sq
     center = sq * np.array([rx * y1 / ry, -ry * x1 / rx])
     cx, cy = center
-    # Eq 5.3 convert center to initail coordinates
+    # Eq 5.3 convert center to initial coordinates
     center = np.matmul(M.T, center) + (dst + src) / 2
     # Eq 5.5-6
     v0 = np.array([1, 0])
@@ -2405,7 +2457,7 @@ def angle_between(v0, v1):
 
 
 # ------------------------------------------------------------------------------
-# Render by samping parametic curve
+# Render by sampling parametric curve
 # ------------------------------------------------------------------------------
 POINTS: Dict[float, np.ndarray] = {}
 
@@ -2426,7 +2478,7 @@ def point_mask(d):
         row = []
         for y in range(0, s):
             dist = np.array([x + 0.5, y + 0.5]) + samples - center
-            row.append(((dist ** 2).sum(axis=1) < (d / 2) ** 2).sum() / 5)
+            row.append(((dist**2).sum(axis=1) < (d / 2) ** 2).sum() / 5)
         rows.append(row)
     return np.array(rows)[..., None]
 
@@ -2652,7 +2704,7 @@ SVG_UNITS_BBOX = "objectBoundingBox"
 COLOR_RE = re.compile("#?([0-9A-Fa-f]+)$")
 COLOR_RGB_RE = re.compile(r"\s*(rgba?|hsl)\(([^\)]+)\)\s*")
 TRANSFORM_RE = re.compile(r"\s*(translate|scale|rotate|skewX|skewY|matrix)\s*\(([^\)]+)\)\s*")
-SVG_INHERIT = {
+SVG_INHERIT: Dict[str, Any] = {
     "color": None,
     "fill": "black",
     "fill-rule": PATH_FILL_NONZERO,
@@ -2669,7 +2721,7 @@ SVG_INHERIT = {
     "text-anchor": None,
 }
 # fmt: off
-SVG_COLORS = {
+SVG_COLORS: Dict[str, str] = {
 "aliceblue": "#f0f8ff", "antiquewhite": "#faebd7", "aqua": "#00ffff",
 "aquamarine": "#7fffd4","azure": "#f0ffff", "beige": "#f5f5dc",
 "bisque": "#ffe4c4", "black": "#000000", "blanchedalmond": "#ffebcd",
@@ -2757,7 +2809,7 @@ def svg_scene(file, fg=None, width=None, fonts=None):
                     w, h = width, int(width * h / w)
                 else:
                     w, h = width, None
-            # viewbox transform
+            # view box transform
             viewbox = svg_floats(attrs.get("viewBox"), 4, 4) or viewbox
             if viewbox is not None:
                 transform = svg_viewbox_transform((x, y, w, h), viewbox)
