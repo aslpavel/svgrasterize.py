@@ -1,5 +1,5 @@
 ## Python SVG rasterizer
-This is very simple python+numpy SVG rasterize. It is defentitely incomplite and does have bugs.
+This is very simple python+numpy SVG rasterize. It is defensively incomplete and does have bugs.
 
 ### Usage
 It can be used as stand alone executable to generate PNG out of SVG file.

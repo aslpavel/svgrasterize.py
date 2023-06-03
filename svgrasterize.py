@@ -18,6 +18,7 @@ KNOWN PROBLEMS:
 """
 from __future__ import annotations
 import builtins
+from email.generator import Generator
 import gzip
 import io
 import math
@@ -66,10 +67,11 @@ COMPOSE_PRE_ALPHA = {COMPOSE_OVER, COMPOSE_OUT, COMPOSE_IN, COMPOSE_ATOP, COMPOS
 BBox = Tuple[float, float, float, float]
 FNDArray = npt.NDArray[FLOAT]
 Color = FNDArray
+Image = npt.NDArray[FLOAT]
 
 
 class Layer(NamedTuple):
-    image: FNDArray
+    image: Image
     offset: Tuple[int, int]
     pre_alpha: bool
     linear_rgb: bool
@@ -136,7 +138,7 @@ class Layer(NamedTuple):
         image = pooling(layer.image, ksize=(x, y), stride=(1, 1), method=method)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def convert(self, pre_alpha=None, linear_rgb=None) -> Layer:
+    def convert(self, pre_alpha: Optional[bool] = None, linear_rgb: Optional[bool] = None) -> Layer:
         """Convert image if needed to specified alpha and colorspace"""
         pre_alpha = self.pre_alpha if pre_alpha is None else pre_alpha
         linear_rgb = self.linear_rgb if linear_rgb is None else linear_rgb
@@ -199,7 +201,7 @@ class Layer(NamedTuple):
             return None
         elif len(layers) == 1:
             return layers[0]
-        images = []
+        images: List[Tuple[Image, Tuple[int, int]]] = []
         pre_alpha = method in COMPOSE_PRE_ALPHA
         for layer in layers:
             layer = layer.convert(pre_alpha=pre_alpha, linear_rgb=linear_rgb)
@@ -284,7 +286,7 @@ def canvas_to_png(canvas: FNDArray, output: Optional[BinaryIO] = None) -> Binary
     return output
 
 
-def canvas_compose(mode: int, dst: FNDArray, src: FNDArray) -> FNDArray:
+def canvas_compose(mode: int, dst: Image, src: Image) -> Image:
     """Compose two alpha premultiplied images
 
     https://ciechanow.ski/alpha-compositing/
@@ -308,11 +310,11 @@ def canvas_compose(mode: int, dst: FNDArray, src: FNDArray) -> FNDArray:
     raise ValueError(f"invalid compose mode: {mode}")
 
 
-canvas_compose_over = partial(canvas_compose, COMPOSE_OVER)
+CANVAS_COMPOSE_OVER: Callable[[Image, Image], Image] = partial(canvas_compose, COMPOSE_OVER)
 
 
-def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
-    """Alpha blend `overlay` on top of `base` at offset coordintate
+def canvas_merge_at(base, overlay, offset, blend=CANVAS_COMPOSE_OVER):
+    """Alpha blend `overlay` on top of `base` at offset coordinate
 
     Updates `base` with `overlay` in place.
     """
@@ -337,7 +339,11 @@ def canvas_merge_at(base, overlay, offset, blend=canvas_compose_over):
     return base
 
 
-def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
+def canvas_merge_union(
+    layers: List[Tuple[FNDArray, Tuple[int, int]]],
+    full=True,
+    blend: Callable[[FNDArray, FNDArray], FNDArray] = CANVAS_COMPOSE_OVER,
+) -> Tuple[FNDArray, Tuple[int, int]]:
     """Blend multiple `layers` into single large enough image"""
     if not layers:
         raise ValueError("can not blend zero layers")
@@ -385,8 +391,11 @@ def canvas_merge_union(layers, full=True, blend=canvas_compose_over):
     return output, (min_x, min_y)
 
 
-def canvas_merge_intersect(layers, blend=canvas_compose_over):
-    """Blend multiple `layers` into single image coverd by all layers"""
+def canvas_merge_intersect(
+    layers: List[Tuple[Image, Tuple[int, int]]],
+    blend: Callable[[Image, Image], Image] = CANVAS_COMPOSE_OVER,
+) -> Optional[Tuple[Image, Tuple[int, int]]]:
+    """Blend multiple `layers` into single image covered by all layers"""
     if not layers:
         raise ValueError("can not blend zero layers")
     elif len(layers) == 1:
@@ -396,7 +405,7 @@ def canvas_merge_intersect(layers, blend=canvas_compose_over):
     for layer, offset in layers:
         x, y = offset
         w, h = layer.shape[:2]
-        if min_x is None:
+        if min_x is None and max_y is None:
             min_x, min_y = x, y
             max_x, max_y = x + w, y + h
         else:
@@ -471,8 +480,8 @@ def pooling(mat, ksize, stride=None, method="max", pad=False):
     return result
 
 
-def color_pre_to_straight_alpha(rgba):
-    """Convert from premultiplied alpha inplace"""
+def color_pre_to_straight_alpha(rgba: Image) -> Image:
+    """Convert from premultiplied alpha in place"""
     rgb = rgba[..., :-1]
     alpha = rgba[..., -1:]
     np.divide(rgb, alpha, out=rgb, where=alpha > 0.0001)
@@ -480,14 +489,14 @@ def color_pre_to_straight_alpha(rgba):
     return rgba
 
 
-def color_straight_to_pre_alpha(rgba):
-    """Convert to premultiplied alpha inplace"""
+def color_straight_to_pre_alpha(rgba: Image) -> Image:
+    """Convert to premultiplied alpha in place"""
     rgba[..., :-1] *= rgba[..., -1:]
     return rgba
 
 
-def color_linear_to_srgb(rgba):
-    """Convert pixels from linear RGB to sRGB inplace"""
+def color_linear_to_srgb(rgba: Image) -> Image:
+    """Convert pixels from linear RGB to sRGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.0031308
     rgb[small] = rgb[small] * 12.92
@@ -496,8 +505,8 @@ def color_linear_to_srgb(rgba):
     return rgba
 
 
-def color_srgb_to_linear(rgba):
-    """Convert pixels from sRGB to linear RGB inplace"""
+def color_srgb_to_linear(rgba: Image) -> Image:
+    """Convert pixels from sRGB to linear RGB in place"""
     rgb = rgba[..., :-1]
     small = rgb <= 0.04045
     rgb[small] = rgb[small] / 12.92
@@ -549,16 +558,16 @@ class Transform:
     def translate(self, tx: float, ty: float) -> Transform:
         return Transform(self.m @ np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]]))
 
-    def scale(self, sx, sy=None) -> Transform:
+    def scale(self, sx: float, sy: Optional[float] = None) -> Transform:
         sy = sx if sy is None else sy
         return Transform(self.m @ np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]]))
 
-    def rotate(self, angle) -> Transform:
+    def rotate(self, angle: float) -> Transform:
         cos_a = math.cos(angle)
         sin_a = math.sin(angle)
         return Transform(self.m @ np.array([[cos_a, -sin_a, 0], [sin_a, cos_a, 0], [0, 0, 1]]))
 
-    def skew(self, ax, ay) -> Transform:
+    def skew(self, ax: float, ay: float) -> Transform:
         return Transform(
             np.matmul(self.m, np.array([[1, math.tan(ax), 0], [math.tan(ay), 1, 0], [0, 0, 1]]))
         )
@@ -621,10 +630,10 @@ class Scene(tuple):
             return self
         return Scene(RENDER_OPACITY, (self, opacity))
 
-    def clip(self, clip, bbox_units=False) -> Scene:
+    def clip(self, clip: Path, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_CLIP, (self, clip, bbox_units))
 
-    def mask(self, mask, bbox_units=False) -> Scene:
+    def mask(self, mask: Path, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_MASK, (self, mask, bbox_units))
 
     def transform(self, transform: Transform) -> Scene:
@@ -943,6 +952,10 @@ class Path:
             return
 
         # calculate size of the mask
+        min_x: int
+        min_y: int
+        max_x: int
+        max_y: int
         min_x, min_y = np.floor(lines.reshape(-1, 2).min(axis=0)).astype(int) - 1
         max_x, max_y = np.ceil(lines.reshape(-1, 2).max(axis=0)).astype(int) + 1
         if viewport is not None:
@@ -1589,7 +1602,7 @@ class GradRadial(NamedTuple):
             fcenter = self.center if self.fcenter is None else self.fcenter
             fradius = self.fradius or 0
 
-            # This is SVG 1.1 behaviour. If focal center is outside of circle it
+            # This is SVG 1.1 behavior. If focal center is outside of circle it
             # should be moved inside. But in SVG 2.0 it should produce a cone
             # shaped gradient.
             # fdist = np.linalg.norm(fcenter - self.center)
@@ -1778,7 +1791,7 @@ class Filter(NamedTuple):
     def morphology(self, rx, ry, method, input, result=None):
         return self.add_filter(FE_MORPHOLOGY, (rx, ry, method), [input], result)
 
-    def __call__(self, transform, source):
+    def __call__(self, transform: Transform, source: Layer) -> Layer:
         """Execute filter on the provided source"""
         alpha = Layer(
             source.image[..., -1:] * np.array([0, 0, 0, 1]),
@@ -1833,7 +1846,7 @@ def filter_offset(transform: Transform, dx: float, dy: float) -> Callable[[Layer
 def filter_morphology(transform, rx, ry, method):
     def filter_morphology_apply(input):
         # NOTE:
-        # I have no idea how to account for rotation, except to roate
+        # I have no idea how to account for rotation, except to rotate
         # apply morphology and rotate back, but it is slow, so I'm not doing it
         ux, uy = transform([[rx, 0], [0, ry]]) - transform([[0, 0], [0, 0]])
         x = int(np.linalg.norm(ux) * 2)
@@ -1943,7 +1956,7 @@ def color_matrix_saturate(value):
 class ConvexHull:
     """Convex hull using graham scan
 
-    Points are stored in presenetation coordinate system, so we would not have
+    Points are stored in presentation coordinate system, so we would not have
     to convert them back and force when merging.
     """
 
@@ -2091,7 +2104,7 @@ def bezier3_bbox(points):
 
 
 def bezier3_offset(curve, distance):
-    """Offset beizer3 curve with a list of bezier3 curves
+    """Offset bezier3 curve with a list of bezier3 curves
 
     Offset bezier curve using Tiller-Hanson method. In short, just offset line
     segment corresponding to control points, find intersection of this lines
@@ -2108,7 +2121,7 @@ def bezier3_offset(curve, distance):
         a1 = np.cross(c3 - c0, c2 - c0)
         if a0 * a1 < 0:
             return True
-        # distance between center mass and midpoint of a cruve,
+        # distance between center mass and midpoint of a curve,
         # bigger then .1 of bounding box diagonal.
         c_mass = curve.sum(0) / 4  # center mass
         c_mid = [0.125, 0.375, 0.375, 0.125] @ curve  # t = 0.5
@@ -2190,7 +2203,9 @@ def bezier_deriv_parametric(points):
 # ------------------------------------------------------------------------------
 # Line
 # ------------------------------------------------------------------------------
-def line_signed_coverage(canvas, line):
+def line_signed_coverage(
+    canvas: Image, line: Tuple[Tuple[float, float], Tuple[float, float]]
+) -> Image:
     """Trace line on a canvas rendering signed coverage
 
     Implementation details:
@@ -2208,7 +2223,7 @@ def line_signed_coverage(canvas, line):
     p0, p1 = line[0], line[1]
 
     if p0[Y] == p1[Y]:
-        return  # does not introduce any signed converage
+        return  # does not introduce any signed coverage
     dir, p0, p1 = (1.0, p0, p1) if p0[Y] < p1[Y] else (-1.0, p1, p0)
     dxdy = (p1[X] - p0[X]) / (p1[Y] - p0[Y])
     # Find first point to trace. Since we are going to interate over Y's
@@ -2335,7 +2350,7 @@ def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
 
     [Drawing an elliptical arc using polylines, quadratic or cubic Bezier curves]
     (http://www.spaceroots.org/documents/ellipse/elliptical-arc.pdf)
-    [Approximating Arcs Using Cubic Bézier Curves]
+    [Approximating Arcs Using Cubic Bezier Curves]
     (https://www.joecridge.me/content/pdf/bezier-arcs.pdf)
 
     We are using following formula to split arc segment from `eta_1` to `eta_2`
@@ -3094,7 +3109,7 @@ def svg_attrs(attrs, inherit=None):
 def svg_viewbox_transform(bbox, viewbox):
     """Convert svg view_box and x, y, width and height cooridate to transformation
 
-    FIXME: default value for width and height is acutally 100% so it should proabaly
+    FIXME: default value for width and height is actually 100% so it should probably
            be handled differently
     """
     vx, vy, vw, vh = viewbox
@@ -3177,7 +3192,7 @@ def svg_grad(element, parent, is_linear):
     else:
         raise ValueError(f"invalid gradient unites: {units}")
 
-    # valid graidents should have at least two stops
+    # valid gradients should have at least two stops
     stops = svg_stops(element) or parent.get("stops")
     if not stops:
         # no stops mean, paint = "none"
@@ -3693,7 +3708,7 @@ def svg_font_weight(weight):
 
 def svg_text(element, attrs, fonts, ids, fg):
     def text_from_attrs(text, attrs, offset, space):
-        # handle shfits/offsest evene if there is nothing to render
+        # handle shfits/offsest even if there is nothing to render
         ox, oy = offset
         x = svg_size(attrs.pop("x", None))
         if x is not None:
