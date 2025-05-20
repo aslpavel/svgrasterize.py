@@ -16,9 +16,9 @@ KNOWN PROBLEMS:
     - multiple paths over going over the same pixels are breaking antialiasing
       (would draw all pixels with multiplied AA coverage (clamped)).
 """
+
 from __future__ import annotations
 import builtins
-from email.generator import Generator
 import gzip
 import io
 import math
@@ -34,20 +34,8 @@ import warnings
 import xml.etree.ElementTree as etree
 import zlib
 from functools import reduce, partial
-from typing import (
-    Any,
-    Callable,
-    Iterable,
-    NamedTuple,
-    List,
-    Tuple,
-    Optional,
-    Dict,
-    Iterator,
-    BinaryIO,
-    Sequence,
-    Literal,
-)
+from typing import Any, NamedTuple, BinaryIO, Literal
+from collections.abc import Callable, Iterable, Iterator, Sequence
 
 EPSILON = sys.float_info.epsilon
 FLOAT_RE = re.compile(r"[-+]?(?:(?:\d*\.\d+)|(?:\d+\.?))(?:[Ee][+-]?\d+)?")
@@ -64,15 +52,15 @@ COMPOSE_XOR = 4
 COMPOSE_PRE_ALPHA = {COMPOSE_OVER, COMPOSE_OUT, COMPOSE_IN, COMPOSE_ATOP, COMPOSE_XOR}
 
 
-BBox = Tuple[float, float, float, float]
-FNDArray = npt.NDArray[FLOAT]
-Color = FNDArray
-Image = npt.NDArray[FLOAT]
+type BBox = tuple[float, float, float, float]
+type FNDArray = npt.NDArray[FLOAT]
+type Color = FNDArray
+type Image = npt.NDArray[FLOAT]
 
 
 class Layer(NamedTuple):
     image: Image
-    offset: Tuple[int, int]
+    offset: tuple[int, int]
     pre_alpha: bool
     linear_rgb: bool
 
@@ -138,7 +126,7 @@ class Layer(NamedTuple):
         image = pooling(layer.image, ksize=(x, y), stride=(1, 1), method=method)
         return Layer(image, layer.offset, pre_alpha=True, linear_rgb=True)
 
-    def convert(self, pre_alpha: Optional[bool] = None, linear_rgb: Optional[bool] = None) -> Layer:
+    def convert(self, pre_alpha: bool | None = None, linear_rgb: bool | None = None) -> Layer:
         """Convert image if needed to specified alpha and colorspace"""
         pre_alpha = self.pre_alpha if pre_alpha is None else pre_alpha
         linear_rgb = self.linear_rgb if linear_rgb is None else linear_rgb
@@ -191,7 +179,7 @@ class Layer(NamedTuple):
         layers: Sequence[Layer],
         method: int = COMPOSE_OVER,
         linear_rgb: bool = False,
-    ) -> Optional[Layer]:
+    ) -> Layer | None:
         """Compose multiple layers into one with specified `method`
 
         Composition in linear RGB is correct one but SVG composes in sRGB
@@ -201,7 +189,7 @@ class Layer(NamedTuple):
             return None
         elif len(layers) == 1:
             return layers[0]
-        images: List[Tuple[Image, Tuple[int, int]]] = []
+        images: list[tuple[Image, tuple[int, int]]] = []
         pre_alpha = method in COMPOSE_PRE_ALPHA
         for layer in layers:
             layer = layer.convert(pre_alpha=pre_alpha, linear_rgb=linear_rgb)
@@ -218,7 +206,7 @@ class Layer(NamedTuple):
         image, offset = result
         return Layer(image, offset, pre_alpha=pre_alpha, linear_rgb=linear_rgb)
 
-    def write_png(self, output=None):
+    def write_png(self, output: BinaryIO | None = None) -> BinaryIO:
         if self.channels != 4:
             raise ValueError("Only RGBA layers are supported")
         layer = self.convert(pre_alpha=False, linear_rgb=False)
@@ -229,7 +217,7 @@ class Layer(NamedTuple):
             self.x, self.y, self.width, self.height, self.pre_alpha, self.linear_rgb
         )
 
-    def show(self, format=None):
+    def show(self, format: str | None = None) -> None:
         """Show layer on terminal if `imshow` if available
 
         NOTE: used only for debugging
@@ -258,7 +246,7 @@ def canvas_create(width, height, bg=None):
     return canvas, Transform().matrix(0, 1, 0, 1, 0, 0)
 
 
-def canvas_to_png(canvas: FNDArray, output: Optional[BinaryIO] = None) -> BinaryIO:
+def canvas_to_png(canvas: FNDArray, output: BinaryIO | None = None) -> BinaryIO:
     """Convert (height, width, rgba{float64}) to PNG"""
 
     def png_pack(output: BinaryIO, tag: bytes, data: bytes) -> None:
@@ -340,10 +328,10 @@ def canvas_merge_at(base, overlay, offset, blend=CANVAS_COMPOSE_OVER):
 
 
 def canvas_merge_union(
-    layers: List[Tuple[FNDArray, Tuple[int, int]]],
+    layers: list[tuple[FNDArray, tuple[int, int]]],
     full=True,
     blend: Callable[[FNDArray, FNDArray], FNDArray] = CANVAS_COMPOSE_OVER,
-) -> Tuple[FNDArray, Tuple[int, int]]:
+) -> tuple[FNDArray, tuple[int, int]]:
     """Blend multiple `layers` into single large enough image"""
     if not layers:
         raise ValueError("can not blend zero layers")
@@ -392,9 +380,9 @@ def canvas_merge_union(
 
 
 def canvas_merge_intersect(
-    layers: List[Tuple[Image, Tuple[int, int]]],
+    layers: list[tuple[Image, tuple[int, int]]],
     blend: Callable[[Image, Image], Image] = CANVAS_COMPOSE_OVER,
-) -> Optional[Tuple[Image, Tuple[int, int]]]:
+) -> tuple[Image, tuple[int, int]] | None:
     """Blend multiple `layers` into single image covered by all layers"""
     if not layers:
         raise ValueError("can not blend zero layers")
@@ -519,11 +507,11 @@ def color_srgb_to_linear(rgba: Image) -> Image:
 # Transform
 # ------------------------------------------------------------------------------
 class Transform:
-    __slots__: List[str] = ["m", "_m_inv"]
+    __slots__: list[str] = ["m", "_m_inv"]
     m: FNDArray
-    _m_inv: Optional[FNDArray]
+    _m_inv: FNDArray | None
 
-    def __init__(self, matrix: Optional[FNDArray] = None, matrix_inv: Optional[FNDArray] = None):
+    def __init__(self, matrix: FNDArray | None = None, matrix_inv: FNDArray | None = None):
         if matrix is None:
             self.m = np.identity(3)
             self._m_inv = self.m
@@ -558,7 +546,7 @@ class Transform:
     def translate(self, tx: float, ty: float) -> Transform:
         return Transform(self.m @ np.array([[1, 0, tx], [0, 1, ty], [0, 0, 1]]))
 
-    def scale(self, sx: float, sy: Optional[float] = None) -> Transform:
+    def scale(self, sx: float, sy: float | None = None) -> Transform:
         sy = sx if sy is None else sy
         return Transform(self.m @ np.array([[sx, 0, 0], [0, sy, 0], [0, 0, 1]]))
 
@@ -597,13 +585,13 @@ SceneType = Literal[0, 1, 2, 3, 4, 5, 6, 7]
 
 
 class Scene(tuple):
-    __slots__: List[str] = []
+    __slots__: list[str] = []
 
-    def __new__(cls, type: SceneType, args: Tuple[Any, ...]) -> Scene:
+    def __new__(cls, type: SceneType, args: tuple[Any, ...]) -> Scene:
         return tuple.__new__(cls, (type, args))
 
     @classmethod
-    def fill(cls, path: Path, paint: Paint, fill_rule: Optional[str] = None) -> Scene:
+    def fill(cls, path: Path, paint: Paint, fill_rule: str | None = None) -> Scene:
         return cls(RENDER_FILL, (path, paint, fill_rule))
 
     @classmethod
@@ -612,13 +600,13 @@ class Scene(tuple):
         path: Path,
         paint: Paint,
         width: float,
-        linecap: Optional[str] = None,
-        linejoin: Optional[str] = None,
+        linecap: str | None = None,
+        linejoin: str | None = None,
     ) -> Scene:
         return cls(RENDER_STROKE, (path, paint, width, linecap, linejoin))
 
     @classmethod
-    def group(cls, children: Tuple[Scene]) -> Scene:
+    def group(cls, children: tuple[Scene]) -> Scene:
         if not children:
             raise ValueError("group have to contain at least one child")
         if len(children) == 1:
@@ -653,7 +641,7 @@ class Scene(tuple):
         mask_only: bool = False,
         viewport=None,
         linear_rgb: bool = False,
-    ) -> Optional[Tuple[Layer, ConvexHull]]:
+    ) -> tuple[Layer, ConvexHull] | None:
         """Render graph"""
         type, args = self
         if type == RENDER_FILL:
@@ -883,7 +871,7 @@ STROKE_CAP_BUTT = "butt"
 STROKE_CAP_ROUND = "round"
 STROKE_CAP_SQUARE = "square"
 
-Segment = Tuple[PathType, Tuple[float, ...]]
+Segment = tuple[PathType, tuple[float, ...]]
 
 
 class Path:
@@ -901,12 +889,12 @@ class Path:
     """
 
     __slots__ = ["subpaths"]
-    subpaths: List[List[Segment]]
+    subpaths: list[list[Segment]]
 
-    def __init__(self, subpaths: List[List[Segment]]):
+    def __init__(self, subpaths: list[list[Segment]]):
         self.subpaths = subpaths
 
-    def __iter__(self) -> Iterator[List[Segment]]:
+    def __iter__(self) -> Iterator[list[Segment]]:
         """Iterate over sub-paths"""
         return iter(self.subpaths)
 
@@ -916,9 +904,9 @@ class Path:
     def mask(
         self,
         transform: Transform,
-        fill_rule: Optional[str] = None,
-        viewport: Optional[BBox] = None,
-    ) -> Optional[Tuple[Layer, ConvexHull]]:
+        fill_rule: str | None = None,
+        viewport: BBox | None = None,
+    ) -> tuple[Layer, ConvexHull] | None:
         """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
         lines_defs, cubics_defs = [], []
@@ -989,10 +977,10 @@ class Path:
         self,
         transform: Transform,
         paint: Paint,
-        fill_rule: Optional[str] = None,
-        viewport: Optional[BBox] = None,
+        fill_rule: str | None = None,
+        viewport: BBox | None = None,
         linear_rgb: bool = True,
-    ) -> Optional[Tuple[Layer, ConvexHull]]:
+    ) -> tuple[Layer, ConvexHull] | None:
         """Render path by fill-ing it."""
         if paint is None:
             return None
@@ -1098,8 +1086,8 @@ class Path:
     def stroke(
         self,
         width: float,
-        linecap: Optional[str] = None,
-        linejoin: Optional[str] = None,
+        linecap: str | None = None,
+        linejoin: str | None = None,
     ) -> Path:
         """Convert path to stroked path"""
         curve_names = {2: PATH_LINE, 3: PATH_QUAD, 4: PATH_CUBIC}
@@ -1448,7 +1436,7 @@ class Path:
         return output.getvalue()[:-1]
 
 
-def repr_coords(coords: List[Tuple[float, ...]]) -> str:
+def repr_coords(coords: list[tuple[float, ...]]) -> str:
     return " ".join(f"{x:.4g},{y:.4g}" for x, y in coords)
 
 
@@ -1537,11 +1525,11 @@ def chunk(vs, size):
 class GradLinear(NamedTuple):
     p0: np.ndarray
     p1: np.ndarray
-    stops: List[Tuple[float, np.ndarray]]
-    transform: Optional[Transform]
+    stops: list[tuple[float, np.ndarray]]
+    transform: Transform | None
     spread: str
     bbox_units: bool
-    linear_rgb: Optional[bool]
+    linear_rgb: bool | None
 
     def fill(self, pixels, linear_rgb=True):
         """Fill pixels (array of coordinates) with gradient
@@ -1559,13 +1547,13 @@ class GradLinear(NamedTuple):
 class GradRadial(NamedTuple):
     center: np.ndarray
     radius: float
-    fcenter: Optional[np.ndarray]
+    fcenter: np.ndarray | None
     fradius: float
-    stops: List[Tuple[float, np.ndarray]]
-    transform: Optional[Transform]
+    stops: list[tuple[float, np.ndarray]]
+    transform: Transform | None
     spread: str
     bbox_units: bool
-    linear_rgb: Optional[bool]
+    linear_rgb: bool | None
 
     def fill(self, pixels, linear_rgb=True):
         """Fill pixels (array of coordinates) with gradient
@@ -1691,7 +1679,7 @@ def grad_stops_colorspace(stops, linear_rgb=False):
 class Pattern(NamedTuple):
     scene: Scene
     scene_bbox_units: bool
-    scene_view_box: Optional[Tuple[float, float, float, float]]
+    scene_view_box: tuple[float, float, float, float] | None
     x: float
     y: float
     width: float
@@ -1741,8 +1729,8 @@ COLOR_MATRIX_HUE = np.array(
 
 
 class Filter(NamedTuple):
-    names: Dict[str, int]  # {name: index}
-    filters: List[Tuple[int, List[Any], List[int]]]  # [(type, attrs, inputs)]
+    names: dict[str, int]  # {name: index}
+    filters: list[tuple[int, list[Any], list[int]]]  # [(type, attrs, inputs)]
 
     @classmethod
     def empty(cls) -> Filter:
@@ -2204,7 +2192,7 @@ def bezier_deriv_parametric(points):
 # Line
 # ------------------------------------------------------------------------------
 def line_signed_coverage(
-    canvas: Image, line: Tuple[Tuple[float, float], Tuple[float, float]]
+    canvas: Image, line: tuple[tuple[float, float], tuple[float, float]]
 ) -> Image:
     """Trace line on a canvas rendering signed coverage
 
@@ -2474,7 +2462,7 @@ def angle_between(v0, v1):
 # ------------------------------------------------------------------------------
 # Render by sampling parametric curve
 # ------------------------------------------------------------------------------
-POINTS: Dict[float, np.ndarray] = {}
+POINTS: dict[float, np.ndarray] = {}
 
 
 def point_mask(d):
@@ -2557,12 +2545,12 @@ def sample_curve_points(canvas, ps):
 class Glyph:
     __slots__ = ["unicode", "advance", "name", "path_source", "path_data"]
 
-    def __init__(self, unicode: str, advance: float, path_source: str, name: Optional[str]):
+    def __init__(self, unicode: str, advance: float, path_source: str, name: str | None):
         self.unicode = unicode
         self.advance = advance
         self.name = name
         self.path_source = path_source
-        self.path_data: Optional[Path] = None
+        self.path_data: Path | None = None
 
     @property
     def path(self) -> Path:
@@ -2584,11 +2572,11 @@ class Font(NamedTuple):
     ascent: float
     descent: float
     units_per_em: float
-    glyphs: Dict[str, Glyph]
+    glyphs: dict[str, Glyph]
     missing_glyph: Glyph
-    hkern: Dict[Tuple[str, str], float]
+    hkern: dict[tuple[str, str], float]
 
-    def str_to_glyphs(self, string: str) -> Tuple[List[Tuple[float, Glyph]], float]:
+    def str_to_glyphs(self, string: str) -> tuple[list[tuple[float, Glyph]], float]:
         """Convert string to a list of glyphs with offsets"""
         offset = 0.0
         output = []
@@ -2619,7 +2607,7 @@ class Font(NamedTuple):
             glyph_prev = glyph.unicode
         return output, offset
 
-    def str_to_path(self, size: float, string: str) -> Tuple[Path, float]:
+    def str_to_path(self, size: float, string: str) -> tuple[Path, float]:
         """Convert string to a `Path` using this font"""
         subpaths = []
         scale = size / self.units_per_em
@@ -2719,7 +2707,7 @@ SVG_UNITS_BBOX = "objectBoundingBox"
 COLOR_RE = re.compile("#?([0-9A-Fa-f]+)$")
 COLOR_RGB_RE = re.compile(r"\s*(rgba?|hsl)\(([^\)]+)\)\s*")
 TRANSFORM_RE = re.compile(r"\s*(translate|scale|rotate|skewX|skewY|matrix)\s*\(([^\)]+)\)\s*")
-SVG_INHERIT: Dict[str, Any] = {
+SVG_INHERIT: dict[str, Any] = {
     "color": None,
     "fill": "black",
     "fill-rule": PATH_FILL_NONZERO,
@@ -2736,7 +2724,7 @@ SVG_INHERIT: Dict[str, Any] = {
     "text-anchor": None,
 }
 # fmt: off
-SVG_COLORS: Dict[str, str] = {
+SVG_COLORS: dict[str, str] = {
 "aliceblue": "#f0f8ff", "antiquewhite": "#faebd7", "aqua": "#00ffff",
 "aquamarine": "#7fffd4","azure": "#f0ffff", "beige": "#f5f5dc",
 "bisque": "#ffe4c4", "black": "#000000", "blanchedalmond": "#ffebcd",

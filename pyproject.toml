@@ -1,3 +1,24 @@
-[tool.black]
+[project]
+name = "svgrasterize"
+version = "0.1.0"
+description = ""
+dependencies = ["numpy", "scipy"]
+requires-python = ">=3.12"
+
+[tool.pyright]
+typeCheckingMode = "strict"
+extraPaths = []
+reportAny = false
+reportExplicitAny = false
+
+[tool.ruff]
 line-length = 100
-target-version = ['py37', 'py38']
+
+[tool.ruff.lint]
+select = ["ANN", "UP"]
+ignore = [
+  "ANN204", # missing `__init__` reutrn type
+  "ANN401", # allow `Any` type
+  "UP038",  # allow usign tuple in `isinstance`
+  "UP032",  # allow using format instead of f-string
+]
