@@ -34,7 +34,7 @@ import warnings
 import xml.etree.ElementTree as etree
 import zlib
 from functools import reduce, partial
-from typing import Any, NamedTuple, BinaryIO, Literal
+from typing import Any, NamedTuple, BinaryIO, Literal, final
 from collections.abc import Callable, Iterable, Iterator, Sequence
 
 EPSILON = sys.float_info.epsilon
@@ -578,20 +578,31 @@ RENDER_STROKE = 1
 RENDER_GROUP = 2
 RENDER_OPACITY = 3
 RENDER_CLIP = 4
-RENDER_TRANSFORM = 5
-RENDER_FILTER = 6
-RENDER_MASK = 7
+RENDER_MASK = 5
+RENDER_TRANSFORM = 6
+RENDER_FILTER = 7
 SceneType = Literal[0, 1, 2, 3, 4, 5, 6, 7]
 
+type _Scene = (
+    tuple[Literal[0], tuple[Path, Paint, FillRule]]  # RENDER_FILL
+    | tuple[Literal[1], tuple[Path, Paint, float, LineCap, LineJoin]]  # RENDER_STROKE
+    | tuple[Literal[2], tuple[Scene, ...]]  # RENDER_GROUP
+    | tuple[Literal[3], tuple[Scene, float]]  # RENDER_OPACITY
+    | tuple[Literal[4], tuple[Scene, Scene, bool]]  # RENDER_CLIP
+    | tuple[Literal[5], tuple[Scene, Scene, bool]]  # RENDER_MASK
+    | tuple[Literal[6], tuple[Scene, Transform]]  # RENDER_TRANSFORM
+    | tuple[Literal[7], tuple[Scene, Filter]]  # RENDER_FILTER
+)
 
-class Scene(tuple):
+
+class Scene(tuple[Any, ...]):
     __slots__: list[str] = []
 
     def __new__(cls, type: SceneType, args: tuple[Any, ...]) -> Scene:
         return tuple.__new__(cls, (type, args))
 
     @classmethod
-    def fill(cls, path: Path, paint: Paint, fill_rule: str | None = None) -> Scene:
+    def fill(cls, path: Path, paint: Paint, fill_rule: FillRule | None = None) -> Scene:
         return cls(RENDER_FILL, (path, paint, fill_rule))
 
     @classmethod
@@ -600,13 +611,13 @@ class Scene(tuple):
         path: Path,
         paint: Paint,
         width: float,
-        linecap: str | None = None,
-        linejoin: str | None = None,
+        linecap: LineCap | None = None,
+        linejoin: LineJoin | None = None,
     ) -> Scene:
         return cls(RENDER_STROKE, (path, paint, width, linecap, linejoin))
 
     @classmethod
-    def group(cls, children: tuple[Scene]) -> Scene:
+    def group(cls, children: tuple[Scene, ...]) -> Scene:
         if not children:
             raise ValueError("group have to contain at least one child")
         if len(children) == 1:
@@ -618,10 +629,10 @@ class Scene(tuple):
             return self
         return Scene(RENDER_OPACITY, (self, opacity))
 
-    def clip(self, clip: Path, bbox_units: bool = False) -> Scene:
+    def clip(self, clip: Scene, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_CLIP, (self, clip, bbox_units))
 
-    def mask(self, mask: Path, bbox_units: bool = False) -> Scene:
+    def mask(self, mask: Scene, bbox_units: bool = False) -> Scene:
         return Scene(RENDER_MASK, (self, mask, bbox_units))
 
     def transform(self, transform: Transform) -> Scene:
@@ -636,16 +647,15 @@ class Scene(tuple):
         return Scene(RENDER_FILTER, (self, filter))
 
     def render(
-        self,
+        self: _Scene,
         transform: Transform,
         mask_only: bool = False,
-        viewport=None,
+        viewport: BBox | None = None,
         linear_rgb: bool = False,
     ) -> tuple[Layer, ConvexHull] | None:
         """Render graph"""
-        type, args = self
-        if type == RENDER_FILL:
-            path, paint, fill_rule = args
+        if self[0] == RENDER_FILL:
+            path, paint, fill_rule = self[1]
             if mask_only:
                 return path.mask(transform, fill_rule=fill_rule, viewport=viewport)
             else:
@@ -653,17 +663,18 @@ class Scene(tuple):
                     transform, paint, fill_rule=fill_rule, viewport=viewport, linear_rgb=linear_rgb
                 )
 
-        elif type == RENDER_STROKE:
-            path, paint, width, linecap, linejoin = args
+        elif self[0] == RENDER_STROKE:
+            path, paint, width, linecap, linejoin = self[1]
             stroke = path.stroke(width, linecap, linejoin)
             if mask_only:
                 return stroke.mask(transform, viewport=viewport)
             else:
                 return stroke.fill(transform, paint, viewport=viewport, linear_rgb=linear_rgb)
 
-        elif type == RENDER_GROUP:
-            layers, hulls = [], []
-            for child in args:
+        elif self[0] == RENDER_GROUP:
+            layers: list[Layer] = []
+            hulls: list[ConvexHull] = []
+            for child in self[1]:
                 layer = child.render(transform, mask_only, viewport, linear_rgb)
                 if layer is None:
                     continue
@@ -676,16 +687,16 @@ class Scene(tuple):
                 return None
             return group, ConvexHull.merge(hulls)
 
-        elif type == RENDER_OPACITY:
-            target, opacity = args
+        elif self[0] == RENDER_OPACITY:
+            target, opacity = self[1]
             layer = target.render(transform, mask_only, viewport, linear_rgb)
             if layer is None:
                 return None
             layer, hull = layer
             return layer.opacity(opacity, linear_rgb), hull
 
-        elif type == RENDER_CLIP:
-            target, clip, bbox_units = args
+        elif self[0] == RENDER_CLIP:
+            target, clip, bbox_units = self[1]
             image_result = target.render(transform, mask_only, viewport, linear_rgb)
             if image_result is None:
                 return None
@@ -703,12 +714,12 @@ class Scene(tuple):
                 return None
             return result, hull
 
-        elif type == RENDER_TRANSFORM:
-            target, target_transfrom = args
+        elif self[0] == RENDER_TRANSFORM:
+            target, target_transfrom = self[1]
             return target.render(transform @ target_transfrom, mask_only, viewport, linear_rgb)
 
-        elif type == RENDER_MASK:
-            target, mask_scene, bbox_units = args
+        elif self[0] == RENDER_MASK:
+            target, mask_scene, bbox_units = self[1]
             image_result = target.render(transform, mask_only, viewport, linear_rgb)
             if image_result is None:
                 return None
@@ -729,8 +740,8 @@ class Scene(tuple):
                 return None
             return result, hull
 
-        elif type == RENDER_FILTER:
-            target, filter = args
+        elif self[0] == RENDER_FILTER:
+            target, filter = self[1]
             image_result = target.render(transform, mask_only, viewport, linear_rgb)
             if image_result is None:
                 return None
@@ -743,38 +754,37 @@ class Scene(tuple):
     def to_path(self, transform: Transform) -> Path:
         """Try to convert whole scene to a path (used only for testing)"""
 
-        def to_path(scene: Scene, transform: Transform):
-            type, args = scene
-            if type == RENDER_FILL:
-                path, _paint, _fill_rule = args
+        def to_path(scene: _Scene, transform: Transform):
+            if scene[0] == RENDER_FILL:
+                path, _paint, _fill_rule = scene[1]
                 yield path.transform(transform)
 
-            elif type == RENDER_STROKE:
-                path, paint, width, linecap, linejoin = args
+            elif scene[0] == RENDER_STROKE:
+                path, _paint, width, linecap, linejoin = scene[1]
                 yield path.transform(transform).stroke(width, linecap, linejoin)
 
-            elif type == RENDER_GROUP:
-                for child in args:
+            elif scene[0] == RENDER_GROUP:
+                for child in scene[1]:
                     yield from to_path(child, transform)
 
-            elif type == RENDER_OPACITY:
-                target, _opacity = args
+            elif scene[0] == RENDER_OPACITY:
+                target, _opacity = scene[1]
                 yield from to_path(target, transform)
 
-            elif type == RENDER_CLIP:
-                target, _clip, _bbox_units = args
+            elif scene[0] == RENDER_CLIP:
+                target, _clip, _bbox_units = scene[1]
                 yield from to_path(target, transform)
 
-            elif type == RENDER_TRANSFORM:
-                target, target_transfrom = args
+            elif scene[0] == RENDER_TRANSFORM:
+                target, target_transfrom = scene[1]
                 yield from to_path(target, transform @ target_transfrom)
 
-            elif type == RENDER_MASK:
-                target, _mask_scene, _bbox_units = args
+            elif scene[0] == RENDER_MASK:
+                target, _mask_scene, _bbox_units = scene[1]
                 yield from to_path(target, transform)
 
-            elif type == RENDER_FILTER:
-                target, _filter = args
+            elif scene[0] == RENDER_FILTER:
+                target, _filter = scene[1]
                 yield from to_path(target, transform)
 
             else:
@@ -784,18 +794,17 @@ class Scene(tuple):
         return Path(subpaths)
 
     def __repr__(self) -> str:
-        def repr_rec(scene, output, depth):
+        def repr_rec(scene: _Scene, output: io.StringIO, depth: int) -> io.StringIO:
             output.write(indent * depth)
-            type, args = scene
-            if type == RENDER_FILL:
-                path, paint, fill_rule = args
+            if scene[0] == RENDER_FILL:
+                path, paint, fill_rule = scene[1]
                 if isinstance(paint, np.ndarray):
                     paint = format_color(paint)
                 output.write(f"FILL fill_rule:{fill_rule} paint:{paint}\n")
                 output.write(textwrap.indent(repr(path), indent * (depth + 1)))
                 output.write("\n")
-            elif type == RENDER_STROKE:
-                path, paint, width, linecap, linejoin = args
+            elif scene[0] == RENDER_STROKE:
+                path, paint, width, linecap, linejoin = scene[1]
                 if isinstance(paint, np.ndarray):
                     paint = format_color(paint)
                 output.write(f"STROKE ")
@@ -805,16 +814,16 @@ class Scene(tuple):
                 output.write(f"paint:{paint}\n")
                 output.write(textwrap.indent(repr(path), indent * (depth + 1)))
                 output.write("\n")
-            elif type == RENDER_GROUP:
+            elif scene[0] == RENDER_GROUP:
                 output.write("GROUP\n")
-                for child in args:
+                for child in scene[1]:
                     repr_rec(child, output, depth + 1)
-            elif type == RENDER_OPACITY:
-                target, opacity = args
+            elif scene[0] == RENDER_OPACITY:
+                target, opacity = scene[1]
                 output.write(f"OPACITY {opacity}\n")
                 repr_rec(target, output, depth + 1)
-            elif type == RENDER_CLIP:
-                target, clip, bbox_units = args
+            elif scene[0] == RENDER_CLIP:
+                target, clip, bbox_units = scene[1]
                 output.write(f"CLIP bbox_units:{bbox_units}\n")
                 output.write(indent * (depth + 1))
                 output.write("CLIP_PATH\n")
@@ -822,8 +831,8 @@ class Scene(tuple):
                 output.write(indent * (depth + 1))
                 output.write("CLIP_TARGET\n")
                 repr_rec(target, output, depth + 2)
-            elif type == RENDER_MASK:
-                target, mask, bbox_units = args
+            elif scene[0] == RENDER_MASK:
+                target, mask, bbox_units = scene[1]
                 output.write(f"MASK bbox_units:{bbox_units}\n")
                 output.write(indent * (depth + 1))
                 output.write("MAKS_PATH\n")
@@ -831,16 +840,16 @@ class Scene(tuple):
                 output.write(indent * (depth + 1))
                 output.write("MASK_TARGET\n")
                 repr_rec(target, output, depth + 2)
-            elif type == RENDER_TRANSFORM:
-                target, transform = args
+            elif scene[0] == RENDER_TRANSFORM:
+                target, transform = scene[1]
                 output.write(f"TRANSFORM {transform}\n")
                 repr_rec(target, output, depth + 1)
-            elif type == RENDER_FILTER:
-                target, filter = args
+            elif scene[0] == RENDER_FILTER:
+                target, filter = scene[1]
                 output.write(f"FILTER {filter}\n")
                 repr_rec(target, output, depth + 1)
             else:
-                raise ValueError(f"unhandled scene type: {type}")
+                raise ValueError(f"unhandled scene scene[0]: {scene[0]}")
             return output
 
         def format_color(cs):
@@ -862,25 +871,35 @@ PathType = Literal[0, 1, 2, 3]
 PATH_CLOSED = 4
 PATH_UNCLOSED = 5
 PATH_LINES = {PATH_LINE, PATH_CLOSED, PATH_UNCLOSED}
-PATH_FILL_NONZERO = "nonzero"
-PATH_FILL_EVENODD = "evenodd"
-STROKE_JOIN_MITER = "miter"
-STROKE_JOIN_ROUND = "round"
-STROKE_JOIN_BEVEL = "bevel"
-STROKE_CAP_BUTT = "butt"
-STROKE_CAP_ROUND = "round"
-STROKE_CAP_SQUARE = "square"
+PATH_FILL_NONZERO: FillRule = "nonzero"
+PATH_FILL_EVENODD: FillRule = "evenodd"
+STROKE_JOIN_MITER: LineJoin = "miter"
+STROKE_JOIN_ROUND: LineJoin = "round"
+STROKE_JOIN_BEVEL: LineJoin = "bevel"
+STROKE_CAP_BUTT: LineCap = "butt"
+STROKE_CAP_ROUND: LineCap = "round"
+STROKE_CAP_SQUARE: LineCap = "square"
 
-Segment = tuple[PathType, tuple[float, ...]]
+type FillRule = Literal["nonzero", "evenodd"]
+type LineJoin = Literal["miter", "round", "bevel"]
+type LineCap = Literal["butt", "round", "square"]
+type Point = tuple[float, float]
+type Segment = (
+    tuple[Literal[0, 4, 5], tuple[Point, Point]]  # PATH_LINE | PATH_CLOSED | PATH_UNCLOSED
+    | tuple[Literal[1], tuple[Point, Point, Point]]  # PATH_QUAD
+    | tuple[Literal[2], tuple[Point, Point, Point, Point]]  # PATH_CUBIC
+    | tuple[Literal[3], tuple[Point, float, float, float, float, float]]  # PATH_ARC
+)
 
 
+@final
 class Path:
     """Single rendering unit that can be filled or converted to stroke path
 
     `subpaths` is a list of tuples:
         - `(PATH_LINE, (p0, p1))` - line from p0 to p1
-        - `(PATH_CUBIC, (p0, c0, c1, p1))` - cubic bezier curve from p0 to p1 with control c0, c1
         - `(PATH_QUAD, (p0, c0, p1))` - quadratic bezier curve from p0 to p1 with control c0
+        - `(PATH_CUBIC, (p0, c0, c1, p1))` - cubic bezier curve from p0 to p1 with control c0, c1
         - `(PATH_ARC, (center, rx, ry, phi, eta, eta_delta)` - arc with a center and to radii rx, ry
             rotated to phi angle, going from initial eta to eta + eta_delta angle.
         - `(PATH_CLOSED | PATH_UNCLOSED, (p0, p1))` - last segment of subpath `"closed"` if
@@ -888,11 +907,10 @@ class Path:
            p1 - beginning of this subpath.
     """
 
-    __slots__ = ["subpaths"]
-    subpaths: list[list[Segment]]
+    __slots__: list[str] = ["subpaths"]
 
     def __init__(self, subpaths: list[list[Segment]]):
-        self.subpaths = subpaths
+        self.subpaths: list[list[Segment]] = subpaths
 
     def __iter__(self) -> Iterator[list[Segment]]:
         """Iterate over sub-paths"""
@@ -909,21 +927,22 @@ class Path:
     ) -> tuple[Layer, ConvexHull] | None:
         """Render path as a mask (alpha channel only image)"""
         # convert all curves to cubic curves and lines
-        lines_defs, cubics_defs = [], []
+        lines_defs: list[tuple[Point, Point]] = []
+        cubics_defs: list[tuple[Point, Point, Point, Point]] = []
         for path in self.subpaths:
             if not path:
                 continue
-            for cmd, args in path:
-                if cmd in PATH_LINES:
-                    lines_defs.append(args)
-                elif cmd == PATH_CUBIC:
-                    cubics_defs.append(args)
-                elif cmd == PATH_QUAD:
-                    cubics_defs.append(bezier2_to_bezier3(args))
-                elif cmd == PATH_ARC:
-                    cubics_defs.extend(arc_to_bezier3(*args))
+            for seg in path:
+                if seg[0] in PATH_LINES:
+                    lines_defs.append(seg[1])
+                elif seg[0] == PATH_CUBIC:
+                    cubics_defs.append(seg[1])
+                elif seg[0] == PATH_QUAD:
+                    cubics_defs.append(bezier2_to_bezier3(seg[1]))
+                elif seg[0] == PATH_ARC:
+                    cubics_defs.extend(arc_to_bezier3(*seg[1]))
                 else:
-                    raise ValueError(f"unsupported path type: `{cmd}`")
+                    raise ValueError(f"unsupported path type: `{seg[0]}`")
 
         # transform all curves into presentation coordinate system
         lines = transform(np.array(lines_defs, dtype=FLOAT))
@@ -976,7 +995,7 @@ class Path:
     def fill(
         self,
         transform: Transform,
-        paint: Paint,
+        paint: Paint | None,
         fill_rule: str | None = None,
         viewport: BBox | None = None,
         linear_rgb: bool = True,
@@ -1251,8 +1270,8 @@ class Path:
             return [px * 2 - cx, py * 2 - cy]
 
         # parser state
-        paths = []
-        path = []
+        paths: list[list[Segment]] = []
+        path: list[Segment] = []
 
         args = []
         cmd = None
@@ -1413,30 +1432,30 @@ class Path:
     def is_empty(self) -> bool:
         return not bool(self.subpaths)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         if not self.subpaths:
             return "EMPTY"
         output = io.StringIO()
         for subpath in self.subpaths:
-            for type, coords in subpath:
-                if type == PATH_LINE:
-                    output.write(f"LINE {repr_coords(coords)}\n")
-                elif type == PATH_CUBIC:
-                    output.write(f"CUBIC {repr_coords(coords)}\n")
-                elif type == PATH_QUAD:
-                    output.write(f"QUAD {repr_coords(coords)}\n")
-                elif type == PATH_ARC:
-                    center, rx, ry, phi, eta, eta_delta = coords
+            for seg in subpath:
+                if seg[0] == PATH_LINE:
+                    output.write(f"LINE {repr_coords(seg[1])}\n")
+                elif seg[0] == PATH_CUBIC:
+                    output.write(f"CUBIC {repr_coords(seg[1])}\n")
+                elif seg[0] == PATH_QUAD:
+                    output.write(f"QUAD {repr_coords(seg[1])}\n")
+                elif seg[0] == PATH_ARC:
+                    center, rx, ry, phi, eta, eta_delta = seg[1]
                     output.write(f"ARC ")
                     output.write(f"{repr_coords([center])} ")
                     output.write(f"{rx:.4g} {ry:.4g} ")
                     output.write(f"{phi:.3g} {eta:.3g} {eta_delta:.3g}\n")
-                elif type == PATH_CLOSED:
+                elif seg[0] == PATH_CLOSED:
                     output.write("CLOSE\n")
         return output.getvalue()[:-1]
 
 
-def repr_coords(coords: list[tuple[float, ...]]) -> str:
+def repr_coords(coords: Iterable[Point]) -> str:
     return " ".join(f"{x:.4g},{y:.4g}" for x, y in coords)
 
 
@@ -2193,7 +2212,7 @@ def bezier_deriv_parametric(points):
 # ------------------------------------------------------------------------------
 def line_signed_coverage(
     canvas: Image, line: tuple[tuple[float, float], tuple[float, float]]
-) -> Image:
+) -> Image | None:
     """Trace line on a canvas rendering signed coverage
 
     Implementation details:
@@ -2333,7 +2352,7 @@ def line_parametric(points):
 # ------------------------------------------------------------------------------
 # Arc
 # ------------------------------------------------------------------------------
-def arc_to_bezier3(center, rx, ry, phi, eta, eta_delta):
+def arc_to_bezier3(center: Point, rx: float, ry: float, phi: float, eta: float, eta_delta: float):
     """Approximate arc with a sequence of cubic bezier curves
 
     [Drawing an elliptical arc using polylines, quadratic or cubic Bezier curves]
